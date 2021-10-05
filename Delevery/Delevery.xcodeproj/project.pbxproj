@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D31067A7270C06BB00C60332 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31067A6270C06BB00C60332 /* MainViewController.swift */; };
+		D31067A9270C42F300C60332 /* NavigatedVarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31067A8270C42F300C60332 /* NavigatedVarViewController.swift */; };
 		D31E21822703E86F0050BC51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E21812703E86F0050BC51 /* AppDelegate.swift */; };
 		D31E21842703E86F0050BC51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E21832703E86F0050BC51 /* SceneDelegate.swift */; };
 		D31E21862703E86F0050BC51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E21852703E86F0050BC51 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		D31067A6270C06BB00C60332 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D31067A8270C42F300C60332 /* NavigatedVarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatedVarViewController.swift; sourceTree = "<group>"; };
 		D31E217E2703E86F0050BC51 /* Delevery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delevery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31E21812703E86F0050BC51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D31E21832703E86F0050BC51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				D31E21852703E86F0050BC51 /* ViewController.swift */,
 				D31E21952703F28F0050BC51 /* RandomViewController.swift */,
 				D31E21872703E86F0050BC51 /* Main.storyboard */,
+				D31067A8270C42F300C60332 /* NavigatedVarViewController.swift */,
 				D31067A6270C06BB00C60332 /* MainViewController.swift */,
 				D3E8CE4F2706988200D02E4A /* FoodViewController.swift */,
 				D31E218A2703E8720050BC51 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				D3E8CE502706988200D02E4A /* FoodViewController.swift in Sources */,
 				D31E21962703F28F0050BC51 /* RandomViewController.swift in Sources */,
 				D31067A7270C06BB00C60332 /* MainViewController.swift in Sources */,
+				D31067A9270C42F300C60332 /* NavigatedVarViewController.swift in Sources */,
 				D31E21822703E86F0050BC51 /* AppDelegate.swift in Sources */,
 				D31E21842703E86F0050BC51 /* SceneDelegate.swift in Sources */,
 			);

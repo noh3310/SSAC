@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SendDataDelegate {
+    func sendData(data: String)
+}
+
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,7 +19,17 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @available(iOS 13.0, *)
+    @IBAction func menuButtonClicked(_ sender: UIButton) {
+        guard let vc =  storyboard?.instantiateViewController(identifier: "NavigatedVarViewController") as? NavigatedVarViewController else
+        { return }
 
+        vc.text = sender.currentTitle!
+        print(sender.currentTitle!)
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
