@@ -25,7 +25,6 @@ class MainViewController: UIViewController {
         { return }
 
         vc.text = sender.currentTitle!
-        print(sender.currentTitle!)
 
         self.navigationController?.pushViewController(vc, animated: true)
     }

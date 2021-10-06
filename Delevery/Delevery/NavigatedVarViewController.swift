@@ -18,7 +18,6 @@ class NavigatedVarViewController: UIViewController {
         
         labelText.text = text
         navigationItem.title = text
-        print(text)
     }
 
     /*

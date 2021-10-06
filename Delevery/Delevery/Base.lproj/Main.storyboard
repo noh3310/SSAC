@@ -346,11 +346,11 @@
             </objects>
             <point key="canvasLocation" x="3000.0000000000005" y="724.55357142857144"/>
         </scene>
-        <!--홈-->
+        <!--Navigation Controller-->
         <scene sceneID="N4z-cu-aPO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1sZ-Y5-bXm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" id="jm2-fT-ABW"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="jm2-fT-ABW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M5l-Hb-jbP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -470,6 +470,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jwL-rQ-9iV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H6h-X8-GRg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -484,11 +485,11 @@
             </objects>
             <point key="canvasLocation" x="457.97101449275368" y="724.55357142857144"/>
         </scene>
-        <!--찜한가게-->
+        <!--Navigation Controller-->
         <scene sceneID="kq8-Pw-5Z1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B1N-Nv-hm7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="찜한가게" id="DZT-PS-gwS"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="DZT-PS-gwS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kcJ-H0-kRK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -503,11 +504,11 @@
             </objects>
             <point key="canvasLocation" x="1366.6666666666667" y="1408.9285714285713"/>
         </scene>
-        <!--주문내역-->
+        <!--Navigation Controller-->
         <scene sceneID="WgB-j2-Afe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k9A-rg-RGu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="주문내역" id="ufd-7A-Wxs"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="ufd-7A-Wxs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CF9-44-bCO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -522,11 +523,11 @@
             </objects>
             <point key="canvasLocation" x="1366.6666666666667" y="2126.7857142857142"/>
         </scene>
-        <!--My배민-->
+        <!--Navigation Controller-->
         <scene sceneID="N3I-ri-nR9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fmE-ts-vMv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My배민" id="Ktt-Wr-DON"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Ktt-Wr-DON"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1OY-DS-7mV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -543,7 +544,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9fw-GW-PYC"/>
+        <segue reference="Ptn-aE-V53"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="banner02" width="909" height="510"/>
