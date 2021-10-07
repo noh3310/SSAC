@@ -25,7 +25,7 @@ class SecondTabDetailViewController: UIViewController {
         
 //        3. UserDefault에 저장되어 있는 값 가져오기
         let userMotto = UserDefaults.standard.string(forKey: "userMotto")
-        print(userMotto!)
+        print(userMotto ?? "")
         
 //        4. 값을 표현하고자 하는 뷰 객체(텍스트필드)에 보여주기
         mottoTextField.text = userMotto

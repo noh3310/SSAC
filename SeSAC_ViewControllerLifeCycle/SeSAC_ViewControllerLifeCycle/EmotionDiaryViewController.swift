@@ -24,6 +24,14 @@ class EmotionDiaryViewController: UIViewController {
         super.viewDidLoad()
         
         labelList = [label1, label2, label3, label4, label5, label6, label7, label8, label9]
+        
+//        1. 테두리 색상, 2. 커스텀 컬러(RGB 0~255)
+        label1.layer.borderColor = UIColor.red.cgColor
+        
+//        140, 184, 159
+        label1.backgroundColor = UIColor(red: 140/255, green: 184/255, blue: 159/255, alpha: 0.8)
+        label2.backgroundColor = UIColor(named: "my_color")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +42,7 @@ class EmotionDiaryViewController: UIViewController {
         let clickButton = sender.restorationIdentifier ?? ""
         
         print("\(clickButton) 번 클릭")
+        print(sender.tag)
         
         let index = (Int(clickButton) ?? 0) - 1
         print(index)
