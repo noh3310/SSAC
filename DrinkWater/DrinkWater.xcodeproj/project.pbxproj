@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D379DA72270E9272000F2D48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379DA71270E9272000F2D48 /* AppDelegate.swift */; };
-		D379DA74270E9272000F2D48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379DA73270E9272000F2D48 /* SceneDelegate.swift */; };
-		D379DA76270E9272000F2D48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379DA75270E9272000F2D48 /* ViewController.swift */; };
-		D379DA79270E9272000F2D48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D379DA77270E9272000F2D48 /* Main.storyboard */; };
-		D379DA7B270E9275000F2D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D379DA7A270E9275000F2D48 /* Assets.xcassets */; };
-		D379DA7E270E9275000F2D48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D379DA7C270E9275000F2D48 /* LaunchScreen.storyboard */; };
-		D379DA86270E93C3000F2D48 /* DDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379DA85270E93C3000F2D48 /* DDayViewController.swift */; };
-		D379DA88270FCA7A000F2D48 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379DA87270FCA7A000F2D48 /* ExampleViewController.swift */; };
+		D380C69D27138180007E0A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C69C27138180007E0A02 /* AppDelegate.swift */; };
+		D380C69F27138180007E0A02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C69E27138180007E0A02 /* SceneDelegate.swift */; };
+		D380C6A127138180007E0A02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C6A027138180007E0A02 /* ViewController.swift */; };
+		D380C6A427138180007E0A02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D380C6A227138180007E0A02 /* Main.storyboard */; };
+		D380C6A627138182007E0A02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D380C6A527138182007E0A02 /* Assets.xcassets */; };
+		D380C6A927138182007E0A02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D380C6A727138182007E0A02 /* LaunchScreen.storyboard */; };
+		D380C6B127138364007E0A02 /* DrinkWaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C6B027138364007E0A02 /* DrinkWaterViewController.swift */; };
+		D380C6B32713858E007E0A02 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C6B22713858E007E0A02 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D379DA6E270E9272000F2D48 /* AnniversaryCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnniversaryCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D379DA71270E9272000F2D48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D379DA73270E9272000F2D48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D379DA75270E9272000F2D48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D379DA78270E9272000F2D48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D379DA7A270E9275000F2D48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D379DA7D270E9275000F2D48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D379DA7F270E9275000F2D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D379DA85270E93C3000F2D48 /* DDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayViewController.swift; sourceTree = "<group>"; };
-		D379DA87270FCA7A000F2D48 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		D380C69927138180007E0A02 /* DrinkWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D380C69C27138180007E0A02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D380C69E27138180007E0A02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D380C6A027138180007E0A02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D380C6A327138180007E0A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D380C6A527138182007E0A02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D380C6A827138182007E0A02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D380C6AA27138182007E0A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D380C6B027138364007E0A02 /* DrinkWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterViewController.swift; sourceTree = "<group>"; };
+		D380C6B22713858E007E0A02 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D379DA6B270E9272000F2D48 /* Frameworks */ = {
+		D380C69627138180007E0A02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,74 +41,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D379DA65270E9272000F2D48 = {
+		D380C69027138180007E0A02 = {
 			isa = PBXGroup;
 			children = (
-				D379DA70270E9272000F2D48 /* AnniversaryCalculator */,
-				D379DA6F270E9272000F2D48 /* Products */,
+				D380C69B27138180007E0A02 /* DrinkWater */,
+				D380C69A27138180007E0A02 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D379DA6F270E9272000F2D48 /* Products */ = {
+		D380C69A27138180007E0A02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D379DA6E270E9272000F2D48 /* AnniversaryCalculator.app */,
+				D380C69927138180007E0A02 /* DrinkWater.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D379DA70270E9272000F2D48 /* AnniversaryCalculator */ = {
+		D380C69B27138180007E0A02 /* DrinkWater */ = {
 			isa = PBXGroup;
 			children = (
-				D379DA71270E9272000F2D48 /* AppDelegate.swift */,
-				D379DA73270E9272000F2D48 /* SceneDelegate.swift */,
-				D379DA75270E9272000F2D48 /* ViewController.swift */,
-				D379DA77270E9272000F2D48 /* Main.storyboard */,
-				D379DA85270E93C3000F2D48 /* DDayViewController.swift */,
-				D379DA87270FCA7A000F2D48 /* ExampleViewController.swift */,
-				D379DA7A270E9275000F2D48 /* Assets.xcassets */,
-				D379DA7C270E9275000F2D48 /* LaunchScreen.storyboard */,
-				D379DA7F270E9275000F2D48 /* Info.plist */,
+				D380C69C27138180007E0A02 /* AppDelegate.swift */,
+				D380C69E27138180007E0A02 /* SceneDelegate.swift */,
+				D380C6A027138180007E0A02 /* ViewController.swift */,
+				D380C6A227138180007E0A02 /* Main.storyboard */,
+				D380C6B027138364007E0A02 /* DrinkWaterViewController.swift */,
+				D380C6B22713858E007E0A02 /* ProfileViewController.swift */,
+				D380C6A527138182007E0A02 /* Assets.xcassets */,
+				D380C6A727138182007E0A02 /* LaunchScreen.storyboard */,
+				D380C6AA27138182007E0A02 /* Info.plist */,
 			);
-			path = AnniversaryCalculator;
+			path = DrinkWater;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D379DA6D270E9272000F2D48 /* AnniversaryCalculator */ = {
+		D380C69827138180007E0A02 /* DrinkWater */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D379DA82270E9275000F2D48 /* Build configuration list for PBXNativeTarget "AnniversaryCalculator" */;
+			buildConfigurationList = D380C6AD27138182007E0A02 /* Build configuration list for PBXNativeTarget "DrinkWater" */;
 			buildPhases = (
-				D379DA6A270E9272000F2D48 /* Sources */,
-				D379DA6B270E9272000F2D48 /* Frameworks */,
-				D379DA6C270E9272000F2D48 /* Resources */,
+				D380C69527138180007E0A02 /* Sources */,
+				D380C69627138180007E0A02 /* Frameworks */,
+				D380C69727138180007E0A02 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AnniversaryCalculator;
-			productName = AnniversaryCalculator;
-			productReference = D379DA6E270E9272000F2D48 /* AnniversaryCalculator.app */;
+			name = DrinkWater;
+			productName = DrinkWater;
+			productReference = D380C69927138180007E0A02 /* DrinkWater.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D379DA66270E9272000F2D48 /* Project object */ = {
+		D380C69127138180007E0A02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-					D379DA6D270E9272000F2D48 = {
+					D380C69827138180007E0A02 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
-			buildConfigurationList = D379DA69270E9272000F2D48 /* Build configuration list for PBXProject "AnniversaryCalculator" */;
+			buildConfigurationList = D380C69427138180007E0A02 /* Build configuration list for PBXProject "DrinkWater" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,57 +116,57 @@
 				en,
 				Base,
 			);
-			mainGroup = D379DA65270E9272000F2D48;
-			productRefGroup = D379DA6F270E9272000F2D48 /* Products */;
+			mainGroup = D380C69027138180007E0A02;
+			productRefGroup = D380C69A27138180007E0A02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D379DA6D270E9272000F2D48 /* AnniversaryCalculator */,
+				D380C69827138180007E0A02 /* DrinkWater */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D379DA6C270E9272000F2D48 /* Resources */ = {
+		D380C69727138180007E0A02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D379DA7E270E9275000F2D48 /* LaunchScreen.storyboard in Resources */,
-				D379DA7B270E9275000F2D48 /* Assets.xcassets in Resources */,
-				D379DA79270E9272000F2D48 /* Main.storyboard in Resources */,
+				D380C6A927138182007E0A02 /* LaunchScreen.storyboard in Resources */,
+				D380C6A627138182007E0A02 /* Assets.xcassets in Resources */,
+				D380C6A427138180007E0A02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D379DA6A270E9272000F2D48 /* Sources */ = {
+		D380C69527138180007E0A02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D379DA86270E93C3000F2D48 /* DDayViewController.swift in Sources */,
-				D379DA76270E9272000F2D48 /* ViewController.swift in Sources */,
-				D379DA72270E9272000F2D48 /* AppDelegate.swift in Sources */,
-				D379DA74270E9272000F2D48 /* SceneDelegate.swift in Sources */,
-				D379DA88270FCA7A000F2D48 /* ExampleViewController.swift in Sources */,
+				D380C6A127138180007E0A02 /* ViewController.swift in Sources */,
+				D380C69D27138180007E0A02 /* AppDelegate.swift in Sources */,
+				D380C6B32713858E007E0A02 /* ProfileViewController.swift in Sources */,
+				D380C69F27138180007E0A02 /* SceneDelegate.swift in Sources */,
+				D380C6B127138364007E0A02 /* DrinkWaterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D379DA77270E9272000F2D48 /* Main.storyboard */ = {
+		D380C6A227138180007E0A02 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D379DA78270E9272000F2D48 /* Base */,
+				D380C6A327138180007E0A02 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D379DA7C270E9275000F2D48 /* LaunchScreen.storyboard */ = {
+		D380C6A727138182007E0A02 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D379DA7D270E9275000F2D48 /* Base */,
+				D380C6A827138182007E0A02 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D379DA80270E9275000F2D48 /* Debug */ = {
+		D380C6AB27138182007E0A02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -235,7 +235,7 @@
 			};
 			name = Debug;
 		};
-		D379DA81270E9275000F2D48 /* Release */ = {
+		D380C6AC27138182007E0A02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -290,7 +290,7 @@
 			};
 			name = Release;
 		};
-		D379DA83270E9275000F2D48 /* Debug */ = {
+		D380C6AE27138182007E0A02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -299,7 +299,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9XD488YM8C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnniversaryCalculator/Info.plist;
+				INFOPLIST_FILE = DrinkWater/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -310,7 +310,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.AnniversaryCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.DrinkWater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -318,7 +318,7 @@
 			};
 			name = Debug;
 		};
-		D379DA84270E9275000F2D48 /* Release */ = {
+		D380C6AF27138182007E0A02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -327,7 +327,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9XD488YM8C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnniversaryCalculator/Info.plist;
+				INFOPLIST_FILE = DrinkWater/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -338,7 +338,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.AnniversaryCalculator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.DrinkWater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -349,25 +349,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D379DA69270E9272000F2D48 /* Build configuration list for PBXProject "AnniversaryCalculator" */ = {
+		D380C69427138180007E0A02 /* Build configuration list for PBXProject "DrinkWater" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D379DA80270E9275000F2D48 /* Debug */,
-				D379DA81270E9275000F2D48 /* Release */,
+				D380C6AB27138182007E0A02 /* Debug */,
+				D380C6AC27138182007E0A02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D379DA82270E9275000F2D48 /* Build configuration list for PBXNativeTarget "AnniversaryCalculator" */ = {
+		D380C6AD27138182007E0A02 /* Build configuration list for PBXNativeTarget "DrinkWater" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D379DA83270E9275000F2D48 /* Debug */,
-				D379DA84270E9275000F2D48 /* Release */,
+				D380C6AE27138182007E0A02 /* Debug */,
+				D380C6AF27138182007E0A02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D379DA66270E9272000F2D48 /* Project object */;
+	rootObject = D380C69127138180007E0A02 /* Project object */;
 }
