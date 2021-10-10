@@ -25,9 +25,9 @@ class DrinkWaterViewController: UIViewController {
         super.viewDidLoad()
         
 //        UserDefaults 초기화 방법(아무런 정보가 없을때 어떻게 수행되는지 확인할 때 실행)
-        for key in UserDefaults.standard.dictionaryRepresentation().keys {
-            UserDefaults.standard.removeObject(forKey: key.description)
-        }
+//        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+//            UserDefaults.standard.removeObject(forKey: key.description)
+//        }
                 
         // 상단 Title, barButtonItem 설정
         setTitleBar()
@@ -162,6 +162,7 @@ class DrinkWaterViewController: UIViewController {
         // 버튼값 초기화
         drinkButton.setTitle("마시기", for: .normal)
         drinkButton.backgroundColor = .white
+        drinkButton.tintColor = .black
     }
     
     // 키보드 올라오고 내려오고 설정
