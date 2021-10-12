@@ -6,20 +6,20 @@ struct Animal {
     var live: String
 }
 
-var cat = Animal(age: 3, name: "고양이 1", live: "서울")
+struct Cat : Animal {
+    var sleepTime: Int
+        init(age: Int, name: String, live: String, sleepTime: Int) {
+        self.sleepTime = sleepTime
+        
+        super.init(age: age, name: name, live: live)
+    }
+}
+
+var cat = Cat(age: 3, name: "고양이 1", live: "서울", sleepTime: 10)
 cat.age
 cat.name
 cat.live
+cat.sleepTime
 
-var cat2 = cat
 
-cat.age = 4
-
-cat.age
-cat.name
-cat.live
-
-cat2.age
-cat2.name
-cat2.live
-
+var number: Int = 5
