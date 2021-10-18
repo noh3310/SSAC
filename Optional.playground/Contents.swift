@@ -1,32 +1,17 @@
 import UIKit
 
-func check(number: Int?) {
-    guard let checkNumber = number else {
-        print("no number")
-        return
+class Student {
+    var studentID: String?
+    var name: String?
+
+    init(studentID: String, name: String) {
+        self.studentID = studentID
+        self.name = name
     }
-    print("number is \(checkNumber)")
 }
 
-let number: Int? = Optional.some(42)
-let noNumber: Int? = Optional.none
+var student: Student? = Student(studentID: "010101010", name: "홍길동")
 
-check(number: number)
-check(number: noNumber)
-
-
-
-
-
-//if let checkNumber = number {
-//    print("number is \(checkNumber)")
-//}
-//else {
-//    print("no number")
-//}
-//
-//print(checkNumber)
-
-//guard let checkNumber = number else {
-//    print("no number")
-//}
+if let studentId = student?.studentID {
+    print(studentId)
+}

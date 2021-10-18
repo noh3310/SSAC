@@ -15,11 +15,17 @@ class ShoppingSearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // 배경색 설정
+        setBackgroundColor()
+        
+        // 라벨 설정
+        setSearchLabel()
+        
         // 버튼 설정
         setButton()
-        
-        self.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
-        
+    }
+    
+    func setSearchLabel() {
         searchTextField.backgroundColor = .clear
         searchTextField.borderStyle = .none
         searchTextField.placeholder = "무엇을 구매하실 건가요?"
@@ -31,6 +37,10 @@ class ShoppingSearchTableViewCell: UITableViewCell {
         searchButton.tintColor = .black
         searchButton.backgroundColor = UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1)
         searchButton.layer.cornerRadius = 5
+    }
+    
+    func setBackgroundColor() {
+        self.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3257C5E2717D2D30028EB09 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3257C5D2717D2D30028EB09 /* UIViewController+Extension.swift */; };
+		D3257C60271817610028EB09 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3257C5F271817610028EB09 /* ShoppingList.swift */; };
+		D3257C6227190E930028EB09 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3257C6127190E930028EB09 /* Movie.storyboard */; };
+		D3257C6427190FF00028EB09 /* BoxOfficeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3257C6327190FF00028EB09 /* BoxOfficeDetailViewController.swift */; };
+		D3257C66271918C60028EB09 /* BoxOfficeCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3257C65271918C60028EB09 /* BoxOfficeCastViewController.swift */; };
 		D3640BC92715CF850031FB59 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BC82715CF850031FB59 /* SettingTableViewController.swift */; };
 		D3640BCB27165DA80031FB59 /* BoxOfficeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BCA27165DA80031FB59 /* BoxOfficeTableViewController.swift */; };
 		D3640BCD27165EAA0031FB59 /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BCC27165EAA0031FB59 /* BoxOfficeTableViewCell.swift */; };
 		D3640BCF271705B20031FB59 /* ShoppingSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BCE271705B20031FB59 /* ShoppingSearchTableViewCell.swift */; };
 		D3640BD12717060B0031FB59 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BD02717060B0031FB59 /* ShoppingTableViewController.swift */; };
 		D3640BD427171D190031FB59 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BD327171D190031FB59 /* ShoppingListTableViewCell.swift */; };
+		D3640BD72717AD930031FB59 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BD62717AD930031FB59 /* Movie.swift */; };
+		D3640BD92717AF040031FB59 /* MovieInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BD82717AF040031FB59 /* MovieInformation.swift */; };
+		D3640BDB2717B59C0031FB59 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3640BDA2717B59C0031FB59 /* Memo.swift */; };
 		D380C6C127150A55007E0A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C6C027150A55007E0A02 /* AppDelegate.swift */; };
 		D380C6C327150A55007E0A02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C6C227150A55007E0A02 /* SceneDelegate.swift */; };
 		D380C6C527150A55007E0A02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380C6C427150A55007E0A02 /* ViewController.swift */; };
@@ -23,12 +31,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3257C5D2717D2D30028EB09 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		D3257C5F271817610028EB09 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		D3257C6127190E930028EB09 /* Movie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movie.storyboard; sourceTree = "<group>"; };
+		D3257C6327190FF00028EB09 /* BoxOfficeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeDetailViewController.swift; sourceTree = "<group>"; };
+		D3257C65271918C60028EB09 /* BoxOfficeCastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeCastViewController.swift; sourceTree = "<group>"; };
 		D3640BC82715CF850031FB59 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		D3640BCA27165DA80031FB59 /* BoxOfficeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewController.swift; sourceTree = "<group>"; };
 		D3640BCC27165EAA0031FB59 /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		D3640BCE271705B20031FB59 /* ShoppingSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingSearchTableViewCell.swift; sourceTree = "<group>"; };
 		D3640BD02717060B0031FB59 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		D3640BD327171D190031FB59 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		D3640BD62717AD930031FB59 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		D3640BD82717AF040031FB59 /* MovieInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformation.swift; sourceTree = "<group>"; };
+		D3640BDA2717B59C0031FB59 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		D380C6BD27150A55007E0A02 /* SeSAC_03Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_03Week.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D380C6C027150A55007E0A02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D380C6C227150A55007E0A02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,8 +73,32 @@
 				D3640BCE271705B20031FB59 /* ShoppingSearchTableViewCell.swift */,
 				D3640BD02717060B0031FB59 /* ShoppingTableViewController.swift */,
 				D3640BD327171D190031FB59 /* ShoppingListTableViewCell.swift */,
+				D3257C5F271817610028EB09 /* ShoppingList.swift */,
 			);
 			path = ShoppingTable;
+			sourceTree = "<group>";
+		};
+		D3640BD52717AAF40031FB59 /* BoxOffice */ = {
+			isa = PBXGroup;
+			children = (
+				D3257C6127190E930028EB09 /* Movie.storyboard */,
+				D3257C65271918C60028EB09 /* BoxOfficeCastViewController.swift */,
+				D3257C6327190FF00028EB09 /* BoxOfficeDetailViewController.swift */,
+				D3640BCA27165DA80031FB59 /* BoxOfficeTableViewController.swift */,
+				D3640BD82717AF040031FB59 /* MovieInformation.swift */,
+				D3640BCC27165EAA0031FB59 /* BoxOfficeTableViewCell.swift */,
+				D3640BD62717AD930031FB59 /* Movie.swift */,
+			);
+			path = BoxOffice;
+			sourceTree = "<group>";
+		};
+		D3640BDC2717B5A20031FB59 /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				D3640BDA2717B59C0031FB59 /* Memo.swift */,
+				D380C6D4271516A1007E0A02 /* MemoTableViewController.swift */,
+			);
+			path = Memo;
 			sourceTree = "<group>";
 		};
 		D380C6B427150A55007E0A02 = {
@@ -84,10 +124,10 @@
 				D380C6C227150A55007E0A02 /* SceneDelegate.swift */,
 				D380C6C427150A55007E0A02 /* ViewController.swift */,
 				D380C6C627150A55007E0A02 /* Main.storyboard */,
-				D3640BCA27165DA80031FB59 /* BoxOfficeTableViewController.swift */,
-				D3640BCC27165EAA0031FB59 /* BoxOfficeTableViewCell.swift */,
-				D380C6D4271516A1007E0A02 /* MemoTableViewController.swift */,
+				D3257C5D2717D2D30028EB09 /* UIViewController+Extension.swift */,
 				D3640BC82715CF850031FB59 /* SettingTableViewController.swift */,
+				D3640BDC2717B5A20031FB59 /* Memo */,
+				D3640BD52717AAF40031FB59 /* BoxOffice */,
 				D3640BD227171CE50031FB59 /* ShoppingTable */,
 				D380C6C927150A58007E0A02 /* Assets.xcassets */,
 				D380C6CB27150A58007E0A02 /* LaunchScreen.storyboard */,
@@ -157,6 +197,7 @@
 				D380C6CD27150A58007E0A02 /* LaunchScreen.storyboard in Resources */,
 				D380C6CA27150A58007E0A02 /* Assets.xcassets in Resources */,
 				D380C6C827150A55007E0A02 /* Main.storyboard in Resources */,
+				D3257C6227190E930028EB09 /* Movie.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,11 +212,18 @@
 				D3640BCF271705B20031FB59 /* ShoppingSearchTableViewCell.swift in Sources */,
 				D380C6D5271516A1007E0A02 /* MemoTableViewController.swift in Sources */,
 				D380C6C127150A55007E0A02 /* AppDelegate.swift in Sources */,
+				D3257C5E2717D2D30028EB09 /* UIViewController+Extension.swift in Sources */,
 				D380C6C327150A55007E0A02 /* SceneDelegate.swift in Sources */,
 				D3640BD427171D190031FB59 /* ShoppingListTableViewCell.swift in Sources */,
+				D3257C60271817610028EB09 /* ShoppingList.swift in Sources */,
 				D3640BC92715CF850031FB59 /* SettingTableViewController.swift in Sources */,
+				D3640BD92717AF040031FB59 /* MovieInformation.swift in Sources */,
 				D3640BCB27165DA80031FB59 /* BoxOfficeTableViewController.swift in Sources */,
 				D3640BD12717060B0031FB59 /* ShoppingTableViewController.swift in Sources */,
+				D3257C66271918C60028EB09 /* BoxOfficeCastViewController.swift in Sources */,
+				D3640BDB2717B59C0031FB59 /* Memo.swift in Sources */,
+				D3257C6427190FF00028EB09 /* BoxOfficeDetailViewController.swift in Sources */,
+				D3640BD72717AD930031FB59 /* Movie.swift in Sources */,
 				D3640BCD27165EAA0031FB59 /* BoxOfficeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +378,7 @@
 				INFOPLIST_FILE = SeSAC_03Week/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Movie;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,7 +406,7 @@
 				INFOPLIST_FILE = SeSAC_03Week/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Movie;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

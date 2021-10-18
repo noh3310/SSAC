@@ -9,35 +9,114 @@ import UIKit
 
 class ShoppingTableViewController: UITableViewController {
     
-    var shoppingList: [String] = ["그립톡", "사이다", "아이패드", "양말"] {
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var searchStackView: UIStackView!
+    
+    //    var shoppingList: [String] = ["그립톡", "사이다", "아이패드", "양말"] {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
+    
+    // 쇼핑리스트를 담고있는 배열을 제공
+    var shoppingList = [ShoppingList]() {
         didSet {
             tableView.reloadData()
+            
+            saveData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 헤더 설정
-        setHeader()
+        // UserDefaults에 있는 정보 불러옴
+        loadData()
         
+        // 텍스트필드 설정
+        setSearchTextField()
+        
+        // 추가 버튼 설정
+        setAddButton()
+        
+        // 스택뷰 마진 설정
+        setSearchStackView()
     }
     
-    // 헤더 설정
-    func setHeader() {
-        // 헤더 추가하기
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
-        header.backgroundColor = .white
+    // 텍스트필드 설정
+    func setSearchTextField() {
+        textField.backgroundColor = .clear
+        textField.borderStyle = .none
+        textField.placeholder = "무엇을 구매하실 건가요?"
+    }
+    
+    // 버튼 설정(텍스트, 색상, 테두리)
+    func setAddButton() {
+        addButton.setTitle("추가", for: .normal)
+        addButton.tintColor = .black
+        addButton.backgroundColor = UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1)
+        addButton.layer.cornerRadius = 5
+    }
+    
+    // 검색 스택뷰 설정
+    func setSearchStackView() {
+        searchStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        searchStackView.isLayoutMarginsRelativeArrangement = true
+        searchStackView.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
+        searchStackView.layer.cornerRadius = 5
+    }
+    
+    // 추가 버튼 클릭했을 때
+    @IBAction func addButtonClicked(_ sender: UIButton) {
+        if let text = textField.text {
+            let newItem = ShoppingList(isPurchased: isTrue.False, shoppingItem: text, isFavorite: isTrue.False)
+            
+            shoppingList.append(newItem)
+        }
+    }
+    
+    // 시작할 때 데이터 불러옴
+    func loadData() {
+        let userDefaults = UserDefaults.standard
         
-        // 텍스트 추가하기
-        let headerText = UILabel(frame: header.bounds)
-        headerText.text = "쇼핑"
-        headerText.textColor = .black
-        headerText.textAlignment = .center
+        // 옵셔널 바인딩으로 값 있는지 확인
+        if let data = userDefaults.object(forKey: "shoppingList") as? [[String:Any]] {
+            // 이 list 변수에 userdefaults에 있는 정보를 다 가져옴
+            var list = [ShoppingList]()
+            
+            for datum in data {
+                // userDefaults의 정보들을 다 가져옴
+                guard let isPurchased = datum["isPurchased"] as? isTrue else { return }
+                guard let shoppingItem = datum["shoppingItem"] as? String else { return }
+                guard let isFavorite = datum["isFavorite"] as? isTrue else { return }
+                
+                // 가져온 정보들을 다 덮어줌
+                let appendData = ShoppingList(isPurchased: isPurchased, shoppingItem: shoppingItem, isFavorite: isFavorite)
+                list.append(appendData)
+            }
+            // 원래 배열에 추가시켜줌
+            self.shoppingList = list
+        }
+    }
+    
+    // 정보들을 userDefaults에 다 저장해줌
+    func saveData() {
+        // 이 배열을 UserDefaults에 저장해줌
+        var item = [[String:Any]]()
         
-        // 텍스트를 헤더뷰에 넣어줌
-        header.addSubview(headerText)
-        tableView.tableHeaderView = header
+        // for문을 돌면서 배열에 있는 정보를 UserDefaults에 들어갈 수 있는 정보로 변환
+        for shoppingItem in shoppingList {
+            let data: [String:Any] = [
+                "isPurchased": shoppingItem.isPurchased.rawValue,
+                "shoppingItem": shoppingItem.shoppingItem,
+                "isFavorite": shoppingItem.isFavorite.rawValue
+            ]
+            
+            item.append(data)
+        }
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(item, forKey: "shoppingList")
     }
     
     
@@ -50,30 +129,18 @@ class ShoppingTableViewController: UITableViewController {
         print(#function)
         
         // 어떤 셀을 사용할지 결정해서 cell 변수에 할당
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.section == 0 ? "searchCell" : "checkCell") else {
+        // as? ShoppingListTableViewCell 안써주면 기본적으로 cell은 UITableViewCell로 인식이 되서 타입캐스팅을 수행해주지 않으면 안에있는 값들은 참조할 수 없음
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "checkCell") as? ShoppingListTableViewCell else {
             return UITableViewCell()
         }
         
-//        // 이 과정은 아래 코딩을 통해서 대체할 수 있음
-//        // cell?.textLabel?.text = "ssss"
-//        if cell != nil {
-//            if cell!.textLabel != nil {
-//                cell!.textLabel!.text = "ssss"
-//            }
-//        }
+        let row = shoppingList[indexPath.row]
         
-        
-//        if indexPath.section == 0 {
-//            // cell 속성 설정
-//            cell.textLabel?.text = "첫번째 섹션 - \(indexPath)"
-//            cell.textLabel?.textColor = .brown
-//            cell.textLabel?.font = .boldSystemFont(ofSize: 15)
-//        }
-//        else {
-//            cell.textLabel?.text = list[indexPath.row]
-//            cell.textLabel?.textColor = .blue
-//            cell.textLabel?.font = .boldSystemFont(ofSize: 13)
-//        }
+        cell.itemLabel.text = row.shoppingItem
+        let chackBoxImage = row.isPurchased == isTrue.True ? "checkmark.square.fill" : "checkmark.square"
+        cell.checkboxButton.setImage(UIImage(systemName: chackBoxImage), for: .normal)
+        let favorighteImage = row.isFavorite == isTrue.True ? "star.fill" : "star"
+        cell.favoriteButton.setImage(UIImage(systemName: favorighteImage), for: .normal)
         
         return cell
     }
@@ -82,22 +149,19 @@ class ShoppingTableViewController: UITableViewController {
     // indexPath를 주는 이유는 인덱스마다 높이가 다를 수 있기 때문(페이스북 처럼)
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return indexPath.section == 0 ? 40 : 80
-        return indexPath.section == 0 ? 50 : 40
+//        return indexPath.section == 0 ? 50 : 40
+        return 50
     }
-    
-    
-    //______________________________________________________________________
-    
     
     // 섹션의 개수 리턴(기본은 1 리턴)
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     // 섹션의 타이틀을 리턴함, 그런데 없어도 되기 때문에 리턴값이 옵셔널 타입임
     // titleForHeaderInSection
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "섹션 타이틀"
+        return ""
     }
     
     // (옵션) 셀 편집 상태: editingStyle
@@ -105,7 +169,7 @@ class ShoppingTableViewController: UITableViewController {
         
         
         // 삭제를 하면 어떻게 수행될지
-        if editingStyle == .delete && indexPath.section == 1 {
+        if editingStyle == .delete {
             shoppingList.remove(at: indexPath.row)
             // tableView.reloadData()
         }
@@ -113,7 +177,7 @@ class ShoppingTableViewController: UITableViewController {
     
     // (옵션) 셀의 편집 상태를 나타냄(스와이프 할지 안할지): canEditRowAt
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.section == 0 ? false : true
+        return true
     }
     
     // (옵션) 셀을 클릭했을 때 기능: didSelectRowAt
@@ -124,9 +188,6 @@ class ShoppingTableViewController: UITableViewController {
     /// 1, 2, 3 은 거의 필수 요건이다.
     // 1. 셀의 개수: numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if section == 0 { return 2 }
-//        else { return 4 }
-        
-        return section == 0 ? 1 : shoppingList.count
+        return shoppingList.count
     }
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class BoxOfficeTableViewCell: UITableViewCell {
+    
+    static let Identifier = "BoxOfficeTableViewCell"
 
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

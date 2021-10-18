@@ -10,6 +10,7 @@ import UIKit
 class ShoppingListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkboxButton: UIButton!
+    @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
     override func awakeFromNib() {
