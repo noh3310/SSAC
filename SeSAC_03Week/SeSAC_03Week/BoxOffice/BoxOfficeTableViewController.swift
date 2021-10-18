@@ -9,10 +9,17 @@ import UIKit
 
 class BoxOfficeTableViewController: UITableViewController {
     
+    // 1. 값을 전달 받을 공간
+    var titleSpace: String?
+    
     let movieInformation = MovieInformation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //2. 표현
+        self.title = titleSpace ?? "내용이 없을 때 타이틀"
+        
         
         // style은 .plain을 주로 사용한다고 함
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "닫기", style: .plain, target: self, action: #selector(closeButtonClicked))
@@ -72,6 +79,16 @@ class BoxOfficeTableViewController: UITableViewController {
             print("오류발생")
             return
         }
+        
+        let row = movieInformation.movie[indexPath.row]
+        
+        vc.movie = row
+        
+        vc.releaseDate = row.releaseDate
+        vc.overview = row.overview
+        vc.rate = row.rate
+        vc.runtime = row.runtime
+        vc.movieTitle = row.title
         
 //        let vc = storyboard.instantiateViewController(withIdentifier: "BoxOfficeDetailViewController") as! BoxOfficeDetailViewController
         

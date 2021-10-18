@@ -10,6 +10,15 @@ import UIKit
 class BoxOfficeDetailViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let pickerList = ["감자", "고구마", "파인애플", "자두", "복숭아"]
+    
+    // 1. 데이터 받을공간을 만들어줌
+    var movieTitle: String?
+    var releaseDate: String?
+    var runtime: Int?
+    var overview: String?
+    var rate: Double?
+    
+    var movie: Movie?
 
     @IBOutlet weak var titleTextField: UITextView!
     @IBOutlet weak var overviewTextField: UITextField!
@@ -19,13 +28,18 @@ class BoxOfficeDetailViewController: UIViewController, UITextViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleTextField.text = movie?.title
+        overviewTextField.text = movie?.overview
+        
+        print(movie?.runtime, movie?.rate, movie?.releaseDate)
+        
         // 여러줄 있는 텍스트뷰에서 placeholder는 프로토콜 사용해서 구현해야함
         // UITextViewDelegate를 부름
         // overviewTextview.delegate를 연결해줌
         titleTextField.delegate = self
         
         // 텍스트뷰에 플레이스홀더 달고싶으면: 글자, 글자 색상,
-        titleTextField.text = "이곳에 줄거리를 남겨보세요"
+//        titleTextField.text = "이곳에 줄거리를 남겨보세요"
         titleTextField.textColor = .lightGray
         
         let pickerView = UIPickerView()

@@ -7,11 +7,18 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let tvShowList = Sample.tvShow
+    
+    var searchText: String = "" {
+        didSet {
+            myTableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +26,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // 테이블뷰 설정
         setTableView()
         
-        
+        // 서치바 설정
+        setSearchBar()
     }
     
     func setTableView() {
@@ -27,6 +35,25 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         myTableView.dataSource = self
     }
     
+    func setSearchBar() {
+        searchBar.delegate = self
+    }
+}
+
+// search view extension
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchText \(searchText)")
+        self.searchText = searchText
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchText \(String(describing: searchBar.text))")
+    }
+}
+
+// 테이블뷰 extension
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tvShowList.count
     }
@@ -36,9 +63,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = myTableView.dequeueReusableCell(withIdentifier: "MovieInformationTableViewCell", for: indexPath) as! MovieInformationTableViewCell
         
-        let url = URL(string: tvShowList[0].backdropImage)
+        let url = URL(string: tvShowList[indexPath.row].backdropImage)
         do {
             let image = try Data(contentsOf: url!)
             cell.posterImageView.image = UIImage(data: image)
@@ -51,9 +79,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.titleLabel.text = tvShowList[indexPath.row].title
         cell.releaseDate.text = tvShowList[indexPath.row].releaseDate
         cell.Overview.text = tvShowList[indexPath.row].overview
+
+        
+        if let text = cell.titleLabel.text {
+            if searchText == "" || text.contains(searchText) {
+                cell.isHidden = false
+            }
+            else {
+                cell.isHidden = true
+            }
+        }
         
         return cell
     }
-    
-    
 }

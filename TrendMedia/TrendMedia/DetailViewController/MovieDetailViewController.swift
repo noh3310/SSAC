@@ -10,15 +10,23 @@ import UIKit
 class MovieDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     
     var tvShowList = Sample.tvShow
     var actorList: [String] = []
+    var posterImage: UIImage?
+    var titleLabelString: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        actorList = tvShowList[0].starring.components(separatedBy: ", ")
+//        actorList = tvShowList[0].starring.components(separatedBy: ", ")
         
+        titleLabel.text = titleLabelString
+        titleLabel.textColor = .white
+        posterImageView.image = posterImage
 
         // 네비게이션바 설정
         setNavigationBar()

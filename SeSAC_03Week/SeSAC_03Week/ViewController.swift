@@ -46,6 +46,11 @@ class ViewController: UIViewController {
         /// 여기서 1, 2번을 아래처럼 합쳐서 써도 됨, 근데 특정 상황에 메인 스토리보드에서 하지 않으면 오류가 발생할 수 있음
         let vc2 = self.storyboard?.instantiateViewController(withIdentifier: "BoxOfficeTableViewController") as! BoxOfficeTableViewController
         
+        
+        // Psss Data. 3
+        vc.titleSpace = "제목"
+        
+        
         // 3. Push를 함
         // 근데 여기에 네비게이션 컨트롤러가 있는지 확인을 먼저함, 하지만 여기에서는 네비게이션 컨트롤러가 들어와있지 않기 때문에 그냥 리턴을 해줌
         // 스토리보드에서 네비게이션 컨트롤러가 임베드되어 있지 않으면 안된다 ㅎ.

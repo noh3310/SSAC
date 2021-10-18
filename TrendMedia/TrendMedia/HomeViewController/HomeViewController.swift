@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     
     // UIView관련 변수
     @IBOutlet weak var uiView: UIView!
@@ -45,6 +45,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 뷰컨트롤러를 테이블의 뷰 델리게이트, 데이터소스로 설정
         customTableView.delegate = self
         customTableView.dataSource = self
+        
+        let nibName = UINib(nibName: MoviePreviewTableViewCell.identifier, bundle: nil)
+        customTableView.register(nibName, forCellReuseIdentifier: MoviePreviewTableViewCell.identifier)
     }
     
     // 라벨 설정
@@ -94,9 +97,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // 검색버튼 클릭했을 때 push해줌
+    // 검색버튼 클릭했을 때 viewController push해줌
     @IBAction func searchButtonClicked(_ sender: UIBarButtonItem) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "SearchView", bundle:nil)
         
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SearchViewController")
         nextViewController.modalPresentationStyle = .fullScreen
@@ -108,37 +111,43 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         button.setImage(image, for: .normal)
         button.tintColor = color
     }
+}
+
+// 테이블뷰 extension
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 테이블뷰 row의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return tvShowList.count
     }
-    
-    
     
     // 높이 지정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviePreviewTableViewCell", for: indexPath) as! MoviePreviewTableViewCell
+        return 350
     }
     
     // 보여줄 UITableViewCell을 리턴해줌
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewTableViewCell", for: indexPath) as! PreviewTableViewCell
+            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviePreviewTableViewCell", for: indexPath) as! MoviePreviewTableViewCell
         
-        // custom cell 설정
-        cell.titleLabel.text = tvShowList[0].title
-        cell.genreLabel.text = tvShowList[0].releaseDate
-        cell.rateLabel.text = String(tvShowList[0].rate)
-        
-        let url = URL(string: tvShowList[0].backdropImage)
+        cell.delegate = self
+        cell.titleLabel.text = tvShowList[indexPath.row].title
+        cell.rateLabel.text = "\(tvShowList[indexPath.row].rate)"
+        cell.actorListLabel.text = tvShowList[indexPath.row].starring
+        cell.genreLabel.text = tvShowList[indexPath.row].genre
+        cell.releaseDateLabel.text = tvShowList[indexPath.row].releaseDate
+        let url = URL(string: tvShowList[indexPath.row].backdropImage)
         do {
             let image = try Data(contentsOf: url!)
-//            cell.movieImage.image = UIImage(data: image)
+            cell.posterImageView.image = UIImage(data: image)
         }
         catch {
-            
+
         }
         
+
 //        TvShow(title: "Squid Game", releaseDate: "09/17/2021",genre: "Mystery",region: "South Korea", overview: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits — with deadly high stakes.", rate: 8.3, starring: "Lee Jung-jae, Park Hae-soo, Wi Ha-jun, Heo Sung-tae, Kim Joo-ryoung, Jung Ho-yeon, Lee You-mi",backdropImage:"https://www.themoviedb.org/t/p/original/oaGvjB0DvdhXhOAuADfHb261ZHa.jpg"),
         
         
@@ -147,9 +156,36 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 셀 클릭했을 때
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MovieDetailViewController")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "DetailView", bundle:nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
         
-        self.navigationController?.pushViewController(nextViewController, animated: true)
+        vc.titleLabelString = tvShowList[indexPath.row].title
+        vc.actorList = tvShowList[indexPath.row].starring.components(separatedBy: ", ")
+        let url = URL(string: tvShowList[indexPath.row].backdropImage)
+        do {
+            let image = try Data(contentsOf: url!)
+            vc.posterImage = UIImage(data: image)
+        }
+        catch {
+
+        }
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// 델리게이트 패턴을 이용해서 프로그래밍 해줌
+protocol CellDelegate {
+    func clickedButton()
+}
+
+extension HomeViewController: CellDelegate {
+    func clickedButton() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        let vc = storyboard.instantiateViewController(withIdentifier: "PopUpViewViewController") as! PopUpViewViewController
+
+        self.present(vc, animated: true, completion: nil)
     }
 }
