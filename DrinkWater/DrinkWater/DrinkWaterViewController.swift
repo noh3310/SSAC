@@ -55,6 +55,9 @@ class DrinkWaterViewController: UIViewController {
         
         // 사용자 정보가 있는지 확인하고, 만약 없다면 새롭게 등록하라고 Alert
         checkUserInformation()
+        
+        // 델리게이트 위임
+        setTextLabelDelegate()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +68,9 @@ class DrinkWaterViewController: UIViewController {
         
         // 사용자의 권장사용량이 변하므로 이미지도 맞게 변경
         setImageView()
+        
+        // 왼쪽 위 라벨 설정
+        setDrinkWaterAmount()
     }
     
     // 상단 Title, barButtonItem 설정
@@ -106,7 +112,13 @@ class DrinkWaterViewController: UIViewController {
     
     // 마신 양, 퍼센트 라벨에 반영
     func printTodayDrinkLabel(amount: Int, percent: Int) {
-        todayDrinkWaterLabel.text = "잘하셨어요!\n오늘 마신 양은\n\(amount)ml\n목표의 \(percent)%"
+        if percent >= 100 {
+            todayDrinkWaterLabel.text = "잘하셨어요!\n오늘 마신 양은\n\(amount)ml\n목표를 달성하셨습니다."
+            checkDrinkButtonClick(percent)
+        }
+        else {
+            todayDrinkWaterLabel.text = "잘하셨어요!\n오늘 마신 양은\n\(amount)ml\n목표의 \(percent)%"
+        }
         
         // changeFontSizeOf의 changeText 를 50크기의 사이즈로 변경
         let text = todayDrinkWaterLabel.text ?? ""
@@ -208,28 +220,39 @@ class DrinkWaterViewController: UIViewController {
         
         // 이미지를 제일 처음 이미지로 변경
         UserDefaults.standard.set("1-1", forKey: "UserDrinkImage")
+        
+        // 만약 목표를 달성한 후 리셋을 누른다면, 마시기 버튼 누를 수 있게 변경
+        checkDrinkButtonClick(0)
+    }
+    
+    // 델리게이트 위임
+    func setTextLabelDelegate() {
+        drinkWaterAmount.delegate = self
     }
     
     @IBAction func drinkButtonClicked(_ sender: UIButton) {
         // 만약 입력값이 있다면 라벨에 반영해줌
-        let amount = drinkWaterAmount.text ?? ""
-        if amount.count > 0 {
-            // 라벨값 변경
-            addDrinkAmountLabel(Int(amount) ?? 0)
-            
-            // 이미지 변경
-            setImageView()
-        }
-        // 만약 입력한 값이 없다면 "값을 입력하세요" Alert 출력함
-        else {
+        
+        let amount = drinkWaterAmount.text
+        
+        // 세 조건다 만족하지 못한다면 값이 없거나 문자열에 정수 입력한 것
+        if amount == Optional("") || Int(amount!) == 0 || Int(amount!) == nil {
             let alert = UIAlertController(title: "마신 양을 입력하지 않았습니다.", message: "마신 양을 입력해주세요.", preferredStyle: .alert)
-            
+
             // 아무일도 일어나지 않음
             let defaultAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             alert.addAction(defaultAction)
-            
+
             present(alert, animated: false, completion: nil)
+            
+            return
         }
+        
+        // 라벨값 변경
+        addDrinkAmountLabel(Int(amount!)!)
+
+        // 이미지 변경
+        setImageView()
     }
     
     // 마신 양을 증가시켜주는 메서드
@@ -252,6 +275,35 @@ class DrinkWaterViewController: UIViewController {
         
         // 마신 양, 퍼센트 라벨에 반영
         printTodayDrinkLabel(amount: amount, percent: percentDrink)
+    }
+    
+    // 마신 양을 달성했을 때
+    // 버튼 못누르게 바꿔주고
+    func checkDrinkButtonClick(_ percent: Int) {
+        // 버튼 이름 바꾸고 못누르게 하기
+        if percent >= 100 {
+            drinkButton.setTitle("목표를 달성했습니다!", for: .normal)
+            drinkButton.isEnabled = false
+        }
+        else {
+            drinkButton.setTitle("마시기", for: .normal)
+            drinkButton.isEnabled = true
+        }
+    }
+    
+    // 마신양 라벨에 설정(viewWillAppear일때 실행)
+    func setDrinkWaterAmount() {
+        // 현재 마신양 받아옴(Int)
+        let amount = UserDefaults.standard.integer(forKey: "drinkAmount")
+        
+        // 권장량에 비해 얼마나 먹었는지 퍼센트 확인 위해 권장량 가져옴
+        let percentDrink = getPercentDrink(amount: amount)
+        
+        // 마신 양, 퍼센트 라벨에 반영
+        printTodayDrinkLabel(amount: amount, percent: percentDrink)
+        
+        // 버튼 누를지 말지 설정
+        checkDrinkButtonClick(percentDrink)
     }
     
     // 퍼센트 리턴하는 메서드
@@ -313,12 +365,30 @@ class DrinkWaterViewController: UIViewController {
     // 키보드 입력할 때 TextField 위로 올려주기
     @objc
     func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -100 // Move view 100 points upward
+        let userInfo: NSDictionary = sender.userInfo! as NSDictionary
+        let keyboardFrame: NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        self.view.frame.origin.y = -keyboardHeight // Move view keyboard Height upward
     }
-    
+
     // 키보드 입력 끝났을 때 위치 원래대로 변경
     @objc
     func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0 // Move view to original position
+    }
+    
+}
+
+extension DrinkWaterViewController: UITextFieldDelegate {
+    // 텍스트필드 입력개수 제한
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+     
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+     
+        return updatedText.count <= 4
     }
 }

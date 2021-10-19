@@ -128,10 +128,10 @@ class ProfileViewController: UIViewController {
         if nickname! == "" {
             addInfo.append("닉네임")
         }
-        if height == Optional("") || Int(height!) == 0 {
+        if height == Optional("") || Int(height!) == 0 || Int(height!) == nil {
             addInfo.append("키")
         }
-        if weight == Optional("") || Int(weight!) == 0 {
+        if weight == Optional("") || Int(weight!) == 0 || Int(weight!) == nil {
             addInfo.append("몸무게")
         }
         
@@ -146,7 +146,7 @@ class ProfileViewController: UIViewController {
         let alert = UIAlertController(title: "저장에 성공하셨습니다.", message: "홈 화면으로 돌아갑니다.", preferredStyle: UIAlertController.Style.alert)
         
         //홈화면으로 돌아감
-        let defaultAction = UIAlertAction(title: "확인", style: .default) { (action) in
+        let defaultAction = UIAlertAction(title: "확인", style: .default) { _ in 
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(defaultAction)
