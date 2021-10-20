@@ -17,7 +17,13 @@ class MovieInformationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // 이미지 크기에 맞춤
+        setPosterImageView()
+    }
+    
+    func setPosterImageView() {
+        posterImageView.contentMode = .scaleAspectFill
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

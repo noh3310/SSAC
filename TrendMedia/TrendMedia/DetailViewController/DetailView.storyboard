@@ -28,8 +28,17 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-fd-cop">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                         </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SBb-dY-0xq">
+                                            <rect key="frame" x="20" y="30" width="100" height="130"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="3bF-Y8-Y5x"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baa-VM-l9b">
-                                            <rect key="frame" x="186" y="139" width="42" height="21"/>
+                                            <rect key="frame" x="150" y="139" width="41.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="235" id="eQd-5u-fY3"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -37,12 +46,15 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="baa-VM-l9b" firstAttribute="centerX" secondItem="3Ad-dv-Igq" secondAttribute="centerX" id="BYo-eq-Ufo"/>
                                         <constraint firstAttribute="trailing" secondItem="gb9-fd-cop" secondAttribute="trailing" id="KH3-DT-Zv7"/>
+                                        <constraint firstAttribute="bottom" secondItem="baa-VM-l9b" secondAttribute="bottom" constant="10" id="OiK-fm-Ujq"/>
                                         <constraint firstItem="gb9-fd-cop" firstAttribute="top" secondItem="3Ad-dv-Igq" secondAttribute="top" id="SuV-dC-XqR"/>
+                                        <constraint firstAttribute="bottom" secondItem="SBb-dY-0xq" secondAttribute="bottom" constant="10" id="Ujv-nS-QNK"/>
                                         <constraint firstItem="gb9-fd-cop" firstAttribute="leading" secondItem="3Ad-dv-Igq" secondAttribute="leading" id="f7n-Iu-jRq"/>
+                                        <constraint firstItem="baa-VM-l9b" firstAttribute="leading" secondItem="SBb-dY-0xq" secondAttribute="trailing" constant="30" id="iGb-by-jQT"/>
+                                        <constraint firstItem="SBb-dY-0xq" firstAttribute="leading" secondItem="3Ad-dv-Igq" secondAttribute="leading" constant="20" id="kjZ-KU-ifz"/>
                                         <constraint firstAttribute="bottom" secondItem="gb9-fd-cop" secondAttribute="bottom" id="o7j-9l-hHC"/>
-                                        <constraint firstAttribute="bottom" secondItem="baa-VM-l9b" secondAttribute="bottom" constant="10" id="vzH-Hm-PNB"/>
+                                        <constraint firstItem="SBb-dY-0xq" firstAttribute="top" secondItem="3Ad-dv-Igq" secondAttribute="top" constant="30" id="v25-hZ-lvG"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -86,8 +98,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="gb9-fd-cop" id="ub8-le-0Hv"/>
                         <outlet property="myTableView" destination="6aE-dv-NhI" id="vw8-ED-BPD"/>
-                        <outlet property="posterImageView" destination="gb9-fd-cop" id="ub8-le-0Hv"/>
+                        <outlet property="posterImageView" destination="SBb-dY-0xq" id="ydG-D5-5Ik"/>
                         <outlet property="titleLabel" destination="baa-VM-l9b" id="Ci1-8f-lzC"/>
                     </connections>
                 </viewController>

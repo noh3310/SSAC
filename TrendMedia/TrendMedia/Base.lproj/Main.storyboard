@@ -155,7 +155,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="zvE-JQ-Bbt">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Dv9-Rw-e8u"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" id="Dv9-Rw-e8u">
+                                <connections>
+                                    <action selector="MyMovieButtonClicked:" destination="BYZ-38-t0r" id="cLM-IF-4HC"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" id="kZO-NC-rRj"/>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="XCp-ij-mfd">
                             <connections>
                                 <action selector="searchButtonClicked:" destination="BYZ-38-t0r" id="k4R-HD-aV8"/>

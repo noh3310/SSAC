@@ -18,11 +18,26 @@ class MoviePreviewTableViewCell: UITableViewCell {
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var actorListLabel: UILabel!
     
+    @IBOutlet weak var rateTextLabel: UILabel!
     var delegate: CellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setPosterImageView()
+        
+        rateTextLabel.backgroundColor = .orange
+        rateTextLabel.layer.borderColor = UIColor.black.cgColor
+        rateTextLabel.layer.borderWidth = 1
+        
+        rateLabel.backgroundColor = .white
+        rateLabel.layer.borderColor = UIColor.black.cgColor
+        rateLabel.layer.borderWidth = 1
         // Initialization code
+    }
+    
+    func setPosterImageView() {
+        posterImageView.contentMode = .scaleAspectFill
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

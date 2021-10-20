@@ -110,10 +110,11 @@
                 <outlet property="genreLabel" destination="ajR-9b-4SX" id="7QK-cp-pY8"/>
                 <outlet property="posterImageView" destination="ZLE-Cr-epa" id="f5U-NE-nah"/>
                 <outlet property="rateLabel" destination="Nqd-BE-dOc" id="GU6-FN-6JO"/>
+                <outlet property="rateTextLabel" destination="kBT-Ar-ChU" id="YnM-tM-hok"/>
                 <outlet property="releaseDateLabel" destination="h9f-ou-vNk" id="GET-Bz-kDm"/>
                 <outlet property="titleLabel" destination="UJ4-w8-9be" id="JSj-mN-kM0"/>
             </connections>
-            <point key="canvasLocation" x="-23.188405797101453" y="145.98214285714286"/>
+            <point key="canvasLocation" x="99" y="145"/>
         </tableViewCell>
     </objects>
 </document>

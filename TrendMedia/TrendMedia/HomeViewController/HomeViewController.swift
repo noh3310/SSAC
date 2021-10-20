@@ -111,6 +111,17 @@ class HomeViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.tintColor = color
     }
+    
+    // 내영화 버튼 클릭했을 때
+    @IBAction func MyMovieButtonClicked(_ sender: UIBarButtonItem) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "MyMedia", bundle: nil)
+        
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: MyMediaViewController.identifier)
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    
 }
 
 // 테이블뷰 extension

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3164CDE271E4AA300944FF2 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3164CDD271E4AA300944FF2 /* MainCollectionViewController.swift */; };
+		D3164CE4271E4B6100944FF2 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3164CE2271E4B6100944FF2 /* MainCollectionViewCell.swift */; };
+		D3164CE5271E4B6100944FF2 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3164CE3271E4B6100944FF2 /* MainCollectionViewCell.xib */; };
+		D3164CE9271E538D00944FF2 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3164CE7271E538D00944FF2 /* TagCollectionViewCell.swift */; };
+		D3164CEA271E538D00944FF2 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3164CE8271E538D00944FF2 /* TagCollectionViewCell.xib */; };
+		D3164CEC271E662300944FF2 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3164CEB271E662300944FF2 /* WebViewController.swift */; };
+		D3164CFB271FAC8A00944FF2 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3164CFA271FAC8A00944FF2 /* LocationViewController.swift */; };
 		D36B185B271CF76100FA1605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B185A271CF76100FA1605 /* AppDelegate.swift */; };
 		D36B185D271CF76100FA1605 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B185C271CF76100FA1605 /* SceneDelegate.swift */; };
 		D36B185F271CF76100FA1605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B185E271CF76100FA1605 /* ViewController.swift */; };
@@ -20,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3164CDD271E4AA300944FF2 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		D3164CE2271E4B6100944FF2 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3164CE3271E4B6100944FF2 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		D3164CE7271E538D00944FF2 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		D3164CE8271E538D00944FF2 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		D3164CEB271E662300944FF2 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		D3164CFA271FAC8A00944FF2 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		D36B1857271CF76100FA1605 /* SeSAC_04_Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_04_Week.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36B185A271CF76100FA1605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36B185C271CF76100FA1605 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +59,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3164CDF271E4AB300944FF2 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				D36B186E271CF88E00FA1605 /* Setting.storyboard */,
+				D36B1873271CFB2500FA1605 /* DefaultTableViewCell.xib */,
+				D36B1872271CFB2500FA1605 /* DefaultTableViewCell.swift */,
+				D36B1870271CFAD000FA1605 /* SettingViewController.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		D3164CE6271E4B6D00944FF2 /* MainSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D3164CDD271E4AA300944FF2 /* MainCollectionViewController.swift */,
+				D3164CE2271E4B6100944FF2 /* MainCollectionViewCell.swift */,
+				D3164CE3271E4B6100944FF2 /* MainCollectionViewCell.xib */,
+				D3164CE7271E538D00944FF2 /* TagCollectionViewCell.swift */,
+				D3164CE8271E538D00944FF2 /* TagCollectionViewCell.xib */,
+			);
+			path = MainSelectionView;
+			sourceTree = "<group>";
+		};
 		D36B184E271CF76100FA1605 = {
 			isa = PBXGroup;
 			children = (
@@ -68,10 +105,10 @@
 				D36B185C271CF76100FA1605 /* SceneDelegate.swift */,
 				D36B185E271CF76100FA1605 /* ViewController.swift */,
 				D36B1860271CF76100FA1605 /* Main.storyboard */,
-				D36B186E271CF88E00FA1605 /* Setting.storyboard */,
-				D36B1873271CFB2500FA1605 /* DefaultTableViewCell.xib */,
-				D36B1872271CFB2500FA1605 /* DefaultTableViewCell.swift */,
-				D36B1870271CFAD000FA1605 /* SettingViewController.swift */,
+				D3164CFA271FAC8A00944FF2 /* LocationViewController.swift */,
+				D3164CEB271E662300944FF2 /* WebViewController.swift */,
+				D3164CE6271E4B6D00944FF2 /* MainSelectionView */,
+				D3164CDF271E4AB300944FF2 /* SettingView */,
 				D36B1863271CF76300FA1605 /* Assets.xcassets */,
 				D36B1865271CF76300FA1605 /* LaunchScreen.storyboard */,
 				D36B1868271CF76300FA1605 /* Info.plist */,
@@ -138,6 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D36B1867271CF76300FA1605 /* LaunchScreen.storyboard in Resources */,
+				D3164CEA271E538D00944FF2 /* TagCollectionViewCell.xib in Resources */,
+				D3164CE5271E4B6100944FF2 /* MainCollectionViewCell.xib in Resources */,
 				D36B1864271CF76300FA1605 /* Assets.xcassets in Resources */,
 				D36B1862271CF76100FA1605 /* Main.storyboard in Resources */,
 				D36B1875271CFB2500FA1605 /* DefaultTableViewCell.xib in Resources */,
@@ -152,7 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3164CE4271E4B6100944FF2 /* MainCollectionViewCell.swift in Sources */,
+				D3164CEC271E662300944FF2 /* WebViewController.swift in Sources */,
+				D3164CE9271E538D00944FF2 /* TagCollectionViewCell.swift in Sources */,
 				D36B185F271CF76100FA1605 /* ViewController.swift in Sources */,
+				D3164CDE271E4AA300944FF2 /* MainCollectionViewController.swift in Sources */,
+				D3164CFB271FAC8A00944FF2 /* LocationViewController.swift in Sources */,
 				D36B185B271CF76100FA1605 /* AppDelegate.swift in Sources */,
 				D36B185D271CF76100FA1605 /* SceneDelegate.swift in Sources */,
 				D36B1871271CFAD000FA1605 /* SettingViewController.swift in Sources */,

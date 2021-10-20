@@ -8,7 +8,11 @@
 import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = "TagCollectionViewCell"
 
+    @IBOutlet weak var taglabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
