@@ -161,7 +161,11 @@
                                     <action selector="MyMovieButtonClicked:" destination="BYZ-38-t0r" id="cLM-IF-4HC"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" id="kZO-NC-rRj"/>
+                            <barButtonItem title="Item" id="kZO-NC-rRj">
+                                <connections>
+                                    <action selector="movieMapViewButtonClicked:" destination="BYZ-38-t0r" id="bze-B6-FYk"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="XCp-ij-mfd">
                             <connections>

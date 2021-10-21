@@ -121,6 +121,13 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
+    @IBAction func movieMapViewButtonClicked(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "MovieMapView", bundle: nil)
+        
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: MovieMapViewController.identifier)
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
     
 }
 

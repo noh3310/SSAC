@@ -30,10 +30,13 @@
                             <constraint firstItem="DQf-ae-Icc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="xC8-6R-brE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="DQf-ae-Icc" id="RAn-VW-Ty9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="72"/>
+            <point key="canvasLocation" x="248" y="1"/>
         </scene>
     </scenes>
     <resources>
