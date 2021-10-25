@@ -177,6 +177,7 @@
                         <outlet property="button1" destination="lFX-J8-Hmf" id="fR4-PE-8hJ"/>
                         <outlet property="button2" destination="h0P-5j-sO9" id="dct-BD-OFd"/>
                         <outlet property="button3" destination="jBM-qP-oex" id="vik-JD-u5a"/>
+                        <outlet property="cinemaMapButton" destination="kZO-NC-rRj" id="8I7-iL-xdo"/>
                         <outlet property="customTableView" destination="hBQ-UH-52r" id="9BR-Fy-GUj"/>
                         <outlet property="stackView" destination="0Xx-N5-ywW" id="8bO-wq-jwH"/>
                         <outlet property="uiView" destination="7OL-Ey-rGi" id="Gpi-l8-sjD"/>

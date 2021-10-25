@@ -1,19 +1,14 @@
 //
-//  PreviewTableViewCell.swift
+//  HomeScreenMovieInformationTableViewCell.swift
 //  TrendMedia
 //
-//  Created by 노건호 on 2021/10/17.
+//  Created by 노건호 on 2021/10/22.
 //
 
 import UIKit
 
-class PreviewTableViewCell: UITableViewCell {
+class HomeScreenMovieInformationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var genreLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +19,5 @@ class PreviewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

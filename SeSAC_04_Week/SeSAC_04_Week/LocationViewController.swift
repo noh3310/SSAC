@@ -29,6 +29,15 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 색상 변경하는 구문
+        userCurrentLocationLabel.backgroundColor = .red
+        userCurrentLocationLabel.alpha = 0
+        UIView.animate(withDuration: 2) {
+            self.userCurrentLocationLabel.alpha = 1
+        }
+        
+        // 오늘은 액션시트를 만들어줘야 한다.
 
         
         /// 지역을 설정한 부분
@@ -53,7 +62,42 @@ class LocationViewController: UIViewController {
         // 2. Delegate를 연결
         locationManager.delegate = self
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // viewDidLoae에서는 Alert가 나오지 않음
+        showAlert(title: "설정", message: "설정에서 권한을 설정해주세요", okTitle: "설정으로 이동") {
+            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url) { success in
+                    print("잘 열렸다 \(success)")
+                }
+            }
+        }
+    }
+    @IBAction func buttonClicked(_ sender: UIButton) {
+        showAlert(title: "설정", message: "설정에서 권한을 설정해주세요", okTitle: "설정으로 이동") {
+            guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url) { success in
+                    print("잘 열렸다 \(success)")
+                }
+            }
+        }
+    }
+    
+    @IBAction func changeLabelTextButtonClicked(_ sender: UIButton) {
+        showAlert(title: "텍스트 변경", message: "레이블 글자를 바꿉니다", okTitle: "바꾸기") {
+            self.userCurrentLocationLabel.text = "asdasdadsads"
+        }
+    }
 }
 
 extension LocationViewController: MKMapViewDelegate {
@@ -103,6 +147,17 @@ extension LocationViewController: CLLocationManagerDelegate {
             locationManager.startUpdatingLocation() // 위치 접근 시작 => didUpdateLocation을 실행함
         case .restricted, .denied:
             print("DENIED, 설정으로 유도")
+            showAlert(title: "설정", message: "설정에서 권한을 설정해주세요", okTitle: "설정으로 이동") {
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url) { success in
+                        print("잘 열렸다 \(success)")
+                    }
+                }
+            }
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation() // 위치 접근 시작
         case .authorizedAlways:

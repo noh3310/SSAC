@@ -23,35 +23,11 @@ class MoviePreviewTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setPosterImageView()
-        
-        rateTextLabel.backgroundColor = .orange
-        rateTextLabel.layer.borderColor = UIColor.black.cgColor
-        rateTextLabel.layer.borderWidth = 1
-        
-        rateLabel.backgroundColor = .white
-        rateLabel.layer.borderColor = UIColor.black.cgColor
-        rateLabel.layer.borderWidth = 1
-        // Initialization code
-    }
-    
-    func setPosterImageView() {
-        posterImageView.contentMode = .scaleAspectFill
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    @IBAction func linkButtonClicked(_ sender: UIButton) {
-        self.delegate?.clickedButton()
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//        let vc = storyboard.instantiateViewController(withIdentifier: "PopUpViewViewController") as! PopUpViewViewController
-//
-////        self.present(vc, animated: true, completion: nil)
     }
 }

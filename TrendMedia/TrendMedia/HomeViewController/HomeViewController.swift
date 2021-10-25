@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var uiViewText: UILabel!
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var cinemaMapButton: UIBarButtonItem!
     
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -31,13 +32,6 @@ class HomeViewController: UIViewController {
         
         // 네비게이션바 설정
         setNavigationBar()
-
-        
-//        buttonDictionary = [
-//            ["button": buttons[0]]
-//            ["image": buttonImages[0]]
-//            ["color": buttonColor]
-//        ]
         
         // 버튼 설정
         setButtons()
@@ -46,6 +40,7 @@ class HomeViewController: UIViewController {
         customTableView.delegate = self
         customTableView.dataSource = self
         
+        // 커스텀 셀 사용가능하도록 테이블뷰에 등록
         let nibName = UINib(nibName: MoviePreviewTableViewCell.identifier, bundle: nil)
         customTableView.register(nibName, forCellReuseIdentifier: MoviePreviewTableViewCell.identifier)
     }
@@ -56,6 +51,7 @@ class HomeViewController: UIViewController {
         uiViewText.textColor = .white
         uiViewText.backgroundColor = .blue
         uiViewText.textAlignment = .center
+        uiViewText.font = uiViewText.font.withSize(50)
     }
     
     // 버튼 설정(미완성)
@@ -80,6 +76,14 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func setButtonImage(button: UIButton, image: UIImage, color: UIColor) {
+        button.setTitle("", for: .normal)
+        button.setImage(image, for: .normal)
+        button.tintColor = color
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 10.0, left: 0.0, bottom: 10.0, right: 0.0)
+    }
+    
     // 네비게이션바 설정
     func setNavigationBar() {
         // 타이틀
@@ -94,6 +98,10 @@ class HomeViewController: UIViewController {
             // 오른쪽 내비게이션바 설정
             navigation.rightBarButtonItem?.image = UIImage(systemName: "magnifyingglass")
             navigation.rightBarButtonItem?.tintColor = .black
+            
+            // 지도 아이템 설정
+            cinemaMapButton.image = UIImage(systemName: "map")
+            cinemaMapButton.tintColor = .black
         }
     }
     
@@ -105,12 +113,7 @@ class HomeViewController: UIViewController {
         nextViewController.modalPresentationStyle = .fullScreen
         self.present(nextViewController, animated: true, completion: nil)
     }
-    
-    func setButtonImage(button: UIButton, image: UIImage, color: UIColor) {
-        button.setTitle("", for: .normal)
-        button.setImage(image, for: .normal)
-        button.tintColor = color
-    }
+
     
     // 내영화 버튼 클릭했을 때
     @IBAction func MyMovieButtonClicked(_ sender: UIBarButtonItem) {
@@ -150,9 +153,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoviePreviewTableViewCell", for: indexPath) as! MoviePreviewTableViewCell
         
+        cell.rateTextLabel.backgroundColor = .orange
+        cell.rateTextLabel.layer.borderColor = UIColor.black.cgColor
+        cell.rateTextLabel.layer.borderWidth = 1
+
+        cell.rateLabel.backgroundColor = .white
+        cell.rateLabel.layer.borderColor = UIColor.black.cgColor
+        cell.rateLabel.layer.borderWidth = 1
+        
         cell.delegate = self
         cell.titleLabel.text = tvShowList[indexPath.row].title
         cell.rateLabel.text = "\(tvShowList[indexPath.row].rate)"
+        
         cell.actorListLabel.text = tvShowList[indexPath.row].starring
         cell.genreLabel.text = tvShowList[indexPath.row].genre
         cell.releaseDateLabel.text = tvShowList[indexPath.row].releaseDate
@@ -160,6 +172,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         do {
             let image = try Data(contentsOf: url!)
             cell.posterImageView.image = UIImage(data: image)
+            cell.posterImageView.contentMode = .scaleToFill
+            cell.posterImageView.clipsToBounds = true
         }
         catch {
 
@@ -187,7 +201,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         catch {
 
         }
-        
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

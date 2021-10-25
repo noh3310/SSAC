@@ -31,23 +31,26 @@ class MovieMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(UINavigationBar())
-        
         // 2. locationManager 델리게이트 연결
         locationManager.delegate = self
         
-        // locationManager 델리게이트 연결
+        // mapView 델리게이트 연결
         mapView.delegate = self
  
         // 지도 위치랑, 어노테이션 설정
         printAnnotation(printType: type)
         
+        // 네비게이션 바 설정
+        setNavigationBar()
+    }
+    
+    func setNavigationBar() {
         // 네비게이션바 오른쪽에 버튼 생성
         let rightBarButton = UIBarButtonItem.init(title: "Type", style: .done, target: self, action: #selector(filterButtonClicked(_:)))
         navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    // 어노테이션 출력및 중간위치 설정
+    // 어노테이션 출력및 중간위치 설정(이것도 나중에 함수 여러개로 변경할 수 있음)
     func printAnnotation(printType: String) {
         // 맵뷰에 있는 어노테이션 일단 다 삭제
         let annotations = mapView.annotations
@@ -148,35 +151,6 @@ extension MovieMapViewController: CLLocationManagerDelegate {
         else {
             print("location Can Not Find")
         }
-        
-//        if locations.count > 0 {
-//            var xPosition: Double = 0
-//            var yPosition: Double = 0
-//
-//            // 반복문을 돌면서 수행함
-//            for location in locations {
-//                // MKPointAnnotation: 지도위치에 적용하고 싶은 부분에 문자열 기반의 위치정보 데이터
-//                let annotation = MKPointAnnotation()
-//                annotation.coordinate = location.coordinate
-//                annotation.title = "맵"
-//                mapView.addAnnotation(annotation)
-//
-//                // 추가작업 지도의 평균 위치를 정해서 그 위치를 기본값으로 설정
-//                xPosition += location.coordinate.latitude
-//                yPosition += location.coordinate.longitude
-//            }
-//            xPosition /= Double(locations.count)
-//            yPosition /= Double(locations.count)
-//
-//            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-//            let centerPosition = CLLocationCoordinate2D(latitude: xPosition, longitude: yPosition)
-//            let region = MKCoordinateRegion(center: centerPosition, span: span)
-//            // 맵뷰를 켰을 때 시작하는 이미지를 설정
-//            mapView.setRegion(region, animated: true)
-//        }
-//        else {
-//            print("위치개수가 없습니다.")
-//        }
     }
     
     // 5. 위치설정은 했으나 오류로 인해서 실행되지 않은 경우

@@ -212,6 +212,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j0O-2i-lmI">
                                 <rect key="frame" x="0.0" y="164" width="414" height="698"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKM-vl-Otm">
+                                <rect key="frame" x="275" y="90" width="73" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="설정이동"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="f5R-8L-Wpp" eventType="touchUpInside" id="wdM-cH-bmn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5E-FK-LuQ">
+                                <rect key="frame" x="106" y="90" width="129" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="레이블 텍스트 변경"/>
+                                <connections>
+                                    <action selector="changeLabelTextButtonClicked:" destination="f5R-8L-Wpp" eventType="touchUpInside" id="phb-9s-0nL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2SR-Ww-Fch"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
