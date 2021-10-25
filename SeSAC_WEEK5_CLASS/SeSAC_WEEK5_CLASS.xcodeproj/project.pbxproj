@@ -13,6 +13,13 @@
 		D3051B07272644B500C8E3A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3051B05272644B500C8E3A3 /* Main.storyboard */; };
 		D3051B09272644B800C8E3A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3051B08272644B800C8E3A3 /* Assets.xcassets */; };
 		D3051B0C272644B800C8E3A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3051B0A272644B800C8E3A3 /* LaunchScreen.storyboard */; };
+		D3051B17272647FD00C8E3A3 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D3051B16272647FD00C8E3A3 /* SwiftyJSON */; };
+		D3051B1A2726483700C8E3A3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D3051B192726483700C8E3A3 /* Alamofire */; };
+		D3051B1E2726BA0900C8E3A3 /* WeatherProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3051B1D2726BA0900C8E3A3 /* WeatherProject.storyboard */; };
+		D3051B202726BA1900C8E3A3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B1F2726BA1900C8E3A3 /* WeatherViewController.swift */; };
+		D3051B232726BE5800C8E3A3 /* LottoProject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3051B222726BE5800C8E3A3 /* LottoProject.storyboard */; };
+		D3051B252726BE6800C8E3A3 /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B242726BE6800C8E3A3 /* LottoViewController.swift */; };
+		D3051B282726F87500C8E3A3 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B272726F87500C8E3A3 /* Key.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,11 @@
 		D3051B08272644B800C8E3A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3051B0B272644B800C8E3A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3051B0D272644B800C8E3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3051B1D2726BA0900C8E3A3 /* WeatherProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeatherProject.storyboard; sourceTree = "<group>"; };
+		D3051B1F2726BA1900C8E3A3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		D3051B222726BE5800C8E3A3 /* LottoProject.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LottoProject.storyboard; sourceTree = "<group>"; };
+		D3051B242726BE6800C8E3A3 /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
+		D3051B272726F87500C8E3A3 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3051B17272647FD00C8E3A3 /* SwiftyJSON in Frameworks */,
+				D3051B1A2726483700C8E3A3 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,11 +74,40 @@
 				D3051B01272644B500C8E3A3 /* SceneDelegate.swift */,
 				D3051B03272644B500C8E3A3 /* ViewController.swift */,
 				D3051B05272644B500C8E3A3 /* Main.storyboard */,
+				D3051B292726F89700C8E3A3 /* Model */,
+				D3051B212726BA1E00C8E3A3 /* WeatherProject */,
+				D3051B262726BE7600C8E3A3 /* LottoProject */,
 				D3051B08272644B800C8E3A3 /* Assets.xcassets */,
 				D3051B0A272644B800C8E3A3 /* LaunchScreen.storyboard */,
 				D3051B0D272644B800C8E3A3 /* Info.plist */,
 			);
 			path = SeSAC_WEEK5_CLASS;
+			sourceTree = "<group>";
+		};
+		D3051B212726BA1E00C8E3A3 /* WeatherProject */ = {
+			isa = PBXGroup;
+			children = (
+				D3051B1D2726BA0900C8E3A3 /* WeatherProject.storyboard */,
+				D3051B1F2726BA1900C8E3A3 /* WeatherViewController.swift */,
+			);
+			path = WeatherProject;
+			sourceTree = "<group>";
+		};
+		D3051B262726BE7600C8E3A3 /* LottoProject */ = {
+			isa = PBXGroup;
+			children = (
+				D3051B222726BE5800C8E3A3 /* LottoProject.storyboard */,
+				D3051B242726BE6800C8E3A3 /* LottoViewController.swift */,
+			);
+			path = LottoProject;
+			sourceTree = "<group>";
+		};
+		D3051B292726F89700C8E3A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D3051B272726F87500C8E3A3 /* Key.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +126,10 @@
 			dependencies = (
 			);
 			name = SeSAC_WEEK5_CLASS;
+			packageProductDependencies = (
+				D3051B16272647FD00C8E3A3 /* SwiftyJSON */,
+				D3051B192726483700C8E3A3 /* Alamofire */,
+			);
 			productName = SeSAC_WEEK5_CLASS;
 			productReference = D3051AFC272644B500C8E3A3 /* SeSAC_WEEK5_CLASS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +158,10 @@
 				Base,
 			);
 			mainGroup = D3051AF3272644B500C8E3A3;
+			packageReferences = (
+				D3051B15272647FD00C8E3A3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				D3051B182726483600C8E3A3 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = D3051AFD272644B500C8E3A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3051B0C272644B800C8E3A3 /* LaunchScreen.storyboard in Resources */,
+				D3051B232726BE5800C8E3A3 /* LottoProject.storyboard in Resources */,
 				D3051B09272644B800C8E3A3 /* Assets.xcassets in Resources */,
 				D3051B07272644B500C8E3A3 /* Main.storyboard in Resources */,
+				D3051B1E2726BA0900C8E3A3 /* WeatherProject.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +191,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3051B252726BE6800C8E3A3 /* LottoViewController.swift in Sources */,
 				D3051B04272644B500C8E3A3 /* ViewController.swift in Sources */,
+				D3051B202726BA1900C8E3A3 /* WeatherViewController.swift in Sources */,
 				D3051B00272644B500C8E3A3 /* AppDelegate.swift in Sources */,
 				D3051B02272644B500C8E3A3 /* SceneDelegate.swift in Sources */,
+				D3051B282726F87500C8E3A3 /* Key.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +350,7 @@
 				INFOPLIST_FILE = SeSAC_WEEK5_CLASS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = WeatherProject;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +378,7 @@
 				INFOPLIST_FILE = SeSAC_WEEK5_CLASS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = WeatherProject;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,6 +416,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3051B15272647FD00C8E3A3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+		D3051B182726483600C8E3A3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3051B16272647FD00C8E3A3 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3051B15272647FD00C8E3A3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		D3051B192726483700C8E3A3 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3051B182726483600C8E3A3 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3051AF4272644B500C8E3A3 /* Project object */;
 }
