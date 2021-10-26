@@ -47,6 +47,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="refreshButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UNG-W9-e4N"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ7-sh-G0K">
                                         <rect key="frame" x="274" y="0.0" width="50" height="50"/>
@@ -147,6 +150,7 @@
                         <outlet property="refreshButton" destination="u2o-2f-4W6" id="xTr-nz-41r"/>
                         <outlet property="shareButton" destination="FQ7-sh-G0K" id="FsR-zn-Ddt"/>
                         <outlet property="temperatureLabel" destination="PA3-LP-yg7" id="w6x-Dz-Xa1"/>
+                        <outlet property="uiView" destination="xVy-cs-tkC" id="rN6-4n-wd9"/>
                         <outlet property="weatherImageView" destination="x2z-SI-YuW" id="fnQ-mi-PON"/>
                         <outlet property="windArrowImageView" destination="DuN-Qh-GAW" id="jTr-ZY-ygL"/>
                         <outlet property="windLabel" destination="ldg-mI-dtj" id="7he-b6-lj2"/>
