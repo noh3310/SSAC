@@ -48,11 +48,15 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    var addressName: String = ""
+    
     // 기본값을 일단은 싹 영등포캠퍼스로 설정해줌
     // 37.51778532586968, 126.88643025525303
     var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 20, longitude: 20) {
         // 만약 값이 변한다면 어떻게 할지 결정해보기
         didSet {
+            changePositionToAddress(self.userLocation)
+            
             // 현재위치 업데이트된것을 라벨에 반영해줌(일단은 위경도만 출력)
             updateCurrentPositionLabel()
             
@@ -116,6 +120,7 @@ class WeatherViewController: UIViewController {
         setButtonOf(refreshButton, imageString: "arrow.clockwise")
         
         
+        changePositionToAddress(userLocation)
         // 현재위치 업데이트된것을 라벨에 반영해줌(일단은 위경도만 출력)
         updateCurrentPositionLabel()
         // 아래 라벨들 변수값 설정해서 연산 프로퍼티로 변경될 메서드들을 수행할 수 있도록 한다.(근데 굳이 함수를 쓰지않고 연산 프로퍼티에서도 변경해줘도 될 것같다....)
@@ -254,11 +259,9 @@ class WeatherViewController: UIViewController {
     }
     
     // 현재위치가 변경되었을 때 라벨값 업데이트(추후 위경도 -> 주소 동 까지만 출력으로 변경)
-    // 네이버 API쓸지 그냥 애플꺼 쓸지 고민
+    // 애플 API 사용
     func updateCurrentPositionLabel() {
-        let text = "위도는 \(userLocation.latitude)이고, 경도는 \(userLocation.longitude)입니다."
-
-        currentPosition.text = text
+        currentPosition.text = addressName
     }
     
     // 리프레쉬 버튼 클릭했을 때 내 위치를 새롭게 받아옴
@@ -266,6 +269,27 @@ class WeatherViewController: UIViewController {
         setUserLocation()
     }
     
+    // 위경도를 주소이름으로 변경해줌
+    func changePositionToAddress(_ location: CLLocationCoordinate2D) {
+        
+        //latitude: 위도, 도: 경도
+        let findLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr") //원하는 언어의 나라 코드를 넣어주시면 됩니다.
+        geocoder.reverseGeocodeLocation(findLocation, preferredLocale: locale, completionHandler: {(placemarks, error) in
+            guard let address: [CLPlacemark] = placemarks else { return }
+            guard let administrativeArea: String = address.first?.administrativeArea else { return }
+            guard let locality: String = address.first?.locality else { return }
+            
+            let addressName = "\(administrativeArea) \(locality)"
+            self.addressName = addressName
+        })
+    }
+    
+    // 현재 위치정보를 사용하고 있다면 이미지 보이고, 아니라면 안보이게 설정
+    func setCurrentPositionStateImageLabel(_ bool: Bool) {
+        
+    }
 }
 
 // 3. 익스텐션 설정
