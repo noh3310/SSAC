@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 class WeatherViewController: UIViewController {
     
@@ -17,13 +18,13 @@ class WeatherViewController: UIViewController {
     let key = Key.weatherKey
     
     // 온도 담아놓는 변수
-    var temperature: Int = 0 {
+    var temperature: Double = 0 {
         didSet {
             setTemperatureLabel(self.temperature)
         }
     }
     
-    // 습도 담아두는 버튼
+    // 습도 담아두는 변수
     var humidity: Int = 0 {
         didSet {
             setHumidityLabel(self.humidity)
@@ -31,12 +32,13 @@ class WeatherViewController: UIViewController {
     }
     
     // 풍속 변수
-    var wind: Int = 0 {
+    var wind: Double = 0 {
         didSet {
             setWindLabel(self.wind)
         }
     }
     
+    // 이미지링크 주소
     var imageLink: String = "" {
         didSet {
             setWeatherImageView(self.imageLink)
@@ -92,6 +94,7 @@ class WeatherViewController: UIViewController {
         let todayDate = dateFormatter.string(from: Date())
         
         dateLabel.text = todayDate
+        dateLabel.textColor = .white
     }
     
     // 이 함수의 파라미터를 Any로 바꾸니 오류가 발생
@@ -109,18 +112,31 @@ class WeatherViewController: UIViewController {
     }
     
     // 온도 설정
-    func setTemperatureLabel(_ temperature: Int) {
-        temperatureLabel.text = "지금은 " + String(temperature) + "도 에요."
+    func setTemperatureLabel(_ temperature: Double) {
+        // 캘빈 -> 섭씨로 변경
+        let celsiusValue = changeKelvinToCelsius(temperature)
+        
+        // 소수점 둘째자리까지 잘라주기
+        let stringCelsius = calculateTwoDecimalPlaces(celsiusValue)
+        
+        temperatureLabel.text = "지금은 " + stringCelsius + "°C 에요."
+    }
+    
+    // 캘빈 -> 섭씨 변환 함수
+    func changeKelvinToCelsius(_ kelvin: Double) -> Double {
+        return kelvin - 273.15
     }
     
     // 습도 설정
     func setHumidityLabel(_ humidity: Int) {
-        humidityLabel.text = String(humidity) + "%만큼 습해요"
+        humidityLabel.text = String(humidity) + "%만큼 습해요 "
     }
     
     // 풍속 설정
-    func setWindLabel(_ wind: Int) {
-        windLabel.text = String(wind) + "m/s만큼 바람이 불어요."
+    func setWindLabel(_ wind: Double) {
+        let windString = calculateTwoDecimalPlaces(wind)
+        
+        windLabel.text = windString + "m/s만큼 바람이 불어요."
     }
     
     // 좋은하루 보내세요 설정
@@ -128,21 +144,19 @@ class WeatherViewController: UIViewController {
         goodDayLabel.text = "오늘도 좋은 하루 보내세요"
     }
     
+    // 소수점 두자리수까지 계산해서 리턴해주는 함수
+    func calculateTwoDecimalPlaces(_ value: Double) -> String {
+        return String(format: "%.2f", value)
+    }
+    
     // 날씨 이미지뷰 설정
     func setWeatherImageView(_ imageStr: String) {
-
+        
         let urlSource = "http://openweathermap.org/img/wn/" + imageStr + "@2x.png"
-
-        //url에 정확한 이미지 url 주소를 넣는다.
+        
+        // Kingfisher 적용(편안...)
         let url = URL(string: urlSource)
-        do {
-            let image = try Data(contentsOf: url!)
-            print(image)
-            weatherImageView.image = UIImage(data: image)
-        }
-        catch {
-
-        }
+        weatherImageView.kf.setImage(with: url)
     }
     
     // http정보 받아옴(현재 내 위치에서 받아올것인지 확인해보기)
@@ -159,13 +173,13 @@ class WeatherViewController: UIViewController {
                 
                 // 온도
                 print(json["main"]["temp"])
-                self.temperature = json["main"]["temp"].intValue
+                self.temperature = json["main"]["temp"].doubleValue
                 // 습도
                 print(json["main"]["humidity"])
                 self.humidity = json["main"]["humidity"].intValue
                 // 풍속
                 print(json["wind"]["speed"])
-                self.wind = json["wind"]["speed"].intValue
+                self.wind = json["wind"]["speed"].doubleValue
                 // 이미지(자세히 보니 배열타입이라 0번 인덱스의 값을 가져와줌
                 print(json["weather"][0]["icon"])
                 self.imageLink = json["weather"][0]["icon"].stringValue

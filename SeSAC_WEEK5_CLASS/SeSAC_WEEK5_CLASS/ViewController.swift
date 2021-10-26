@@ -10,6 +10,10 @@ import Alamofire
 import SwiftyJSON
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var currentTempLabel: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,16 @@ class ViewController: UIViewController {
                 
                 let json = JSON(value)
                 print("JSON: \(json)")
-                print(json["timezone"])
+                print(json["main"]["temp"])
+                
+                let currentTemp = json["main"]["temp"].doubleValue - 273.15
+                self.currentTempLabel.text = "\(Int(currentTemp))°C"
+                
+                let currentWindSpeed = json["wind"]["speed"].doubleValue
+                self.windSpeedLabel.text = String(currentWindSpeed) + "바람"
+                
+                let currentHumidity = json["main"]["humidity"].intValue
+                self.humidityLabel.text = String(currentHumidity) + "습도"
                 
             case .failure(let error):
                 
