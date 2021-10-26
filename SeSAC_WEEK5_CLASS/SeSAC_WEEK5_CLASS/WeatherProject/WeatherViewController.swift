@@ -11,7 +11,6 @@ import SwiftyJSON
 import Kingfisher
 import CoreLocation
 import CoreLocationUI
-import SwiftUI
 
 class WeatherViewController: UIViewController {
     
@@ -41,6 +40,12 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    var windDirection: Int = 0 {
+        didSet {
+            setWindDirection(self.windDirection)
+        }
+    }
+    
     // 이미지링크 주소
     var imageLink: String = "" {
         didSet {
@@ -48,17 +53,21 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    var addressName: String = ""
+    // 주소이름: ~구 ~동 까지만 나옴
+    var addressName: String = "" {
+        didSet {
+            // 현재위치 업데이트된것을 라벨에 반영해줌(일단은 위경도만 출력)
+            updateCurrentPositionLabel()
+        }
+    }
     
     // 기본값을 일단은 싹 영등포캠퍼스로 설정해줌
     // 37.51778532586968, 126.88643025525303
     var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 20, longitude: 20) {
         // 만약 값이 변한다면 어떻게 할지 결정해보기
         didSet {
+            // 위도 경도를 주소로 변환
             changePositionToAddress(self.userLocation)
-            
-            // 현재위치 업데이트된것을 라벨에 반영해줌(일단은 위경도만 출력)
-            updateCurrentPositionLabel()
             
             // 새롭게 API로 정보를 가져와서 업데이트해줌
             setLabelsByWeatherInformation(latitude: self.userLocation.latitude, longitude: self.userLocation.longitude)
@@ -94,6 +103,9 @@ class WeatherViewController: UIViewController {
         // 2. locationManager 델리게이트 권한 위임
         locationManager.delegate = self
         
+        // 바람 방향 이미지 설정
+        setWindArrowImageView()
+        
         // 오늘날짜 설정
         setDateLabel()
         
@@ -118,15 +130,6 @@ class WeatherViewController: UIViewController {
         // 버튼 설정
         setButtonOf(shareButton, imageString: "square.and.arrow.up")
         setButtonOf(refreshButton, imageString: "arrow.clockwise")
-        
-        
-        changePositionToAddress(userLocation)
-        // 현재위치 업데이트된것을 라벨에 반영해줌(일단은 위경도만 출력)
-        updateCurrentPositionLabel()
-        // 아래 라벨들 변수값 설정해서 연산 프로퍼티로 변경될 메서드들을 수행할 수 있도록 한다.(근데 굳이 함수를 쓰지않고 연산 프로퍼티에서도 변경해줘도 될 것같다....)
-        // 나중에 리셋버튼을 누르게되면 사용할 수도 있으니 함수는 일단 살려놓는것으로 하자.
-        // 초기값은 싹 영등포캠퍼스로 할 것이고, 위치가 변경되면 이것도 함께 변경할 것이다.
-        setLabelsByWeatherInformation(latitude: userLocation.latitude, longitude: userLocation.longitude)
     }
     
     // 오늘날짜 설정
@@ -138,6 +141,12 @@ class WeatherViewController: UIViewController {
         
         dateLabel.text = todayDate
         dateLabel.textColor = .white
+    }
+    
+    // 이미지뷰 기본 설정
+    func setWindArrowImageView() {
+        windArrowImageView.image = UIImage(systemName: "paperplane.fill")
+        windArrowImageView.tintColor = .white
     }
     
     // positionLabel 텍스트 색상 설정
@@ -187,6 +196,15 @@ class WeatherViewController: UIViewController {
         windLabel.text = windString + "m/s만큼 바람이 불어요."
     }
     
+    // 방향을 정해줌(바람의 방향은 Direction으로 알려줌(meteorological))
+    // 검색해보니 8가지로 나눌 수 있다 아래 그림보고 참조해서 만듬
+    // https://uni.edu/storm/Wind%20Direction%20slide.pdf
+    func setWindDirection(_ windDirection: Int) {
+        // 그림을 기본적으로 위를 바라보게 해놓고 그다음에 계산하면 된다.
+        let angle: CGFloat = CGFloat((windDirection + 318) % 360) * .pi / 180
+        windArrowImageView.transform = .init(rotationAngle: angle)
+    }
+    
     // 좋은하루 보내세요 설정
     func setGoodDayLabel() {
         goodDayLabel.text = "오늘도 좋은 하루 보내세요"
@@ -231,7 +249,10 @@ class WeatherViewController: UIViewController {
                 // 이미지(자세히 보니 배열타입이라 0번 인덱스의 값을 가져와줌
                 print(json["weather"][0]["icon"])
                 self.imageLink = json["weather"][0]["icon"].stringValue
-                
+                // 바람 방향
+                print("windDirection = \(json["wind"]["deg"])")
+                self.windDirection = json["wind"]["deg"].intValue
+
             case .failure(let error):
                 print(error)
             }
@@ -287,6 +308,7 @@ class WeatherViewController: UIViewController {
     }
     
     // 현재 위치정보를 사용하고 있다면 이미지 보이고, 아니라면 안보이게 설정
+    // 이건 나중에 하자...
     func setCurrentPositionStateImageLabel(_ bool: Bool) {
         
     }
