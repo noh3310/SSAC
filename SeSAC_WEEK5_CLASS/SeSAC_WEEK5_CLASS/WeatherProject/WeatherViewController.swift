@@ -136,7 +136,7 @@ class WeatherViewController: UIViewController {
     func setDateLabel() {
         // dateformatter를 가지고 형식에 맞게 날짜 받아옴
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM월 dd일 HH시 MM분"
+        dateFormatter.dateFormat = "MM월 dd일 HH시 mm분"
         let todayDate = dateFormatter.string(from: Date())
         
         dateLabel.text = todayDate
