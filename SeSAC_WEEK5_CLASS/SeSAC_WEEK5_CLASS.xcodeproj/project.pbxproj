@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D30192972727EA6B00E88320 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D30192962727EA6B00E88320 /* Kingfisher */; };
+		D30192992728D18E00E88320 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192982728D18E00E88320 /* Constants.swift */; };
+		D301929B2728D33300E88320 /* TranslatedAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301929A2728D33300E88320 /* TranslatedAPIManager.swift */; };
+		D301929D2728E9A800E88320 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301929C2728E9A800E88320 /* VisionViewController.swift */; };
+		D301929F2728EC6F00E88320 /* VisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301929E2728EC6F00E88320 /* VisionAPIManager.swift */; };
 		D3051B00272644B500C8E3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051AFF272644B500C8E3A3 /* AppDelegate.swift */; };
 		D3051B02272644B500C8E3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B01272644B500C8E3A3 /* SceneDelegate.swift */; };
 		D3051B04272644B500C8E3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B03272644B500C8E3A3 /* ViewController.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D30192982728D18E00E88320 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D301929A2728D33300E88320 /* TranslatedAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedAPIManager.swift; sourceTree = "<group>"; };
+		D301929C2728E9A800E88320 /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
+		D301929E2728EC6F00E88320 /* VisionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAPIManager.swift; sourceTree = "<group>"; };
 		D3051AFC272644B500C8E3A3 /* SeSAC_WEEK5_CLASS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_WEEK5_CLASS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3051AFF272644B500C8E3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3051B01272644B500C8E3A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +86,11 @@
 				D3051B01272644B500C8E3A3 /* SceneDelegate.swift */,
 				D3051B03272644B500C8E3A3 /* ViewController.swift */,
 				D3051B2A2727928500C8E3A3 /* TranslateViewController.swift */,
+				D30192982728D18E00E88320 /* Constants.swift */,
+				D301929A2728D33300E88320 /* TranslatedAPIManager.swift */,
 				D3051B05272644B500C8E3A3 /* Main.storyboard */,
+				D301929C2728E9A800E88320 /* VisionViewController.swift */,
+				D301929E2728EC6F00E88320 /* VisionAPIManager.swift */,
 				D3051B292726F89700C8E3A3 /* Model */,
 				D3051B212726BA1E00C8E3A3 /* WeatherProject */,
 				D3051B262726BE7600C8E3A3 /* LottoProject */,
@@ -201,10 +213,14 @@
 				D3051B252726BE6800C8E3A3 /* LottoViewController.swift in Sources */,
 				D3051B04272644B500C8E3A3 /* ViewController.swift in Sources */,
 				D3051B202726BA1900C8E3A3 /* WeatherViewController.swift in Sources */,
+				D301929B2728D33300E88320 /* TranslatedAPIManager.swift in Sources */,
 				D3051B00272644B500C8E3A3 /* AppDelegate.swift in Sources */,
 				D3051B02272644B500C8E3A3 /* SceneDelegate.swift in Sources */,
 				D3051B282726F87500C8E3A3 /* Key.swift in Sources */,
 				D3051B2B2727928500C8E3A3 /* TranslateViewController.swift in Sources */,
+				D301929D2728E9A800E88320 /* VisionViewController.swift in Sources */,
+				D301929F2728EC6F00E88320 /* VisionAPIManager.swift in Sources */,
+				D30192992728D18E00E88320 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
