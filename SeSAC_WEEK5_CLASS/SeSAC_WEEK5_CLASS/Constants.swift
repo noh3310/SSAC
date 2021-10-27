@@ -19,4 +19,6 @@ struct EndPoint {
     static let translateURL = "https://openapi.naver.com/v1/papago/n2mt"
     
     static let visionURL = "https://dapi.kakao.com/v2/vision/face/detect"
+    
+    static let lottoURL = "https://www.dhlottery.co.kr/common.do"
 }
