@@ -14,6 +14,7 @@
 		D301929F2728EC6F00E88320 /* VisionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301929E2728EC6F00E88320 /* VisionAPIManager.swift */; };
 		D30192A127292B5500E88320 /* LottoNumberStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192A027292B5500E88320 /* LottoNumberStruct.swift */; };
 		D30192A327296B4200E88320 /* LottoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192A227296B4200E88320 /* LottoAPIManager.swift */; };
+		D30192A6272A2C9600E88320 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D30192A5272A2C9600E88320 /* JGProgressHUD */; };
 		D3051B00272644B500C8E3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051AFF272644B500C8E3A3 /* AppDelegate.swift */; };
 		D3051B02272644B500C8E3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B01272644B500C8E3A3 /* SceneDelegate.swift */; };
 		D3051B04272644B500C8E3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B03272644B500C8E3A3 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30192A6272A2C9600E88320 /* JGProgressHUD in Frameworks */,
 				D30192972727EA6B00E88320 /* Kingfisher in Frameworks */,
 				D3051B17272647FD00C8E3A3 /* SwiftyJSON in Frameworks */,
 				D3051B1A2726483700C8E3A3 /* Alamofire in Frameworks */,
@@ -153,6 +155,7 @@
 				D3051B16272647FD00C8E3A3 /* SwiftyJSON */,
 				D3051B192726483700C8E3A3 /* Alamofire */,
 				D30192962727EA6B00E88320 /* Kingfisher */,
+				D30192A5272A2C9600E88320 /* JGProgressHUD */,
 			);
 			productName = SeSAC_WEEK5_CLASS;
 			productReference = D3051AFC272644B500C8E3A3 /* SeSAC_WEEK5_CLASS.app */;
@@ -186,6 +189,7 @@
 				D3051B15272647FD00C8E3A3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				D3051B182726483600C8E3A3 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D30192952727EA6B00E88320 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D30192A4272A2C9600E88320 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = D3051AFD272644B500C8E3A3 /* Products */;
 			projectDirPath = "";
@@ -458,6 +462,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		D30192A4272A2C9600E88320 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D3051B15272647FD00C8E3A3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -481,6 +493,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D30192952727EA6B00E88320 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		D30192A5272A2C9600E88320 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D30192A4272A2C9600E88320 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 		D3051B16272647FD00C8E3A3 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

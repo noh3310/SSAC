@@ -15,12 +15,14 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var textField: UITextField!
+    
     let tvShowList = Sample.tvShow
     
     var searchText: String = "" {
         didSet {
 //            myTableView.reloadData()
-            fetchMovieData()
+//            fetchMovieData(query: self.searchText)
         }
     }
     
@@ -40,10 +42,9 @@ class SearchViewController: UIViewController {
     var startPage = 1
     
     // 네이버 영화 네트워크 통신
-    func fetchMovieData() {
-//        movieData = []
+    func fetchMovieData(query: String) {
         
-        if let query = "사랑".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+        if let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             
             let url = "https://openapi.naver.com/v1/search/movie.json?query=" + query + "&display=" + "10" + "&start=" + "\(startPage)"
             
@@ -88,8 +89,11 @@ class SearchViewController: UIViewController {
         myTableView.delegate = self
         myTableView.dataSource = self
         myTableView.prefetchDataSource = self
+        
+        myTableView.keyboardDismissMode = .onDrag
     }
     
+    // 서치바 설정
     func setSearchBar() {
         searchBar.delegate = self
     }
@@ -107,8 +111,6 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
             if self.movieData.count - 1 == indexPath.row && movieData.count < totalCount {
                 startPage += 10
                 
-                fetchMovieData()
-                
                 print(indexPath)
             }
         }
@@ -120,15 +122,51 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
     }
 }
 
-// search view extension
+// search bar extension
 extension SearchViewController: UISearchBarDelegate {
+    // 텍스트가 바뀌었을 때
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("searchText \(searchText)", #function)
         self.searchText = searchText
     }
 
+    // 검색버튼(키보드 리턴키)을 눌렀을 때
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("searchText \(String(describing: searchBar.text))")
+        
+        if let text = searchBar.text {
+            // 배열의 값을 다 지워줌
+            movieData.removeAll()
+            
+            // 페이지네이션 기능의 페이지를 초기화시켜줘야함
+            startPage = 1
+            
+            fetchMovieData(query: text)
+            
+        }
+    }
+    
+    // 취소버튼을 눌렀을 때 실행
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print(#function)
+        
+        // 배열의 값을 다 지워줌
+        movieData.removeAll()
+        
+        // 페이지네이션 기능의 페이지를 초기화시켜줘야함
+        startPage = 1
+        
+        // 취소버튼 나타나게 해줌(애니메이션 방식)
+        // 애니메이션으로 나타나게 하는 것이다
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    // 서치바에서 커서 시작할 때를 인식함
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print(#function)
+        
+        // 취소버튼 나타나게 해줌
+        searchBar.setShowsCancelButton(true, animated: true)
     }
 }
 

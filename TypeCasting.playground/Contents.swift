@@ -35,8 +35,22 @@ let instanceList = [ Chinesefood(name: "cake", type: "케이크"),
 
 for instance in instanceList {
     if instance is KoreanFood {
-        print(instance.name, instance.type)
+        let koreanFoodInstance = instance as! KoreanFood
+        print(koreanFoodInstance.name, koreanFoodInstance.type)
     } else if instance is Chinesefood {
-        print(instance.name, instance.type)
+        let chineseFoodInstance = instance as! Chinesefood
+        print(chineseFoodInstance.name, chineseFoodInstance.type)
+    }
+}
+
+for instance in instanceList {
+    if instance is KoreanFood {
+        if let koreanFoodInstance = instance as? KoreanFood {
+            print(koreanFoodInstance.name, koreanFoodInstance.type)
+        }
+    } else if instance is Chinesefood {
+        if let chineseFoodInstance = instance as? Chinesefood {
+            print(chineseFoodInstance.name, chineseFoodInstance.type)
+        }
     }
 }
