@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import AVFoundation
 
 class SearchViewController: UIViewController {
     
@@ -27,6 +28,20 @@ class SearchViewController: UIViewController {
     }
     
     var movieData: [MovieModel] = []
+    
+    // 랭킹 리스트
+    var movieRankList: [MovieRankModel] = [] {
+        didSet {
+            myTableView.reloadData()
+        }
+    }
+    
+    // 검색 데이터
+    var targetDate: String = "" {
+        didSet {
+            searchMovieList(date: self.targetDate)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,54 +51,19 @@ class SearchViewController: UIViewController {
         
         // 서치바 설정
         setSearchBar()
+        
+        // 어제날짜로 설정
+        setYesterday()
+        
+        searchBar.text = targetDate
+        
+        // 커스텀 셀 사용가능하도록 테이블뷰에 등록
+        let nibName = UINib(nibName: SearchResultTableViewCell.identifier, bundle: nil)
+        myTableView.register(nibName, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
     }
     
     var totalCount = 0
     var startPage = 1
-    
-    // 네이버 영화 네트워크 통신
-    func fetchMovieData(query: String) {
-        
-        if let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            
-            let url = "https://openapi.naver.com/v1/search/movie.json?query=" + query + "&display=" + "10" + "&start=" + "\(startPage)"
-            
-            
-            let header: HTTPHeaders = [
-                "X-Naver-Client-Id":"T10QP9xxucDYrZfF1bCY",
-                "X-Naver-Client-Secret":"kcYyOUiGKO"
-            ]
-            
-            AF.request(url, method: .get, headers: header).validate().responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    print("JSON: \(json)")
-                    
-                    self.totalCount = json["total"].intValue
-                    
-                    for item in json["items"].arrayValue {
-                        
-                        let title = item["title"].stringValue
-                        let substringTitle = title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
-                        let image = item["image"].stringValue
-                        let link = item["link"].stringValue
-                        let userRating = item["userRating"].stringValue
-                        let sub = item["subtitle"].stringValue
-                        
-                        self.movieData.append(MovieModel(titleData: substringTitle, imageData: image, linkData: link, userRateData: userRating, subTitle: sub))
-                    }
-                    
-                    print(self.movieData)
-                    
-                    self.myTableView.reloadData()
-                    
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
-    }
     
     func setTableView() {
         myTableView.delegate = self
@@ -96,6 +76,17 @@ class SearchViewController: UIViewController {
     // 서치바 설정
     func setSearchBar() {
         searchBar.delegate = self
+    }
+    
+    func setYesterday() {
+        // 어제날짜 설정
+        let date = NSDate() as Date - 3600 * 24
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        
+        let yesterday = formatter.string(from: date)
+        
+        targetDate = yesterday
     }
 }
 
@@ -135,14 +126,36 @@ extension SearchViewController: UISearchBarDelegate {
         print("searchText \(String(describing: searchBar.text))")
         
         if let text = searchBar.text {
-            // 배열의 값을 다 지워줌
-            movieData.removeAll()
+            searchMovieList(date: text)
+        }
+    }
+    
+    // 영화검색하는 부분만 따로 빼줌
+    func searchMovieList(date: String) {
+        // 배열의 값을 다 지워줌
+        movieData.removeAll()
+        print("ㅎㅎㅎ")
+        
+        // 페이지네이션 기능의 페이지를 초기화시켜줘야함
+        startPage = 1
+        
+        // 사용자가 검색하고자 하는 텍스트로 물어봄
+        SearchAPI.shared.fetchMovieData(query: date) { Status, json in
+            let movieList = json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue
             
-            // 페이지네이션 기능의 페이지를 초기화시켜줘야함
-            startPage = 1
+            var movieInfo: [MovieRankModel] = []
+            for movie in movieList {
+                let rank = movie["rank"].intValue
+                let title = movie["movieNm"].stringValue
+                let releasedDate = movie["openDt"].stringValue
+                
+                let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate)
+                
+                movieInfo.append(info)
+            }
             
-            fetchMovieData(query: text)
-            
+            // 옵저빙 프로퍼티로 해줄것임
+            self.movieRankList = movieInfo
         }
     }
     
@@ -174,7 +187,7 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(movieData.count)
-        return movieData.count
+        return movieRankList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -183,28 +196,36 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = myTableView.dequeueReusableCell(withIdentifier: "MovieInformationTableViewCell", for: indexPath) as! MovieInformationTableViewCell
+        let cell = myTableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as! SearchResultTableViewCell
         
-        print(indexPath.row)
-        let row = movieData[indexPath.row]
-        cell.titleLabel.text = row.titleData
-        cell.releaseDate.text = row.subTitle
-        cell.Overview.text = row.userRateData
-        
-        print(row.imageData)
-        // 킹피셔로 이미지 가져옴
-        if let url = URL(string: row.imageData) {
-            cell.posterImageView.kf.setImage(with: url)
-        } else {
-            if #available(iOS 13.0, *) {
-                cell.posterImageView.image = UIImage(systemName: "star")
-            } else {
-                // Fallback on earlier versions
-            }
-        }
-        
-        
+        let row = movieRankList[indexPath.row]
+        cell.numberLabel.backgroundColor = .white
+        cell.numberLabel.text = "\(row.rank)"
+        cell.titleLabel.text = row.title
+        cell.releasedDateLabel.text = row.releasedDate
         
         return cell
+        
+//        let cell = myTableView.dequeueReusableCell(withIdentifier: "MovieInformationTableViewCell", for: indexPath) as! MovieInformationTableViewCell
+//
+//        print(indexPath.row)
+//        let row = movieData[indexPath.row]
+//        cell.titleLabel.text = row.titleData
+//        cell.releaseDate.text = row.subTitle
+//        cell.Overview.text = row.userRateData
+//
+//        print(row.imageData)
+//        // 킹피셔로 이미지 가져옴
+//        if let url = URL(string: row.imageData) {
+//            cell.posterImageView.kf.setImage(with: url)
+//        } else {
+//            if #available(iOS 13.0, *) {
+//                cell.posterImageView.image = UIImage(systemName: "star")
+//            } else {
+//                // Fallback on earlier versions
+//            }
+//        }
+//
+//        return cell
     }
 }

@@ -14,3 +14,9 @@ struct MovieModel {
     var userRateData: String
     var subTitle: String
 }
+
+struct MovieRankModel {
+    var rank: Int
+    var title: String
+    var releasedDate: String
+}
