@@ -17,6 +17,7 @@
 		D30192A6272A2C9600E88320 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D30192A5272A2C9600E88320 /* JGProgressHUD */; };
 		D30192B0272B7EBE00E88320 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192AF272B7EBE00E88320 /* AsyncViewController.swift */; };
 		D30192B2272B946F00E88320 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192B1272B946E00E88320 /* UILabel+Extension.swift */; };
+		D30192C3272D0E5C00E88320 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = D30192C2272D0E5C00E88320 /* SkeletonView */; };
 		D3051B00272644B500C8E3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051AFF272644B500C8E3A3 /* AppDelegate.swift */; };
 		D3051B02272644B500C8E3A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B01272644B500C8E3A3 /* SceneDelegate.swift */; };
 		D3051B04272644B500C8E3A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051B03272644B500C8E3A3 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 				D30192972727EA6B00E88320 /* Kingfisher in Frameworks */,
 				D3051B17272647FD00C8E3A3 /* SwiftyJSON in Frameworks */,
 				D3051B1A2726483700C8E3A3 /* Alamofire in Frameworks */,
+				D30192C3272D0E5C00E88320 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +164,7 @@
 				D3051B192726483700C8E3A3 /* Alamofire */,
 				D30192962727EA6B00E88320 /* Kingfisher */,
 				D30192A5272A2C9600E88320 /* JGProgressHUD */,
+				D30192C2272D0E5C00E88320 /* SkeletonView */,
 			);
 			productName = SeSAC_WEEK5_CLASS;
 			productReference = D3051AFC272644B500C8E3A3 /* SeSAC_WEEK5_CLASS.app */;
@@ -196,6 +199,7 @@
 				D3051B182726483600C8E3A3 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D30192952727EA6B00E88320 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D30192A4272A2C9600E88320 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				D30192C1272D0E5C00E88320 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = D3051AFD272644B500C8E3A3 /* Products */;
 			projectDirPath = "";
@@ -478,6 +482,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		D30192C1272D0E5C00E88320 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D3051B15272647FD00C8E3A3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -506,6 +518,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D30192A4272A2C9600E88320 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		D30192C2272D0E5C00E88320 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D30192C1272D0E5C00E88320 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		D3051B16272647FD00C8E3A3 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

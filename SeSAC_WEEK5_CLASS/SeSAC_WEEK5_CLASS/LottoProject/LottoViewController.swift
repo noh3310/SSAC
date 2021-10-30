@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import SwiftyJSON
+import SkeletonView
 
 class LottoViewController: UIViewController {
     
@@ -19,9 +20,7 @@ class LottoViewController: UIViewController {
     @IBOutlet weak var winningNumberDateLabel: UILabel!
     
     @IBOutlet weak var numberInformationLabel: UILabel!
-    
-    @IBOutlet weak var numberPickerView: UIPickerView!
-    
+
     @IBOutlet weak var lottoLabel1: UILabel!
     @IBOutlet weak var lottoColor1: UIImageView!
     
@@ -248,39 +247,83 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // pickerview에서 선택했을 때 메서드
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        LottoAPIManager.share.fetchTranslateData(number: row) { status, json in
+        
+        let userDefaults = UserDefaults.standard
+        // userdefualts에서 정보 있는지 찾아보고, 만약 있다면 서버검색을 수행하지 않음
+        let lottoNumber = userDefaults.integer(forKey: "\(row)")
+        // 유저디폴트에 값이 있다면
+        if lottoNumber != 0 {
+            print("유저디폴트값 받아옴")
+            let numberDay = userDefaults.string(forKey: "\(row)day")
+            let lottoNumbers = userDefaults.stringArray(forKey:  "\(row)numbers")!
             
-            // API 명세서를 찾지못해서 어떻게 처리해야할지 모르겠음..
-//            switch status {
-//            case 200: break
-//            case 400: break
-//            default: break
-//
-//            }
+            // 문자열 함수 정수 함수로 변경(고차함수 사용)
+            let intLottoNumbers = lottoNumbers.map { Int($0)! }
             
-            // 텍스트필드 설정
-            self.numberTextField.text = "\(row)"
-            
-            // 라벨 설정
-            self.numberInformation = "\(row)회 당첨결과"
-            
-            // 로또날짜 변경
-            self.date = json["drwNoDate"].stringValue
-            
-            // 로또번호 변경
-            var numbers: [Int] = []
-            
-            for index in 1...6 {
-                let number = json["drwtNo\(index)"].intValue
-                numbers.append(number)
+            // 메인(UI)스레드에서 텍스트값 수정
+            DispatchQueue.main.async {
+                self.setLottoInformation(row: row, lottoDate: numberDay!, lottoNumbers: intLottoNumbers)
             }
             
-            let bonusNumber = json["bnusNo"].intValue
-            numbers.append(bonusNumber)
-            
-            // 정리한 값을 배열에 담아주면 프로퍼티 옵저빙에 의해서 실행된다.
-            self.lottoNumber = numbers
         }
+        // 로또번호 없는 경우 API통신으로 받아오기
+        else {
+            // 정보 없어서 API로 통신
+            print("정보 없어서 API로 통신")
+            LottoAPIManager.share.fetchTranslateData(number: row) { status, json in
+                
+                // API 명세서를 찾지못해서 어떻게 처리해야할지 모르겠음..
+    //            switch status {
+    //            case 200: break
+    //            case 400: break
+    //            default: break
+    //
+    //            }
+                
+                // 로또날짜 변경
+                let lottoDate = json["drwNoDate"].stringValue
+                
+                // 로또번호 변경
+                var numbers: [Int] = []
+                
+                for index in 1...6 {
+                    let number = json["drwtNo\(index)"].intValue
+                    numbers.append(number)
+                }
+                
+                let bonusNumber = json["bnusNo"].intValue
+                numbers.append(bonusNumber)
+                
+                DispatchQueue.main.async {
+                    self.setLottoInformation(row: row, lottoDate: lottoDate, lottoNumbers: numbers)
+                }
+                
+                // userDefualts에 값 저장하기
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(row, forKey: "\(row)")
+                
+                // 당첨숫자 리턴
+                let stringNumbers = numbers.map { String($0) }
+                userDefaults.set(stringNumbers, forKey: "\(row)numbers")
+                
+                userDefaults.set(lottoDate, forKey: "\(row)day")
+            }
+        }
+    }
+    
+    // 로또번호 알아냈을 때 UI에 적용하는 부분(로또번호는 옵저빙 프로퍼티를 실행해 변경)
+    func setLottoInformation(row: Int, lottoDate: String, lottoNumbers: [Int]) {
+        // 텍스트필드 설정
+        self.numberTextField.text = "\(row)"
+        
+        // 라벨 설정
+        self.numberInformation = "\(row)회 당첨결과"
+        
+        // 로또날짜 변경
+        self.date = lottoDate
+        
+        // 정리한 값을 배열에 담아주면 프로퍼티 옵저빙에 의해서 실행된다.
+        self.lottoNumber = lottoNumbers
     }
     
 }

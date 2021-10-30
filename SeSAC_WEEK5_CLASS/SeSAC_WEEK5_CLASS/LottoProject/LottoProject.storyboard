@@ -92,6 +92,9 @@
                                             <constraint firstItem="mDV-Av-r2a" firstAttribute="leading" secondItem="iwc-zp-Uj3" secondAttribute="leading" id="kTB-pu-pLF"/>
                                             <constraint firstItem="dwp-ZZ-9cC" firstAttribute="centerX" secondItem="iwc-zp-Uj3" secondAttribute="centerX" id="ouq-oo-kpI"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKC-5j-YIO">
                                         <rect key="frame" x="50.5" y="0.0" width="46" height="46.5"/>
@@ -277,6 +280,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

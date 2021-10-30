@@ -10,7 +10,7 @@ import UIKit
 extension UILabel {
     func setBorderStyle() {
         self.backgroundColor = .blue
-        self.clipsToBounds = .blue
+        self.clipsToBounds = true
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.black.cgColor
     }
