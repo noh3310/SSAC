@@ -44,10 +44,7 @@ class HomeViewController: UIViewController {
         customTableView.rowHeight = UITableView.automaticDimension
         
         // 커스텀 셀 사용가능하도록 테이블뷰에 등록
-        var nibName = UINib(nibName: MoviePreviewTableViewCell.identifier, bundle: nil)
-        customTableView.register(nibName, forCellReuseIdentifier: MoviePreviewTableViewCell.identifier)
-        
-        nibName = UINib(nibName: HomeScreenMovieInformationTableViewCell.identifier, bundle: nil)
+        let nibName = UINib(nibName: HomeScreenMovieInformationTableViewCell.identifier, bundle: nil)
         customTableView.register(nibName, forCellReuseIdentifier: HomeScreenMovieInformationTableViewCell.identifier)
     }
     

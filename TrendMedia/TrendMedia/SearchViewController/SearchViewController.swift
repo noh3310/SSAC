@@ -87,6 +87,19 @@ class SearchViewController: UIViewController {
         let yesterday = formatter.string(from: date)
         
         targetDate = yesterday
+        
+        let calendar = Calendar.current
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date())!
+        print(tomorrow)
+        let yesterday1 = calendar.date(byAdding: .day, value: -1, to: Date())!
+        print(yesterday1)
+        
+        // 이번주 월요일은?
+        var component = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear, .weekday], from: Date())
+        component.weekday = 2   // 2번이 월요일 (0번이 일요일부터 시작함)
+        
+        let mondayWeek = calendar.date(from: component)
+        print(mondayWeek)
     }
 }
 
