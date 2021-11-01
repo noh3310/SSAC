@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3517C94273009F400B9BF17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C93273009F400B9BF17 /* MainViewController.swift */; };
+		D3517C9727300CA900B9BF17 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */; };
+		D3517C9927300CB400B9BF17 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C9827300CB400B9BF17 /* SearchViewController.swift */; };
+		D3517C9D27300D5D00B9BF17 /* CalendarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517C9C27300D5D00B9BF17 /* CalendarStoryboard.storyboard */; };
+		D3517C9F27300D6C00B9BF17 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C9E27300D6C00B9BF17 /* CalendarViewController.swift */; };
+		D3517CA127300D7500B9BF17 /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517CA027300D7500B9BF17 /* SettingStoryboard.storyboard */; };
+		D3517CA327300D8100B9BF17 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517CA227300D8100B9BF17 /* SettingViewController.swift */; };
+		D3517CA627303D9E00B9BF17 /* DiaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517CA527303D9E00B9BF17 /* DiaryStoryboard.storyboard */; };
+		D3517CA827303DAB00B9BF17 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517CA727303DAB00B9BF17 /* DiaryViewController.swift */; };
+		D3517CAB273048F600B9BF17 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517CA9273048F600B9BF17 /* InformationTableViewCell.swift */; };
+		D3517CAC273048F600B9BF17 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3517CAA273048F600B9BF17 /* InformationTableViewCell.xib */; };
 		D391F523272F6F360038F33B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391F522272F6F360038F33B /* AppDelegate.swift */; };
 		D391F525272F6F360038F33B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391F524272F6F360038F33B /* SceneDelegate.swift */; };
 		D391F527272F6F360038F33B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391F526272F6F360038F33B /* ViewController.swift */; };
@@ -25,6 +36,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3517C93273009F400B9BF17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
+		D3517C9827300CB400B9BF17 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D3517C9C27300D5D00B9BF17 /* CalendarStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarStoryboard.storyboard; sourceTree = "<group>"; };
+		D3517C9E27300D6C00B9BF17 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		D3517CA027300D7500B9BF17 /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
+		D3517CA227300D8100B9BF17 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D3517CA527303D9E00B9BF17 /* DiaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiaryStoryboard.storyboard; sourceTree = "<group>"; };
+		D3517CA727303DAB00B9BF17 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		D3517CA9273048F600B9BF17 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
+		D3517CAA273048F600B9BF17 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
 		D391F51F272F6F360038F33B /* SeSac_WEEK6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSac_WEEK6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D391F522272F6F360038F33B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D391F524272F6F360038F33B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +87,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3517C9527300C9500B9BF17 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */,
+				D3517C9827300CB400B9BF17 /* SearchViewController.swift */,
+				D3517CA9273048F600B9BF17 /* InformationTableViewCell.swift */,
+				D3517CAA273048F600B9BF17 /* InformationTableViewCell.xib */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		D3517C9A27300D2D00B9BF17 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				D3517C9C27300D5D00B9BF17 /* CalendarStoryboard.storyboard */,
+				D3517C9E27300D6C00B9BF17 /* CalendarViewController.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
+		D3517C9B27300D3400B9BF17 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				D3517CA027300D7500B9BF17 /* SettingStoryboard.storyboard */,
+				D3517CA227300D8100B9BF17 /* SettingViewController.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		D3517CA427303D8700B9BF17 /* DiaryView */ = {
+			isa = PBXGroup;
+			children = (
+				D3517CA527303D9E00B9BF17 /* DiaryStoryboard.storyboard */,
+				D3517CA727303DAB00B9BF17 /* DiaryViewController.swift */,
+			);
+			path = DiaryView;
+			sourceTree = "<group>";
+		};
 		D391F516272F6F360038F33B = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +149,12 @@
 				D391F522272F6F360038F33B /* AppDelegate.swift */,
 				D391F524272F6F360038F33B /* SceneDelegate.swift */,
 				D391F526272F6F360038F33B /* ViewController.swift */,
+				D3517CA427303D8700B9BF17 /* DiaryView */,
+				D3517C9527300C9500B9BF17 /* SearchView */,
+				D3517C9A27300D2D00B9BF17 /* CalendarView */,
+				D3517C9B27300D3400B9BF17 /* SettingView */,
 				D391F528272F6F360038F33B /* Main.storyboard */,
+				D3517C93273009F400B9BF17 /* MainViewController.swift */,
 				D391F52B272F6F380038F33B /* Assets.xcassets */,
 				D391F52D272F6F380038F33B /* LaunchScreen.storyboard */,
 				D391F530272F6F380038F33B /* Info.plist */,
@@ -188,15 +253,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3517CAC273048F600B9BF17 /* InformationTableViewCell.xib in Resources */,
 				D391F53B272F6FEA0038F33B /* SCDream5.otf in Resources */,
+				D3517C9727300CA900B9BF17 /* SearchStoryboard.storyboard in Resources */,
 				D391F53A272F6FEA0038F33B /* SCDream2.otf in Resources */,
 				D391F52F272F6F380038F33B /* LaunchScreen.storyboard in Resources */,
 				D391F555272F826C0038F33B /* Localizable.strings in Resources */,
 				D391F53C272F6FEA0038F33B /* SCDream9.otf in Resources */,
+				D3517CA127300D7500B9BF17 /* SettingStoryboard.storyboard in Resources */,
 				D391F55C272F84D90038F33B /* Setting.strings in Resources */,
+				D3517C9D27300D5D00B9BF17 /* CalendarStoryboard.storyboard in Resources */,
 				D391F52C272F6F380038F33B /* Assets.xcassets in Resources */,
 				D391F563272F87B70038F33B /* InfoPlist.strings in Resources */,
 				D391F52A272F6F360038F33B /* Main.storyboard in Resources */,
+				D3517CA627303D9E00B9BF17 /* DiaryStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,10 +279,16 @@
 			files = (
 				D391F527272F6F360038F33B /* ViewController.swift in Sources */,
 				D391F56B272F89F90038F33B /* LocalizableStrings.swift in Sources */,
+				D3517C9927300CB400B9BF17 /* SearchViewController.swift in Sources */,
+				D3517CA827303DAB00B9BF17 /* DiaryViewController.swift in Sources */,
 				D391F523272F6F360038F33B /* AppDelegate.swift in Sources */,
 				D391F53F272F73810038F33B /* UIFont+Extension.swift in Sources */,
+				D3517CAB273048F600B9BF17 /* InformationTableViewCell.swift in Sources */,
+				D3517CA327300D8100B9BF17 /* SettingViewController.swift in Sources */,
 				D391F569272F88DE0038F33B /* String+Extension.swift in Sources */,
+				D3517C9F27300D6C00B9BF17 /* CalendarViewController.swift in Sources */,
 				D391F525272F6F360038F33B /* SceneDelegate.swift in Sources */,
+				D3517C94273009F400B9BF17 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
