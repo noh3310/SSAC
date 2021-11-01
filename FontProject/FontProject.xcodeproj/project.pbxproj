@@ -13,6 +13,8 @@
 		D391F580272FCECE0038F33B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D391F57E272FCECE0038F33B /* Main.storyboard */; };
 		D391F582272FCED00038F33B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D391F581272FCED00038F33B /* Assets.xcassets */; };
 		D391F585272FCED00038F33B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D391F583272FCED00038F33B /* LaunchScreen.storyboard */; };
+		D391F58E272FDC170038F33B /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D391F58D272FDC170038F33B /* SF-Pro.ttf */; };
+		D391F592272FDD9C0038F33B /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = D391F591272FDD9C0038F33B /* BMJUA_otf.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D391F581272FCED00038F33B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D391F584272FCED00038F33B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D391F586272FCED00038F33B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D391F58D272FDC170038F33B /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		D391F591272FDD9C0038F33B /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +67,18 @@
 				D391F581272FCED00038F33B /* Assets.xcassets */,
 				D391F583272FCED00038F33B /* LaunchScreen.storyboard */,
 				D391F586272FCED00038F33B /* Info.plist */,
+				D391F58C272FD90B0038F33B /* Font */,
 			);
 			path = FontProject;
+			sourceTree = "<group>";
+		};
+		D391F58C272FD90B0038F33B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D391F58D272FDC170038F33B /* SF-Pro.ttf */,
+				D391F591272FDD9C0038F33B /* BMJUA_otf.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D391F585272FCED00038F33B /* LaunchScreen.storyboard in Resources */,
+				D391F58E272FDC170038F33B /* SF-Pro.ttf in Resources */,
 				D391F582272FCED00038F33B /* Assets.xcassets in Resources */,
 				D391F580272FCECE0038F33B /* Main.storyboard in Resources */,
+				D391F592272FDD9C0038F33B /* BMJUA_otf.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +313,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +323,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,6 +342,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,7 +352,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
