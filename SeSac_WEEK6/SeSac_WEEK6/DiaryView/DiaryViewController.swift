@@ -68,7 +68,7 @@ class DiaryViewController: UIViewController {
     
     // 타이틀 텍스트필드 설정
     func setTitleTextField() {
-        titleTextField.placeholder = "제목을 입력해 주세요"
+        titleTextField.placeholder = LocalizableString.title_input.localized
         titleTextField.textAlignment = .center
     }
     

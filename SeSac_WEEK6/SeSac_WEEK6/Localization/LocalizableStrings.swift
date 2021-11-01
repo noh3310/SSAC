@@ -10,6 +10,11 @@ import Foundation
 enum LocalizableString: String {
     case welcome_text
     case data_backup
+    case tab_home
+    case tab_search
+    case tab_calander
+    case tab_setting
+    case title_input
     
     // enum 내에서 연산 프로퍼티 설정
     var localized: String {
