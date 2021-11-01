@@ -302,7 +302,7 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 let userDefaults = UserDefaults.standard
                 userDefaults.set(row, forKey: "\(row)")
                 
-                // 당첨숫자 리턴
+                // 문자열 배열로 변경
                 let stringNumbers = numbers.map { String($0) }
                 userDefaults.set(stringNumbers, forKey: "\(row)numbers")
                 

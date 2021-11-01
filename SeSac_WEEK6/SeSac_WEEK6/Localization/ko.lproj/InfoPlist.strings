@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  SeSac_WEEK6
+
+  Created by 노건호 on 2021/11/01.
+  
+*/
+
+
+CFBundleDisplayName = "내 다이어리";
+NSCameraUsageDexcription = "카메라 접근";

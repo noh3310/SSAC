@@ -20,3 +20,21 @@ struct MovieRankModel {
     var title: String
     var releasedDate: String
 }
+
+// 배우 이름
+struct Actor {
+    var id: Int
+    var name: String
+    var imageLink: String
+}
+
+struct Movie {
+    var id: Int
+    var title: String
+    var releaseDate: String
+    var starring: [Actor]
+    var genres: [String]
+    var imageLink: String
+    var rate: Double
+    var overview: String
+}

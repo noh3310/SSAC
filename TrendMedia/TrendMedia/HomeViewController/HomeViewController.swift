@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
     
@@ -23,6 +25,14 @@ class HomeViewController: UIViewController {
     
     // tvShow정보들을 가져옴
     var tvShowList = Sample.tvShow
+    
+    // API로 영화정보 가져옴
+    var movieInformation: [Movie] = [] {
+        didSet {
+            print(self.movieInformation)
+//            getStarringAndGenreInformation()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +56,20 @@ class HomeViewController: UIViewController {
         // 커스텀 셀 사용가능하도록 테이블뷰에 등록
         let nibName = UINib(nibName: HomeScreenMovieInformationTableViewCell.identifier, bundle: nil)
         customTableView.register(nibName, forCellReuseIdentifier: HomeScreenMovieInformationTableViewCell.identifier)
+        
+        // 맨처음에 영화정보 다 불러오기(매일 업데이트되는 정보라 DB에 저장하는게 효율적인지는 잘 모르겠음)
+        getMovieInformation()
+        // 장르정보, 주요 출연진 정보 불러오기
+        getStarringAndGenreInformation()
+        
+        
+        print(movieInformation)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(movieInformation)
     }
     
     // 라벨 설정
@@ -105,6 +129,87 @@ class HomeViewController: UIViewController {
             // 지도 아이템 설정
             cinemaMapButton.image = UIImage(systemName: "map")
             cinemaMapButton.tintColor = .black
+        }
+    }
+    
+    // 영화정보 API로 불러와서 저장하기
+    func getMovieInformation() {
+        MoviePopularListAPI.shared.getPopularMovieList { status, json in
+            switch status {
+            // 올바르게 정보가 왔을 때
+            case 200:
+                let results = json["results"].arrayValue
+                
+                var movieList: [Movie] = []
+                
+                results.forEach { json in
+                    let id = json["id"].intValue
+                    let title = json["title"].stringValue
+                    let releasedDate = json["release_date"].stringValue
+    //                let starring = json[0]["
+//                    let genres = json["genre_ids"].arrayValue.map { $0.stringValue }
+                    
+                    let imageLink = json["poster_path"].stringValue
+                    let rate = json["vote_average"].doubleValue
+                    let overview = json["overview"].stringValue
+                    
+                    let movie = Movie(id: id, title: title, releaseDate: releasedDate, starring: [], genres: [], imageLink: imageLink, rate: rate, overview: overview)
+                    
+                    movieList.append(movie)
+                }
+                
+                // 변수에 넣어줌
+                self.movieInformation = movieList
+                
+            // 유저가 정보를 잘못 보냈을 때
+            case 401, 404:
+                print("오류발생")
+            default:
+                print("default")
+            }
+        }
+    }
+    
+    // 출연배우, 장르 저장
+    func getStarringAndGenreInformation() {
+        for index in movieInformation.indices {
+            MoviePopularListAPI.shared.getStarringInformations(id: String(movieInformation[index].id)) { status, json in
+                switch status {
+                // 올바르게 정보가 왔을 때
+                case 200:
+                    var actorList: [Actor] = []
+                    
+                    json["credits"]["cast"].arrayValue.forEach { actorInformation in
+                        let id = actorInformation["id"].intValue
+                        let name = actorInformation["name"].stringValue
+                        let imageLink = actorInformation["profile_path"].stringValue
+                        let popularity = actorInformation["popularity"].doubleValue
+                        
+                        // 유명도 30 이상의 배우들만 추가함
+                        if popularity > 30.0 {
+                            let actor = Actor(id: id, name: name, imageLink: imageLink)
+                            actorList.append(actor)
+                        }
+                    }
+                    // 영화의 등장인물 정보에 추가
+                    self.movieInformation[index].starring = actorList
+                    
+                    
+                    var genreList: [String] = []
+                    json["genres"].arrayValue.forEach { genre in
+                        let genre = genre["name"].stringValue
+                        genreList.append(genre)
+                    }
+                    // 장르도 넣어줌
+                    self.movieInformation[index].genres = genreList
+                    
+                // 유저가 정보를 잘못 보냈을 때
+                case 401, 404:
+                    print("오류발생")
+                default:
+                    print("default")
+                }
+            }
         }
     }
     

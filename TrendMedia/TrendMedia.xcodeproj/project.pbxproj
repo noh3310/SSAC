@@ -15,6 +15,8 @@
 		D30192AA272A943700E88320 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30192A8272A943700E88320 /* SearchResultTableViewCell.xib */; };
 		D30192AC272A98FD00E88320 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192AB272A98FD00E88320 /* Constants.swift */; };
 		D30192AE272A9CAF00E88320 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192AD272A9CAF00E88320 /* SearchAPI.swift */; };
+		D30192C6272D275900E88320 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = D30192C5272D275900E88320 /* SkeletonView */; };
+		D30192C8272D2AA200E88320 /* MoviePopularListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30192C7272D2AA200E88320 /* MoviePopularListAPI.swift */; };
 		D3051AB82722A40000C8E3A3 /* MovieInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B184C271C7AAE00FA1605 /* MovieInformationTableViewCell.swift */; };
 		D3051ABB2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051AB92722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift */; };
 		D3051ABC2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3051ABA2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib */; };
@@ -51,6 +53,7 @@
 		D30192A8272A943700E88320 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		D30192AB272A98FD00E88320 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D30192AD272A9CAF00E88320 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		D30192C7272D2AA200E88320 /* MoviePopularListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePopularListAPI.swift; sourceTree = "<group>"; };
 		D3051AB92722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenMovieInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D3051ABA2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenMovieInformationTableViewCell.xib; sourceTree = "<group>"; };
 		D3164CD7271DAC5100944FF2 /* PopUpViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpViewViewController.swift; path = TrendMedia/PopUpViewViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30192C6272D275900E88320 /* SkeletonView in Frameworks */,
 				D30192942727AB2800E88320 /* Kingfisher in Frameworks */,
 				D301928C27279D5000E88320 /* SwiftyJSON in Frameworks */,
 				D301928F27279D6800E88320 /* Alamofire in Frameworks */,
@@ -186,6 +190,7 @@
 				D3638CF3271B402400CB58EC /* HomeViewController.swift */,
 				D3051AB92722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift */,
 				D3051ABA2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib */,
+				D30192C7272D2AA200E88320 /* MoviePopularListAPI.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				D301928B27279D5000E88320 /* SwiftyJSON */,
 				D301928E27279D6800E88320 /* Alamofire */,
 				D30192932727AB2800E88320 /* Kingfisher */,
+				D30192C5272D275900E88320 /* SkeletonView */,
 			);
 			productName = TrendMedia;
 			productReference = D3638CDC271B3EBD00CB58EC /* TrendMedia.app */;
@@ -255,6 +261,7 @@
 				D301928A27279D5000E88320 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				D301928D27279D6800E88320 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D30192922727AB2800E88320 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D30192C4272D275900E88320 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = D3638CDD271B3EBD00CB58EC /* Products */;
 			projectDirPath = "";
@@ -302,6 +309,7 @@
 				D3164D02272063FB00944FF2 /* MovieMapViewController.swift in Sources */,
 				D3D2B1C6271BCD20004D1680 /* MovieDetailViewController.swift in Sources */,
 				D3638CE0271B3EBD00CB58EC /* AppDelegate.swift in Sources */,
+				D30192C8272D2AA200E88320 /* MoviePopularListAPI.swift in Sources */,
 				D30192912727A7DC00E88320 /* MovieModel.swift in Sources */,
 				D3164CF4271F180300944FF2 /* MyMediaViewController.swift in Sources */,
 				D30192A9272A943700E88320 /* SearchResultTableViewCell.swift in Sources */,
@@ -560,6 +568,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		D30192C4272D275900E88320 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -577,6 +593,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D30192922727AB2800E88320 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		D30192C5272D275900E88320 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D30192C4272D275900E88320 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
