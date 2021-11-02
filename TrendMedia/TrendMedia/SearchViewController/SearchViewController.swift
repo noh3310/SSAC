@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 import AVFoundation
+import RealmSwift
 
 class SearchViewController: UIViewController {
     
@@ -17,6 +18,11 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var textField: UITextField!
+    
+    // Open the local-only default realm
+    let localRealm = try! Realm()
+    
+    var movieList: Results<RankingMovie>!
     
     let tvShowList = Sample.tvShow
     
@@ -42,9 +48,15 @@ class SearchViewController: UIViewController {
             searchMovieList(date: self.targetDate)
         }
     }
+    
+    var totalCount = 0
+    var startPage = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get all tasks in the realm
+        movieList = localRealm.objects(RankingMovie.self)
         
         // 테이블뷰 설정
         setTableView()
@@ -57,13 +69,13 @@ class SearchViewController: UIViewController {
         
         searchBar.text = targetDate
         
+        
+        print("Realm is Located at: ", localRealm.configuration.fileURL!)
+        
         // 커스텀 셀 사용가능하도록 테이블뷰에 등록
         let nibName = UINib(nibName: SearchResultTableViewCell.identifier, bundle: nil)
         myTableView.register(nibName, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
     }
-    
-    var totalCount = 0
-    var startPage = 1
     
     func setTableView() {
         myTableView.delegate = self
@@ -145,13 +157,36 @@ extension SearchViewController: UISearchBarDelegate {
     
     // 영화검색하는 부분만 따로 빼줌
     func searchMovieList(date: String) {
+        
         // 배열의 값을 다 지워줌
         movieData.removeAll()
-        print("ㅎㅎㅎ")
         
         // 페이지네이션 기능의 페이지를 초기화시켜줘야함
         startPage = 1
         
+        print("\(date)")
+        
+        var searchResultArray = [MovieRankModel]()
+        // 사용자가 입력한 영화를 받아오는데 등수 순서로 오름차순으로 받아옴
+        print("a")
+        movieList.filter("date == '\(date)'").sorted(byKeyPath: "order", ascending: true).forEach { movie in
+            print("디비정보 가져오는중")
+            let title = movie.title
+            let rank = movie.order
+            let releasedDate = movie.date
+
+            let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate)
+
+            searchResultArray.append(info)
+        }
+        
+        // 만약 영화정보가 디비에 있다면 굳이 검색안해도됨
+        if searchResultArray.count >= 10 {
+            print("디비에 있는 정보 가져옴")
+            self.movieRankList = searchResultArray
+            return
+        }
+
         // 사용자가 검색하고자 하는 텍스트로 물어봄
         SearchAPI.shared.fetchMovieData(query: date) { Status, json in
             let movieList = json["boxOfficeResult"]["dailyBoxOfficeList"].arrayValue
@@ -163,6 +198,13 @@ extension SearchViewController: UISearchBarDelegate {
                 let releasedDate = movie["openDt"].stringValue
                 
                 let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate)
+                
+                // 디비에 추가해줌
+                try! self.localRealm.write {
+                    print("디비에 정보 넣는중")
+                    let movieInfo = RankingMovie(date: date, title: title, order: rank)
+                    self.localRealm.add(movieInfo)
+                }
                 
                 movieInfo.append(info)
             }
@@ -204,7 +246,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

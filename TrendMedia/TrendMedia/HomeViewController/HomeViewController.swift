@@ -59,8 +59,8 @@ class HomeViewController: UIViewController {
         
         // 맨처음에 영화정보 다 불러오기(매일 업데이트되는 정보라 DB에 저장하는게 효율적인지는 잘 모르겠음)
         getMovieInformation()
-        // 장르정보, 주요 출연진 정보 불러오기
-        getStarringAndGenreInformation()
+//        // 장르정보, 주요 출연진 정보 불러오기
+//        getStarringAndGenreInformation()
         
         
         print(movieInformation)
