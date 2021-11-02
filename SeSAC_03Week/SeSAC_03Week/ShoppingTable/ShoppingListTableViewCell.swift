@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ShoppingListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    
+    var _id: ObjectId?
+    var delegate: cellButtonClicked?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,25 +56,27 @@ class ShoppingListTableViewCell: UITableViewCell {
     
     // 일단은 다른것들은 없고 그냥 누르면 이미지 변경됨
     @IBAction func checkboxClicked(_ sender: UIButton) {
-        
-        if sender.currentImage == UIImage(systemName: "checkmark.square") {
-            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        if let _id = _id {
+            self.delegate?.checkedButtonClicked(id: _id)
         }
-        else {
-            sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-        }
+//        if sender.currentImage == UIImage(systemName: "checkmark.square") {
+//            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+//        }
+//        else {
+//            sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+//        }
     }
     
     // 일단은 이미지 변경만 구현
     @IBAction func favoriteButtonClicked(_ sender: UIButton) {
-        if sender.currentImage == UIImage(systemName: "star") {
-            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        if let _id = _id {
+            self.delegate?.favoriteButtonClicked(id: _id)
         }
-        else {
-            sender.setImage(UIImage(systemName: "star"), for: .normal)
-        }
+//        if sender.currentImage == UIImage(systemName: "star") {
+//            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+//        }
+//        else {
+//            sender.setImage(UIImage(systemName: "star"), for: .normal)
+//        }
     }
-    
-    
-
 }
