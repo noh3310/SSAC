@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DiaryViewController: UIViewController {
     
@@ -17,6 +18,9 @@ class DiaryViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var diaryLabel: UITextView!
+    
+    // 로컬DB Realm을 선언
+    let localRealm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,8 @@ class DiaryViewController: UIViewController {
         
         // 데이트라벨 설정
         setDateLabel()
+        
+        print("Realm is Located at: ", localRealm.configuration.fileURL!)
     }
     
     // 타이틀바 설정
@@ -58,7 +64,10 @@ class DiaryViewController: UIViewController {
     
     // 저장버튼 클릭시
     @objc func saveButtonClicked() {
-        
+        let task = UserDiary.init(diaryTitle: titleTextField.text!, content: diaryLabel.text!, writeDate: Date(), regDate: Date())
+        try! localRealm.write {
+            localRealm.add(task)
+        }
     }
     
     // 이미지뷰 설정(현재는 배경색만 설정)
