@@ -11,10 +11,10 @@ class UserInformationTableViewCell: UITableViewCell {
     
     static let identifier = "UserInformationTableViewCell"
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var characterNameLabel: UILabel!
     @IBOutlet weak var castImageView: UIImageView!
     // 극중 이름
-    @IBOutlet weak var roleLabel: UILabel!
+    @IBOutlet weak var originalNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

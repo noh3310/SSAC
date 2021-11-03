@@ -86,9 +86,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="castImageView" destination="DTK-pX-0WY" id="5U3-Kz-xct"/>
-                                            <outlet property="nameLabel" destination="Df2-bS-Z0E" id="Ocp-VR-IHT"/>
-                                            <outlet property="roleLabel" destination="X0q-Px-25L" id="Wtw-RS-cim"/>
+                                            <outlet property="castImageView" destination="DTK-pX-0WY" id="WTz-mi-Xwb"/>
+                                            <outlet property="characterNameLabel" destination="Df2-bS-Z0E" id="Ocp-VR-IHT"/>
+                                            <outlet property="originalNameLabel" destination="X0q-Px-25L" id="Wtw-RS-cim"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -23,20 +24,30 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
 //    var buttonDictionary: [String:Any] = []
     
+    // Open the default realm
+    let localRealm = try! Realm(configuration: config, queue: nil)
+    
+    var genreList: Results<Genre>!
+    
     // tvShow정보들을 가져옴
     var tvShowList = Sample.tvShow
     
     // API로 영화정보 가져옴
-    var movieInformation: [Movie] = [] {
+    var movieInformations: [Movie] = [] {
         didSet {
-            print(self.movieInformation)
+            print("MovieInformation 변경")
+//            print(self.movieInformation)
 //            getStarringAndGenreInformation()
+            customTableView.reloadData()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // realm에서 Genre 테이블을 가져옴
+        self.genreList = self.localRealm.objects(Genre.self)
+                
         // 라벨 설정
         setLabel()
         
@@ -50,7 +61,9 @@ class HomeViewController: UIViewController {
         customTableView.delegate = self
         customTableView.dataSource = self
         
+        print("Realm is Located at: ", localRealm.configuration.fileURL!)
         
+        // 셀 크기 AutomaticDimension 설정
         customTableView.rowHeight = UITableView.automaticDimension
         
         // 커스텀 셀 사용가능하도록 테이블뷰에 등록
@@ -58,18 +71,16 @@ class HomeViewController: UIViewController {
         customTableView.register(nibName, forCellReuseIdentifier: HomeScreenMovieInformationTableViewCell.identifier)
         
         // 맨처음에 영화정보 다 불러오기(매일 업데이트되는 정보라 DB에 저장하는게 효율적인지는 잘 모르겠음)
-        getMovieInformation()
-//        // 장르정보, 주요 출연진 정보 불러오기
-//        getStarringAndGenreInformation()
+        DispatchQueue.global().async {
+            self.getMovieInformation()
+        }
         
-        
-        print(movieInformation)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print(movieInformation)
+        print(movieInformations)
     }
     
     // 라벨 설정
@@ -147,68 +158,26 @@ class HomeViewController: UIViewController {
                     let title = json["title"].stringValue
                     let releasedDate = json["release_date"].stringValue
     //                let starring = json[0]["
-//                    let genres = json["genre_ids"].arrayValue.map { $0.stringValue }
+                    let genres = json["genre_ids"].arrayValue.map { $0.stringValue }
                     
                     let imageLink = json["poster_path"].stringValue
                     let rate = json["vote_average"].doubleValue
                     let overview = json["overview"].stringValue
+                    let backDropLink = json["backdrop_path"].stringValue
                     
-                    let movie = Movie(id: id, title: title, releaseDate: releasedDate, starring: [], genres: [], imageLink: imageLink, rate: rate, overview: overview)
+                    let movie = Movie(id: id, title: title, releaseDate: releasedDate, starring: [], genres: genres, imageLink: imageLink, backDropLink: backDropLink, rate: rate, overview: overview)
                     
                     movieList.append(movie)
                 }
                 
                 // 변수에 넣어줌
-                self.movieInformation = movieList
+                self.movieInformations = movieList
                 
             // 유저가 정보를 잘못 보냈을 때
             case 401, 404:
                 print("오류발생")
             default:
                 print("default")
-            }
-        }
-    }
-    
-    // 출연배우, 장르 저장
-    func getStarringAndGenreInformation() {
-        for index in movieInformation.indices {
-            MoviePopularListAPI.shared.getStarringInformations(id: String(movieInformation[index].id)) { status, json in
-                switch status {
-                // 올바르게 정보가 왔을 때
-                case 200:
-                    var actorList: [Actor] = []
-                    
-                    json["credits"]["cast"].arrayValue.forEach { actorInformation in
-                        let id = actorInformation["id"].intValue
-                        let name = actorInformation["name"].stringValue
-                        let imageLink = actorInformation["profile_path"].stringValue
-                        let popularity = actorInformation["popularity"].doubleValue
-                        
-                        // 유명도 30 이상의 배우들만 추가함
-                        if popularity > 30.0 {
-                            let actor = Actor(id: id, name: name, imageLink: imageLink)
-                            actorList.append(actor)
-                        }
-                    }
-                    // 영화의 등장인물 정보에 추가
-                    self.movieInformation[index].starring = actorList
-                    
-                    
-                    var genreList: [String] = []
-                    json["genres"].arrayValue.forEach { genre in
-                        let genre = genre["name"].stringValue
-                        genreList.append(genre)
-                    }
-                    // 장르도 넣어줌
-                    self.movieInformation[index].genres = genreList
-                    
-                // 유저가 정보를 잘못 보냈을 때
-                case 401, 404:
-                    print("오류발생")
-                default:
-                    print("default")
-                }
             }
         }
     }
@@ -247,7 +216,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 테이블뷰 row의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tvShowList.count
+        return movieInformations.count
     }
     
     // 높이 지정
@@ -261,44 +230,73 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         // 커스텀셀 변경
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeScreenMovieInformationTableViewCell.identifier, for: indexPath) as! HomeScreenMovieInformationTableViewCell
         
-        cell.titleLabel.text = tvShowList[indexPath.row].title
-        cell.rateLabel.text = "\(tvShowList[indexPath.row].rate)"
+        let row = movieInformations[indexPath.row]
+        cell.titleLabel.text = row.title
+        cell.rateLabel.text = "\(row.rate)"
         cell.rateLabel.backgroundColor = .white
         cell.rateLabel.textAlignment = .center
         cell.rateTextLabel.text = "평점"
         cell.rateTextLabel.textColor = .white
         cell.rateTextLabel.textAlignment = .center
         cell.rateTextLabel.backgroundColor = UIColor(red: 99/255, green: 99/255, blue: 211/255, alpha: 1)
-
-        // tvShowList에 정보가 없는 경우가 있어서 따로 처리해줌
-        if tvShowList[indexPath.row].starring == "" {
-            cell.actorListLabel.text = "출연진 정보 없음"
+        
+        // 영화배우 정보가 있다면
+        if row.starring.count > 0 {
+            cell.actorListLabel.text = "있음"
         } else {
-            cell.actorListLabel.text = tvShowList[indexPath.row].starring
+            cell.actorListLabel.text = "없음"
         }
         cell.actorListLabel.textColor = .gray
-        cell.genreLabel.text = "#\(tvShowList[indexPath.row].genre)"
-        cell.releaseDateLabel.text = tvShowList[indexPath.row].releaseDate
-        cell.releaseDateLabel.textColor = .gray
-        let url = URL(string: tvShowList[indexPath.row].backdropImage)
-        do {
-            let image = try Data(contentsOf: url!)
-            cell.posterImageView.image = UIImage(data: image)
-            cell.posterImageView.contentMode = .scaleAspectFill
-            cell.posterImageView.clipsToBounds = true
-        }
-        catch {
-
-        }
         
+        cell.genreLabel.text = "#\(String(describing: row.genres.first))"
+        cell.releaseDateLabel.text = row.releaseDate
+        cell.releaseDateLabel.textColor = .gray
+//        let url = URL(string: "")
+        
+//        cell.titleLabel.text = tvShowList[indexPath.row].title
+//        cell.rateLabel.text = "\(tvShowList[indexPath.row].rate)"
+//        cell.rateLabel.backgroundColor = .white
+//        cell.rateLabel.textAlignment = .center
+//        cell.rateTextLabel.text = "평점"
+//        cell.rateTextLabel.textColor = .white
+//        cell.rateTextLabel.textAlignment = .center
+//        cell.rateTextLabel.backgroundColor = UIColor(red: 99/255, green: 99/255, blue: 211/255, alpha: 1)
+//
+//        // tvShowList에 정보가 없는 경우가 있어서 따로 처리해줌
+//        if tvShowList[indexPath.row].starring == "" {
+//            cell.actorListLabel.text = "출연진 정보 없음"
+//        } else {
+//            cell.actorListLabel.text = tvShowList[indexPath.row].starring
+//        }
+//        cell.actorListLabel.textColor = .gray
+//        cell.genreLabel.text = "#\(tvShowList[indexPath.row].genre)"
+//        cell.releaseDateLabel.text = tvShowList[indexPath.row].releaseDate
+//        cell.releaseDateLabel.textColor = .gray
+//        let url = URL(string: tvShowList[indexPath.row].backdropImage)
+//        do {
+//            let image = try Data(contentsOf: url!)
+//            cell.posterImageView.image = UIImage(data: image)
+//            cell.posterImageView.contentMode = .scaleAspectFill
+//            cell.posterImageView.clipsToBounds = true
+//        }
+//        catch {
+//
+//        }
+        
+        let url = URL(string: "https://image.tmdb.org/t/p/w500/\(row.imageLink)")
+        cell.posterImageView.kf.setImage(with: url)
+        cell.posterImageView.contentMode = .scaleToFill
+        cell.posterImageView.layer.masksToBounds = true
+        
+
         // 나중에 이 버튼 델리게이트 패턴으로 늘리기
         cell.linkButton.setTitle("", for: .normal)
         if #available(iOS 13.0, *) {
             cell.linkButton.setImage(UIImage(systemName: "link.circle.fill"), for: .normal)
             cell.linkButton.tintColor = .lightGray
-            
+
 //            cell.detailButtonStyleLabel. = UIImage(systemName: "chevron.right")
-            
+
             let attributedString = NSMutableAttributedString(string: "")
             let imageAttachment = NSTextAttachment()
             imageAttachment.image = UIImage(systemName: "chevron.right")
@@ -306,19 +304,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.detailButtonStyleLabel.attributedText = attributedString
         }
         else {
-            
+
         }
-        
+
         cell.detailLabel.text = "자세히 보기"
         cell.detailLabel.textColor = .gray
-        
+
         // UIView radius, Shadow 설정
 //        cell.movieInformationUiView.backgroundColor = .gray
         cell.movieInformationUiView.layer.cornerRadius = 10
-        
-        
-
-//        TvShow(title: "Squid Game", releaseDate: "09/17/2021",genre: "Mystery",region: "South Korea", overview: "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits — with deadly high stakes.", rate: 8.3, starring: "Lee Jung-jae, Park Hae-soo, Wi Ha-jun, Heo Sung-tae, Kim Joo-ryoung, Jung Ho-yeon, Lee You-mi",backdropImage:"https://www.themoviedb.org/t/p/original/oaGvjB0DvdhXhOAuADfHb261ZHa.jpg"),
         
         
         return cell
@@ -328,6 +322,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "DetailView", bundle:nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+        
+        // 영화정보 넘겨줌
+        vc.movieInformation = movieInformations[indexPath.row]
         
         vc.titleLabelString = tvShowList[indexPath.row].title
         vc.actorList = tvShowList[indexPath.row].starring.components(separatedBy: ", ")

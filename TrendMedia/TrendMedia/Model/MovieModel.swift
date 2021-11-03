@@ -19,12 +19,14 @@ struct MovieRankModel {
     var rank: Int
     var title: String
     var releasedDate: String
+    var rankDate: String
 }
 
 // 배우 이름
 struct Actor {
     var id: Int
-    var name: String
+    var originalName: String
+    var characterName: String
     var imageLink: String
 }
 
@@ -35,6 +37,7 @@ struct Movie {
     var starring: [Actor]
     var genres: [String]
     var imageLink: String
+    var backDropLink: String
     var rate: Double
     var overview: String
 }

@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     
     // Open the local-only default realm
-    let localRealm = try! Realm()
+    let localRealm = try! Realm(configuration: config, queue: nil)
     
     var movieList: Results<RankingMovie>!
     
@@ -57,6 +57,9 @@ class SearchViewController: UIViewController {
         
         // Get all tasks in the realm
         movieList = localRealm.objects(RankingMovie.self)
+        try! localRealm.write {
+            localRealm.deleteAll()
+        }
         
         // 테이블뷰 설정
         setTableView()
@@ -68,7 +71,6 @@ class SearchViewController: UIViewController {
         setYesterday()
         
         searchBar.text = targetDate
-        
         
         print("Realm is Located at: ", localRealm.configuration.fileURL!)
         
@@ -165,17 +167,18 @@ extension SearchViewController: UISearchBarDelegate {
         startPage = 1
         
         print("\(date)")
-        
+
         var searchResultArray = [MovieRankModel]()
+        
         // 사용자가 입력한 영화를 받아오는데 등수 순서로 오름차순으로 받아옴
-        print("a")
-        movieList.filter("date == '\(date)'").sorted(byKeyPath: "order", ascending: true).forEach { movie in
+        movieList.filter("rankingDate == %@", date).sorted(byKeyPath: "order", ascending: true).forEach { movie in
             print("디비정보 가져오는중")
             let title = movie.title
             let rank = movie.order
-            let releasedDate = movie.date
+            let rankDate = movie.rankingDate
+            let releasedDate = movie.releasedDate
 
-            let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate)
+            let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate, rankDate: rankDate)
 
             searchResultArray.append(info)
         }
@@ -196,13 +199,14 @@ extension SearchViewController: UISearchBarDelegate {
                 let rank = movie["rank"].intValue
                 let title = movie["movieNm"].stringValue
                 let releasedDate = movie["openDt"].stringValue
+                let rankDate = date
                 
-                let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate)
+                let info = MovieRankModel(rank: rank, title: title, releasedDate: releasedDate, rankDate: rankDate)
                 
                 // 디비에 추가해줌
                 try! self.localRealm.write {
                     print("디비에 정보 넣는중")
-                    let movieInfo = RankingMovie(date: date, title: title, order: rank)
+                    let movieInfo = RankingMovie(rankingDate: rankDate, releasedDate: releasedDate, title: title, order: rank)
                     self.localRealm.add(movieInfo)
                 }
                 
@@ -257,7 +261,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.numberLabel.backgroundColor = .white
         cell.numberLabel.text = "\(row.rank)"
         cell.titleLabel.text = row.title
-        cell.releasedDateLabel.text = row.releasedDate
+        cell.releasedDateLabel.text = "\(row.releasedDate)"
         
         return cell
         

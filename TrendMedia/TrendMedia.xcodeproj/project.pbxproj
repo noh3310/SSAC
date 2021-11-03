@@ -20,6 +20,7 @@
 		D3051AB82722A40000C8E3A3 /* MovieInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36B184C271C7AAE00FA1605 /* MovieInformationTableViewCell.swift */; };
 		D3051ABB2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3051AB92722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift */; };
 		D3051ABC2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3051ABA2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib */; };
+		D3107A9327326D1800A98C4B /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3107A9227326D1800A98C4B /* HomeStoryboard.storyboard */; };
 		D3164CD8271DAC5100944FF2 /* PopUpViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3164CD7271DAC5100944FF2 /* PopUpViewViewController.swift */; };
 		D3164CDA271DB9D900944FF2 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3164CD9271DB9D900944FF2 /* DetailView.storyboard */; };
 		D3164CDC271DBE9600944FF2 /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3164CDB271DBE9600944FF2 /* SearchView.storyboard */; };
@@ -59,6 +60,7 @@
 		D30192C7272D2AA200E88320 /* MoviePopularListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePopularListAPI.swift; sourceTree = "<group>"; };
 		D3051AB92722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenMovieInformationTableViewCell.swift; sourceTree = "<group>"; };
 		D3051ABA2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenMovieInformationTableViewCell.xib; sourceTree = "<group>"; };
+		D3107A9227326D1800A98C4B /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		D3164CD7271DAC5100944FF2 /* PopUpViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUpViewViewController.swift; path = TrendMedia/PopUpViewViewController.swift; sourceTree = SOURCE_ROOT; };
 		D3164CD9271DB9D900944FF2 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		D3164CDB271DBE9600944FF2 /* SearchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				D3051AB92722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.swift */,
 				D3051ABA2722A4AE00C8E3A3 /* HomeScreenMovieInformationTableViewCell.xib */,
 				D30192C7272D2AA200E88320 /* MoviePopularListAPI.swift */,
+				D3107A9227326D1800A98C4B /* HomeStoryboard.storyboard */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				D3638CEC271B3EBF00CB58EC /* LaunchScreen.storyboard in Resources */,
 				D3164CDC271DBE9600944FF2 /* SearchView.storyboard in Resources */,
+				D3107A9327326D1800A98C4B /* HomeStoryboard.storyboard in Resources */,
 				D3638CE9271B3EBF00CB58EC /* Assets.xcassets in Resources */,
 				D3164D00272063D100944FF2 /* MovieMapView.storyboard in Resources */,
 				D3638CE7271B3EBD00CB58EC /* Main.storyboard in Resources */,
