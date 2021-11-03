@@ -68,8 +68,8 @@ class MainViewController: UIViewController {
         
         let vc = storyboard.instantiateViewController(withIdentifier: DiaryViewController.identifier)
         // 아래에서 위로 전체화면
-        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationStyle = .fullScreen
         
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true)
     }
 }

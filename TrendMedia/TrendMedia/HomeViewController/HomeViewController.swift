@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // realm에서 Genre 테이블을 가져옴
-        self.genreList = self.localRealm.objects(Genre.self)
+        genreList = localRealm.objects(Genre.self)
                 
         // 라벨 설정
         setLabel()

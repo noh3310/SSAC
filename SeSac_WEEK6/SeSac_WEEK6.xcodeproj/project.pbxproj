@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3107A9127325A7400A98C4B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3107A9027325A7400A98C4B /* MainStoryboard.storyboard */; };
 		D3517C94273009F400B9BF17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C93273009F400B9BF17 /* MainViewController.swift */; };
 		D3517C9727300CA900B9BF17 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */; };
 		D3517C9927300CB400B9BF17 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C9827300CB400B9BF17 /* SearchViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3107A9027325A7400A98C4B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D3517C93273009F400B9BF17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
 		D3517C9827300CB400B9BF17 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3107A8F27325A5E00A98C4B /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				D3107A9027325A7400A98C4B /* MainStoryboard.storyboard */,
+				D3517C93273009F400B9BF17 /* MainViewController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
 		D3517C9527300C9500B9BF17 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,12 +167,12 @@
 				D391F522272F6F360038F33B /* AppDelegate.swift */,
 				D391F524272F6F360038F33B /* SceneDelegate.swift */,
 				D391F526272F6F360038F33B /* ViewController.swift */,
+				D391F528272F6F360038F33B /* Main.storyboard */,
+				D3107A8F27325A5E00A98C4B /* MainView */,
 				D3517CA427303D8700B9BF17 /* DiaryView */,
 				D3517C9527300C9500B9BF17 /* SearchView */,
 				D3517C9A27300D2D00B9BF17 /* CalendarView */,
 				D3517C9B27300D3400B9BF17 /* SettingView */,
-				D391F528272F6F360038F33B /* Main.storyboard */,
-				D3517C93273009F400B9BF17 /* MainViewController.swift */,
 				D391F52B272F6F380038F33B /* Assets.xcassets */,
 				D391F52D272F6F380038F33B /* LaunchScreen.storyboard */,
 				D391F530272F6F380038F33B /* Info.plist */,
@@ -281,6 +292,7 @@
 				D391F53A272F6FEA0038F33B /* SCDream2.otf in Resources */,
 				D391F52F272F6F380038F33B /* LaunchScreen.storyboard in Resources */,
 				D391F555272F826C0038F33B /* Localizable.strings in Resources */,
+				D3107A9127325A7400A98C4B /* MainStoryboard.storyboard in Resources */,
 				D391F53C272F6FEA0038F33B /* SCDream9.otf in Resources */,
 				D3517CA127300D7500B9BF17 /* SettingStoryboard.storyboard in Resources */,
 				D391F55C272F84D90038F33B /* Setting.strings in Resources */,
