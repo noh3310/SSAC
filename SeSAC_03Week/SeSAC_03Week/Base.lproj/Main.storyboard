@@ -744,13 +744,33 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMJ-nw-Hni">
+                                    <rect key="frame" x="317" y="20" width="67" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="backUpButtonClicked:" destination="U76-lN-VjR" eventType="touchUpInside" id="gUP-Wy-c7w"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcl-NC-JNe">
+                                    <rect key="frame" x="30" y="20" width="67" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="restoreButtonClicked:" destination="U76-lN-VjR" eventType="touchUpInside" id="Zcq-ws-aGA"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="tIp-UV-e7N" firstAttribute="leading" secondItem="vub-4p-9jf" secondAttribute="leading" constant="30" id="HDI-Xe-1HD"/>
                                 <constraint firstAttribute="bottom" secondItem="tIp-UV-e7N" secondAttribute="bottom" constant="10" id="K34-Ga-wbn"/>
+                                <constraint firstItem="Rcl-NC-JNe" firstAttribute="top" secondItem="vub-4p-9jf" secondAttribute="top" constant="20" id="NG9-45-wpP"/>
+                                <constraint firstItem="Rcl-NC-JNe" firstAttribute="leading" secondItem="vub-4p-9jf" secondAttribute="leading" constant="30" id="QjX-0G-fks"/>
                                 <constraint firstAttribute="trailing" secondItem="tIp-UV-e7N" secondAttribute="trailing" constant="30" id="WMj-GG-URJ"/>
                                 <constraint firstItem="wt4-Pq-Ooc" firstAttribute="top" secondItem="vub-4p-9jf" secondAttribute="top" constant="20" id="Wf5-JK-yom"/>
+                                <constraint firstAttribute="trailing" secondItem="VMJ-nw-Hni" secondAttribute="trailing" constant="30" id="YLj-wc-S2v"/>
+                                <constraint firstItem="VMJ-nw-Hni" firstAttribute="top" secondItem="vub-4p-9jf" secondAttribute="top" constant="20" id="bcT-Y0-Qnt"/>
                                 <constraint firstItem="wt4-Pq-Ooc" firstAttribute="centerX" secondItem="vub-4p-9jf" secondAttribute="centerX" id="noT-5U-AAA"/>
                             </constraints>
                         </view>
@@ -820,6 +840,8 @@
                     </tableView>
                     <connections>
                         <outlet property="addButton" destination="1UV-yt-QGV" id="NeY-SU-VCs"/>
+                        <outlet property="backUpButton" destination="VMJ-nw-Hni" id="PYQ-RG-wwB"/>
+                        <outlet property="restoreButton" destination="Rcl-NC-JNe" id="1oG-nK-uwC"/>
                         <outlet property="searchStackView" destination="tIp-UV-e7N" id="bOs-cD-Fp5"/>
                         <outlet property="textField" destination="v1N-Rc-bDy" id="eMT-yd-NvH"/>
                     </connections>

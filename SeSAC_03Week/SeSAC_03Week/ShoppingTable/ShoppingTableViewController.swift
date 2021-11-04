@@ -7,12 +7,16 @@
 
 import UIKit
 import RealmSwift
+import Zip
+import MobileCoreServices
 
 class ShoppingTableViewController: UITableViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var searchStackView: UIStackView!
+    @IBOutlet weak var restoreButton: UIButton!
+    @IBOutlet weak var backUpButton: UIButton!
     
     // 로컬DB 변수 생성
     let localRealm = try! Realm()
@@ -22,21 +26,6 @@ class ShoppingTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    //    var shoppingList: [String] = ["그립톡", "사이다", "아이패드", "양말"] {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
-    
-    // 쇼핑리스트를 담고있는 배열을 제공
-//    var shoppingList = [ShoppingList]() {
-//        didSet {
-//            tableView.reloadData()
-//
-//            saveData()
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +37,14 @@ class ShoppingTableViewController: UITableViewController {
         setSearchTextField()
         
         // 추가 버튼 설정
-        setAddButton()
+        setButton(addButton, title: "추가", tintColor: .black, backgroundColor: UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1), cornerRadius: 5)
         
         // 스택뷰 마진 설정
         setSearchStackView()
+        
+        // 백업, 복구버튼 설정
+        setButton(backUpButton, title: "백업", tintColor: .black, backgroundColor: UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1), cornerRadius: 5)
+        setButton(restoreButton, title: "복구", tintColor: .black, backgroundColor: UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1), cornerRadius: 5)
         
         // 디비에 있는 값을 받아옴
         // favorite 기준 DESC, 체크박스 기준 ASC(true가 ASC, false가 DESC)
@@ -67,20 +60,20 @@ class ShoppingTableViewController: UITableViewController {
         textField.placeholder = "무엇을 구매하실 건가요?"
     }
     
-    // 버튼 설정(텍스트, 색상, 테두리)
-    func setAddButton() {
-        addButton.setTitle("추가", for: .normal)
-        addButton.tintColor = .black
-        addButton.backgroundColor = UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1)
-        addButton.layer.cornerRadius = 5
-    }
-    
     // 검색 스택뷰 설정
     func setSearchStackView() {
         searchStackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         searchStackView.isLayoutMarginsRelativeArrangement = true
         searchStackView.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
         searchStackView.layer.cornerRadius = 5
+    }
+    
+    // 버튼 설정
+    func setButton(_ button: UIButton, title: String, tintColor: UIColor, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        button.setTitle(title, for: .normal)
+        button.tintColor = tintColor
+        button.backgroundColor = backgroundColor
+        button.layer.cornerRadius = cornerRadius
     }
     
     // 추가 버튼 클릭했을 때
@@ -103,6 +96,102 @@ class ShoppingTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    // 백업버튼 클릭했을 때
+    @IBAction func backUpButtonClicked(_ sender: UIButton) {
+        // 백업폴더 위치 받아오기
+        var urlPaths = [URL]()
+        
+        // 함수의 리턴값이 옵셔널 타입이므로 옵셔널 바인딩으로 도큐먼트 디렉터리가 올바른 값인지 확인
+        if let path = documentDirectoryPath() {
+            // string을 NSString으로 브리징했다(Swift에서 String <-> NSString 무료 브리징이 가능하다고 한다)
+            // 우리가 백업하고자 하는 파일은 default.realm이므로 도큐먼트 디렉토리 파일까지 오고난 후 마지막에 default.realm을 추가해준다.
+            // "/User/......./Document/default.realm" 과 같은 경로가 될 것이다.
+            let realm = (path as NSString).appendingPathComponent("default.realm")
+            
+            // 우리가 만들어놓은 경로에 그 파일이 있는지 검사해본다.
+            if FileManager.default.fileExists(atPath: realm) {
+                // URL 배열에 추가한다.
+                // URL(string: realm)은 옵셔널 타입이므로 우선은 맞다고 가정하고 강제로 해제한다.
+                urlPaths.append(URL(string: realm)!)
+            } else {
+                // 파일이 없다고 알려줌
+                print("파일이 없습니다.")
+            }
+            
+            do {
+                // archive.zip 파일 생성
+                // shoppingList로 변경
+                let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "shoppingList") // Zip
+                print("압축파일 경로: \(zipFilePath)")
+                
+                // 액션 뷰 컨트롤러 불러옴
+                presentActionViewController()
+            }
+            catch {
+              print("Something went wrong")
+            }
+
+            
+        }
+    }
+    
+    func presentActionViewController() {
+        // 압축파일 경로를 가져오기
+        // "/User/....../Document"까지 받아옴
+        let fileName = (documentDirectoryPath()! as NSString).appendingPathComponent("shoppingList.zip")
+        // URL로 변경
+        let fileURL = URL(fileURLWithPath: fileName)
+        
+        // activityItems: 사용하고자 하는 파일들
+        // applicationActivities: 앱이 지원하는 사용자 정의 서비스를 나타내는 배열(특정 앱에서 실행하지 않을것이라면 그냥 비워두면 된다)
+        let actionViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: [])
+        
+        // 화면 띄워줌
+        self.present(actionViewController, animated: true, completion: nil)
+    }
+    
+    // 백업폴더 위치 받아오기
+    func documentDirectoryPath() -> String? {
+        // 현재 도큐먼트 디렉토리
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        // userDomainMask는 사용자의 홈 디렉토리, 사용자의 개인 항목들을 설치하는 위치
+        // 네트워크 관련 정보들은 networkDomainMask를 사용한다.
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        // 도큐먼트 디렉토리의 경로를 가져온다.
+        // receiver의 경로가 "~/User/....."로 되어있는것처럼 홈디렉토리에서 시작하는 경로를 "/home/user......"처럼 전체경로로 변경하려면 마지막 expandTilde 매개변수에 전달인자로 true를 입력하면 변경된다.
+        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        // 옵셔널 바인딩을 통해 경로에 파일이 있는지 확인
+        if let directoryPath = path.first {
+            return directoryPath
+        } else {
+            // 만약 경로가 없다면 nil을 리턴한다. 이때 함수의 반환값이 절대적으로 String일 수 없기 때문에 리턴타입은 String 옵셔널 타입으로 변경한다.
+            return nil
+        }
+    }
+    
+    // 복구버튼 클릭했을 때
+    @IBAction func restoreButtonClicked(_ sender: UIButton) {
+        // UIDocumentPickerViewController - 앱의 document 또는 샌드박스 밖에있는 위치에 대한 액세스를 제공하는 뷰 컨트롤러
+        // documentTypes - 내가 불러올 수 있는 파일 형식을 지정
+        // in - UIDocumentPickerMode 형식 중 하나를 선택해야 한다 형식은 아래와 같다.
+            // .import - 문서 선택기는 앱의 샌드박스 외부에서 파일을 가져옵니다.
+            // .open - 문서 선택기는 앱의 샌드박스 외부에 외부 파일을 엽니다.
+        // 현재 프로젝트에서는 앱의 샌드박스 외부에서 파일을 가여좌야 하므로 .import를 사용한다.
+        // import MobileCoreServices 를 해주어야 한다.
+        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeZipArchive as String], in: .import)
+        
+        // 델리게이트를 뷰컨트롤러에 위임
+        documentPicker.delegate = self
+        
+        // 한번에 여러개의 파일을 선택할 수 있는지 여부, 복구파일은 하나만 필요하기 떄문에 false로 설정
+        documentPicker.allowsMultipleSelection = false
+        
+        // 파일선택 화면을 켜줌
+        self.present(documentPicker, animated: true, completion: nil)
+    }
+    
     
     // 시작할 때 데이터 불러옴
     func loadData() {
@@ -276,6 +365,51 @@ extension ShoppingTableViewController: cellButtonClicked {
                 item?.favorite = state ? false : true
             }
             tableView.reloadData()
+        }
+    }
+}
+
+extension ShoppingTableViewController: UIDocumentPickerDelegate {
+    
+    // 문서를 선택하면 실행되는 메서드
+    // 쇼핑리스트를 복구할 것이다.
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+        // 선택한 파일의 경로를 가져온다.
+        guard let selectedFileURL = urls.first else { return }
+        
+        // 도메인 마스크에 있는 "...../Directory" 경로를 가져옴
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        // "/User/..../Directory/shoppingList.zip"을 가져옴
+        // selectedFileURL.lastPathComponent가 "/User/....../shoppingList.zip" 중 마지막에 있는 "shoppingList.zip"을 리턴함
+        let sandboxFileURL = documentDirectory.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        // 복구 진행
+        // 파일이 있는지 먼저 확인
+        // 복구하고자 하는 파일이 document에 가지고 있는 경우
+        if FileManager.default.fileExists(atPath: selectedFileURL.path) {
+            print("복구파일 document에 찾음")
+        } else { // 복구하고자 하는 파일이 document에 없는 경우
+            do {
+                // 파일경로를 복사
+                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+            } catch {
+                print("오류발생")
+            }
+        }
+        
+        do {
+            // sandboxFilleURL - 파일 URL
+            // destination - 목적지의 디렉토리
+            // overwrite - 덮어쓸것인지
+            try Zip.unzipFile(sandboxFileURL, destination: documentDirectory, overwrite: true, password: nil, progress: { progress in
+                print("progress: \(progress)")
+            }, fileOutputHandler: { unzippedFile in
+                print("unzippedFile: \(unzippedFile)")
+            }) // Unzip
+        }
+        catch {
+          print("Something went wrong")
         }
     }
 }
