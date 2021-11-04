@@ -12,8 +12,6 @@ class SearchViewController: UIViewController {
     
     static let identifier = "SearchViewController"
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    
     @IBOutlet weak var tableView: UITableView!
     
     let localRealm = try! Realm()
@@ -40,13 +38,14 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print(#function)
         // Get all tasks in the realm
         tasks = localRealm.objects(UserDiary.self)
+        tableView.reloadData()
     }
     
     func setNavigationBar() {
-        navigationBar.tintColor = .white
+        self.title = "Title"
     }
     
     // 도큐먼트 폴더 경로 -> 이미지 찾기 -> UIImage -> UIImageView

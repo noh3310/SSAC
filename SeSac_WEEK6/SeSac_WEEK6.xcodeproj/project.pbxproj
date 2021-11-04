@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3107A9127325A7400A98C4B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3107A9027325A7400A98C4B /* MainStoryboard.storyboard */; };
+		D3107ABE27336DBB00A98C4B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = D3107ABD27336DBB00A98C4B /* Zip */; };
 		D3517C94273009F400B9BF17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C93273009F400B9BF17 /* MainViewController.swift */; };
 		D3517C9727300CA900B9BF17 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */; };
 		D3517C9927300CB400B9BF17 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C9827300CB400B9BF17 /* SearchViewController.swift */; };
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3107ABE27336DBB00A98C4B /* Zip in Frameworks */,
 				D3D7FCC02730CB1D00FDB9ED /* RealmSwift in Frameworks */,
 				D3D7FCBE2730CB1D00FDB9ED /* Realm in Frameworks */,
 			);
@@ -238,6 +240,7 @@
 			packageProductDependencies = (
 				D3D7FCBD2730CB1D00FDB9ED /* Realm */,
 				D3D7FCBF2730CB1D00FDB9ED /* RealmSwift */,
+				D3107ABD27336DBB00A98C4B /* Zip */,
 			);
 			productName = SeSac_WEEK6;
 			productReference = D391F51F272F6F360038F33B /* SeSac_WEEK6.app */;
@@ -271,6 +274,7 @@
 			mainGroup = D391F516272F6F360038F33B;
 			packageReferences = (
 				D3D7FCBC2730CB1D00FDB9ED /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				D3107ABC27336DBB00A98C4B /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = D391F520272F6F360038F33B /* Products */;
 			projectDirPath = "";
@@ -583,6 +587,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D3107ABC27336DBB00A98C4B /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D3D7FCBC2730CB1D00FDB9ED /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -594,6 +606,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D3107ABD27336DBB00A98C4B /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3107ABC27336DBB00A98C4B /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
 		D3D7FCBD2730CB1D00FDB9ED /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D3D7FCBC2730CB1D00FDB9ED /* XCRemoteSwiftPackageReference "realm-cocoa" */;
