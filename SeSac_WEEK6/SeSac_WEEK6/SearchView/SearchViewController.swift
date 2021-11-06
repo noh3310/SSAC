@@ -110,7 +110,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let row = tasks[indexPath.row]
         cell.titleLabel.text = row.diaryTitle
-        cell.dateLabel.text = "\(row.writeDate)"
+//        cell.dateLabel.text = "\(row.writeDate)"
+        // 날짜형식 맞게 변환
+        let format = DateFormatter()
+        format.dateFormat = "yyyy년 MM월 dd일"
+        cell.dateLabel.text = format.string(from: row.writeDate)
+        
         cell.contentsLabel.text = row.content
         cell.contentsLabel.numberOfLines = 0
         cell.imageLabel.backgroundColor = .gray

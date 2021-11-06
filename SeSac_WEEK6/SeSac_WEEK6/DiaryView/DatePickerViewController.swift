@@ -8,11 +8,19 @@
 import UIKit
 
 class DatePickerViewController: UIViewController {
+    
+    static let identifier = "DatePickerViewController"
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        if #available(iOS 13.4, *) {
+//            datePicker.preferredDatePickerStyle = .wheels
+//        } else {
+//            // Fallback on earlier versions
+//        }
     }
     
 

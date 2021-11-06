@@ -113,7 +113,7 @@ class SettingViewController: UIViewController {
         
         // 복구 1. 파일앱 열기 + 확장자
         // import MobileCoreServices
-        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeZipArchive as String], in: .import)
+let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeZipArchive as String], in: .import)
         
         // 기존에는 프로토콜로 구현을 했었는데, 그래서 이것을 extension으로 만들어보겠다.
         documentPicker.delegate = self

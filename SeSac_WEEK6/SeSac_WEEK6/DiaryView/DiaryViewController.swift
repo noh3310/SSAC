@@ -19,6 +19,7 @@ class DiaryViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var diaryLabel: UITextView!
     
+    @IBOutlet weak var dateButton: UIButton!
     // 로컬DB Realm을 선언
     let localRealm = try! Realm()
     
@@ -64,7 +65,19 @@ class DiaryViewController: UIViewController {
     
     // 저장버튼 클릭시
     @objc func saveButtonClicked() {
-        let task = UserDiary.init(diaryTitle: titleTextField.text!, content: diaryLabel.text!, writeDate: Date(), regDate: Date())
+        
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy년 MM월 dd일"
+        
+//        let buttonDate = dateButton.currentTitle!
+//        let value = format.date(from: buttonDate)!
+        
+//        guard let date = dateButton.currentTitle, let value = format.date(from: date) else { return }
+        
+        guard let date = dateButton.currentTitle, let value = DateFormatter().customFormat.date(from: date) else { return }
+        
+        let task = UserDiary.init(diaryTitle: titleTextField.text!, content: diaryLabel.text!, writeDate: value, regDate: Date())
         try! localRealm.write {
             localRealm.add(task)
             
@@ -144,6 +157,41 @@ class DiaryViewController: UIViewController {
     
     @objc func endEditing() {
         self.view.endEditing(true)
+    }
+    
+    // PickerView로 날짜 설정
+    @IBAction func dateButtonClicked(_ sender: UIButton) {
+        let alert = UIAlertController(title: "날짜 선택", message: "날짜를 선택해주세요", preferredStyle: .alert)
+        
+        // Alert 커스터마이징
+        // 1. alert 안에 들어와서 문제가 생기나?
+        // 2. 스토리보드를 인식하지 못해서 그런가?
+        // 3. 스토리보드 씬 + 클래스 -> 화면 전환 코드를 사용해주면 됨
+//        let contentView = DatePickerViewController()
+        guard let contentView = storyboard?.instantiateViewController(withIdentifier: DatePickerViewController.identifier) as? DatePickerViewController else {
+            print("DatePickerViewController에 오류가 있음")
+            return
+        }
+        contentView.view.backgroundColor = .clear
+        // alert 크기 설정
+        contentView.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        alert.setValue(contentView, forKey: "contentViewController")
+        // 보통 높이만 고정한다.
+        contentView.preferredContentSize.height = 200
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let ok = UIAlertAction(title: "확인", style: .default) {_ in
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy년 MM월 dd일"
+            
+            let value = format.string(from: contentView.datePicker.date)
+            
+            self.dateButton.setTitle(value, for: .normal)
+        }
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
