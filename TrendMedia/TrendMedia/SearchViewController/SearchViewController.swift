@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     
     // Open the local-only default realm
-    let localRealm = try! Realm(configuration: config, queue: nil)
+    let localRealm = try! Realm()
     
     var movieList: Results<RankingMovie>!
     

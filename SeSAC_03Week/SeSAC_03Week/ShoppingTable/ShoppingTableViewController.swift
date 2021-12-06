@@ -23,6 +23,7 @@ class ShoppingTableViewController: UITableViewController {
     
     var shoppingList: Results<ShoppingItem>! {
         didSet {
+            // 데이터베이스를 업데이트 하는 과정이 조금 오래 걸리는 것 같다.
             tableView.reloadData()
         }
     }
@@ -377,36 +378,44 @@ extension ShoppingTableViewController: UIDocumentPickerDelegate {
         
         // 선택한 파일의 경로를 가져온다.
         guard let selectedFileURL = urls.first else { return }
-        
+
         // 도메인 마스크에 있는 "...../Directory" 경로를 가져옴
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         // "/User/..../Directory/shoppingList.zip"을 가져옴
         // selectedFileURL.lastPathComponent가 "/User/....../shoppingList.zip" 중 마지막에 있는 "shoppingList.zip"을 리턴함
         let sandboxFileURL = documentDirectory.appendingPathComponent(selectedFileURL.lastPathComponent)
-        
+
         // 복구 진행
         // 파일이 있는지 먼저 확인
         // 복구하고자 하는 파일이 document에 가지고 있는 경우
-        if FileManager.default.fileExists(atPath: selectedFileURL.path) {
+        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
             print("복구파일 document에 찾음")
         } else { // 복구하고자 하는 파일이 document에 없는 경우
             do {
-                // 파일경로를 복사
+                // 파일을 Document로 이동(잘못 생각함)
                 try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
             } catch {
                 print("오류발생")
             }
         }
-        
+
         do {
+            let fileURL = documentDirectory.appendingPathComponent("shoppingList.zip")
+
             // sandboxFilleURL - 파일 URL
             // destination - 목적지의 디렉토리
             // overwrite - 덮어쓸것인지
-            try Zip.unzipFile(sandboxFileURL, destination: documentDirectory, overwrite: true, password: nil, progress: { progress in
+            try Zip.unzipFile(fileURL, destination: documentDirectory, overwrite: true, password: nil, progress: { progress in
                 print("progress: \(progress)")
             }, fileOutputHandler: { unzippedFile in
                 print("unzippedFile: \(unzippedFile)")
             }) // Unzip
+
+//            // 새롭게 받아오기 이래야지 데이터베이스가 업데이트되기 때문에 바로 사용할 수 있는것 같음(맞네)
+//            shoppingList = localRealm.objects(ShoppingItem.self).sorted(byKeyPath: "favorite", ascending: false).sorted(byKeyPath: "checkBox", ascending: true)
+
+            // 테이블뷰 리로드
+//            tableView.reloadData()
         }
         catch {
           print("Something went wrong")

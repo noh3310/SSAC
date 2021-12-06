@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FSCalendar",
+        "repositoryURL": "https://github.com/WenchaoD/FSCalendar.git",
+        "state": {
+          "branch": null,
+          "revision": "4e79a201fad268408a4fd9e2ef429497def9594f",
+          "version": "2.8.2"
+        }
+      },
+      {
+        "package": "JTAppleCalendar",
+        "repositoryURL": "https://github.com/patchthecode/JTAppleCalendar.git",
+        "state": {
+          "branch": null,
+          "revision": "2812ae8a58c4b8132cd3d0e761b984e344d841a4",
+          "version": "8.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

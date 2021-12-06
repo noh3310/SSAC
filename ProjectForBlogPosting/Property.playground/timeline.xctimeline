@@ -2,5 +2,20 @@
 <Timeline
    version = "3.0">
    <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/gunho/Programming/SSAC/ProjectForBlogPosting/Property.playground#CharacterRangeLen=691&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=40&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=657910714.1053391"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/gunho/Programming/SSAC/ProjectForBlogPosting/Property.playground#CharacterRangeLen=691&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=40&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=657910714.105569"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/gunho/Programming/SSAC/ProjectForBlogPosting/Property.playground#CharacterRangeLen=691&amp;CharacterRangeLoc=0&amp;EndingColumnNumber=0&amp;EndingLineNumber=40&amp;StartingColumnNumber=0&amp;StartingLineNumber=0&amp;Timestamp=657910714.105937"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
    </TimelineItems>
 </Timeline>

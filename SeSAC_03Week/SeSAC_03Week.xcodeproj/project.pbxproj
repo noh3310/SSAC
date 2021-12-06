@@ -78,8 +78,8 @@
 		D3640BD227171CE50031FB59 /* ShoppingTable */ = {
 			isa = PBXGroup;
 			children = (
-				D3640BCE271705B20031FB59 /* ShoppingSearchTableViewCell.swift */,
 				D3640BD02717060B0031FB59 /* ShoppingTableViewController.swift */,
+				D3640BCE271705B20031FB59 /* ShoppingSearchTableViewCell.swift */,
 				D3640BD327171D190031FB59 /* ShoppingListTableViewCell.swift */,
 				D3257C5F271817610028EB09 /* ShoppingList.swift */,
 			);

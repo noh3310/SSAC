@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SeSAC_Week7" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-pJ-rg8">
+                                <rect key="frame" x="20" y="64" width="374" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="zpz-BV-Eby"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqD-8j-U3f">
+                                <rect key="frame" x="20" y="234" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7Lq-aP-8qs"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f37-iJ-z9v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upM-qw-vvl">
+                                <rect key="frame" x="20" y="334" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hPX-As-Lmj"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Notification"/>
+                                <connections>
+                                    <action selector="notificationButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HyY-dY-9j2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WE-7N-j3O">
+                                <rect key="frame" x="10" y="434" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rwo-st-BGW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="프로토콜"/>
+                                <connections>
+                                    <action selector="protocolButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UBe-nC-9E5"/>
+                                    <action selector="protocolButtonClicked:" destination="dM1-ce-VZw" eventType="touchUpInside" id="m1L-hM-0IB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1WE-7N-j3O" secondAttribute="trailing" constant="10" id="11H-gU-tZN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="upM-qw-vvl" secondAttribute="trailing" constant="20" id="Fwb-Eq-wCD"/>
+                            <constraint firstItem="1WE-7N-j3O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="HL1-fx-CXU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XqD-8j-U3f" secondAttribute="trailing" constant="20" id="ICn-2E-5RT"/>
+                            <constraint firstItem="1WE-7N-j3O" firstAttribute="top" secondItem="upM-qw-vvl" secondAttribute="bottom" constant="50" id="LSb-DF-5HF"/>
+                            <constraint firstItem="z5B-pJ-rg8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aU9-0O-cBE"/>
+                            <constraint firstItem="z5B-pJ-rg8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="baw-3E-1uf"/>
+                            <constraint firstItem="XqD-8j-U3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fwq-9n-4i2"/>
+                            <constraint firstItem="upM-qw-vvl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lN3-8m-TaE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z5B-pJ-rg8" secondAttribute="trailing" constant="20" id="qIN-ye-glR"/>
+                            <constraint firstItem="XqD-8j-U3f" firstAttribute="top" secondItem="z5B-pJ-rg8" secondAttribute="bottom" constant="20" id="wEu-2h-G8p"/>
+                            <constraint firstItem="upM-qw-vvl" firstAttribute="top" secondItem="XqD-8j-U3f" secondAttribute="bottom" constant="50" id="z4f-Qq-LtY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="z5B-pJ-rg8" id="te3-VE-9LF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="79.6875"/>
+        </scene>
+        <!--Yellow View Controller-->
+        <scene sceneID="hUb-iB-57O">
+            <objects>
+                <viewController storyboardIdentifier="YellowViewController" id="dM1-ce-VZw" customClass="YellowViewController" customModule="SeSAC_Week7" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pl9-vt-x9J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Rh-Xh-Jrn">
+                                <rect key="frame" x="10" y="54" width="394" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="cna-aV-UKu"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-iY-TcY">
+                                <rect key="frame" x="10" y="214" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wvH-S1-fUS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="닫기"/>
+                                <connections>
+                                    <action selector="buttonClicked:" destination="dM1-ce-VZw" eventType="touchUpInside" id="XgD-uw-TpG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVZ-ZJ-kfK">
+                                <rect key="frame" x="10" y="314" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fCI-wH-evg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="notificationButtonClicked:" destination="dM1-ce-VZw" eventType="touchUpInside" id="iE4-cK-GjK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1j-BW-vGm">
+                                <rect key="frame" x="10" y="414" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="srb-fu-vke"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="프로토콜"/>
+                                <connections>
+                                    <action selector="protocolButtonClicked:" destination="dM1-ce-VZw" eventType="touchUpInside" id="EZE-HX-jCn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="es1-m6-pSA"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="NNz-iY-TcY" firstAttribute="leading" secondItem="es1-m6-pSA" secondAttribute="leading" constant="10" id="7BF-T3-wg7"/>
+                            <constraint firstItem="es1-m6-pSA" firstAttribute="trailing" secondItem="6Rh-Xh-Jrn" secondAttribute="trailing" constant="10" id="7M1-5T-y2P"/>
+                            <constraint firstItem="es1-m6-pSA" firstAttribute="trailing" secondItem="g1j-BW-vGm" secondAttribute="trailing" constant="10" id="OZq-nW-2i0"/>
+                            <constraint firstItem="6Rh-Xh-Jrn" firstAttribute="top" secondItem="es1-m6-pSA" secondAttribute="top" constant="10" id="Ptu-1c-ZlD"/>
+                            <constraint firstItem="g1j-BW-vGm" firstAttribute="top" secondItem="BVZ-ZJ-kfK" secondAttribute="bottom" constant="50" id="R42-jK-6bg"/>
+                            <constraint firstItem="6Rh-Xh-Jrn" firstAttribute="leading" secondItem="es1-m6-pSA" secondAttribute="leading" constant="10" id="VzY-gh-E5I"/>
+                            <constraint firstItem="es1-m6-pSA" firstAttribute="trailing" secondItem="BVZ-ZJ-kfK" secondAttribute="trailing" constant="10" id="W2b-oY-lVP"/>
+                            <constraint firstItem="BVZ-ZJ-kfK" firstAttribute="leading" secondItem="es1-m6-pSA" secondAttribute="leading" constant="10" id="m2l-c8-0Oe"/>
+                            <constraint firstItem="g1j-BW-vGm" firstAttribute="leading" secondItem="es1-m6-pSA" secondAttribute="leading" constant="10" id="n9e-iA-wqZ"/>
+                            <constraint firstItem="NNz-iY-TcY" firstAttribute="top" secondItem="6Rh-Xh-Jrn" secondAttribute="bottom" constant="10" id="pIX-Kv-LGl"/>
+                            <constraint firstItem="es1-m6-pSA" firstAttribute="trailing" secondItem="NNz-iY-TcY" secondAttribute="trailing" constant="10" id="qjm-nb-P1C"/>
+                            <constraint firstItem="BVZ-ZJ-kfK" firstAttribute="top" secondItem="NNz-iY-TcY" secondAttribute="bottom" constant="50" id="s1X-qu-74K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="6Rh-Xh-Jrn" id="ICN-oj-Qg0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5m-QF-aYq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842" y="80"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="xwd-hE-DiN">
+            <objects>
+                <viewController storyboardIdentifier="PopupViewController" id="DJT-rT-6NI" customClass="PopupViewController" customModule="SeSAC_Week7" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UHt-SW-bOO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="647-m9-cIa"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aym-FQ-qLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1543" y="80"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

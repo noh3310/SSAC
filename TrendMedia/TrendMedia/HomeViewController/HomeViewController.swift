@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
 //    var buttonDictionary: [String:Any] = []
     
     // Open the default realm
-    let localRealm = try! Realm(configuration: config, queue: nil)
+    let localRealm = try! Realm()
     
     var genreList: Results<Genre>!
     

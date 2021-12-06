@@ -16,6 +16,21 @@ class InformationTableViewCell: UITableViewCell {
     @IBOutlet weak var contentsLabel: UILabel!
     @IBOutlet weak var imageLabel: UIImageView!
     
+    func configureCell(row: UserDiary) {
+//        let row = tasks[indexPath.row]
+        titleLabel.text = row.diaryTitle
+//        cell.dateLabel.text = "\(row.writeDate)"
+        // 날짜형식 맞게 변환
+        let format = DateFormatter()
+        format.dateFormat = "yyyy년 MM월 dd일"
+        dateLabel.text = format.string(from: row.writeDate)
+        
+        contentsLabel.text = row.content
+        contentsLabel.numberOfLines = 0
+        imageLabel.backgroundColor = .gray
+//        imageLabel.image = loadImageFromDocumentDirectory(imageName: "\(row._id).jpg")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -11,6 +11,16 @@ class MainViewController: UIViewController {
     
     static let identifier = "MainViewController"
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    let array = [
+        Array(repeating: "a", count: 20),
+        Array(repeating: "b", count: 20),
+        Array(repeating: "c", count: 20),
+        Array(repeating: "d", count: 20),
+        Array(repeating: "e", count: 20)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +30,8 @@ class MainViewController: UIViewController {
         // 내비게이션 타이틀 설정
         setNavigationBar()
         
-        //
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     // 모든 탭바 아이콘, 이름 설정
@@ -73,3 +84,33 @@ class MainViewController: UIViewController {
         self.present(vc, animated: true)
     }
 }
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return array.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else {
+            return UITableViewCell()
+        }
+        
+//        cell.collectionView.delegate = self
+//        cell.collectionView.dataSource = self
+        
+        cell.backgroundColor = .blue
+        cell.data = array[indexPath.row]
+        cell.categoryLabel.text = "\(array[indexPath.row])"
+        cell.collectionView.backgroundColor = .lightGray
+
+        // 태그를 남김(하나의 섹션일 떄 유용한 방법)
+        cell.collectionView.tag = indexPath.row
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row == 1 ? 300 : 170
+    }
+}
+

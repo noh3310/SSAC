@@ -102,6 +102,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: InformationTableViewCell.identifier, for: indexPath) as? InformationTableViewCell else {
             return UITableViewCell()
         }
+        
+        // 아래처럼 함수를 실행할 수 있다.
+        cell.configureCell(row: tasks[indexPath.row])
+        
 //        print(tasks[0]._id)
 //        print(tasks[0].diaryTitle)
 //        print(tasks[0].content)
@@ -109,16 +113,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 //        print(tasks[0].regDate)
         
         let row = tasks[indexPath.row]
-        cell.titleLabel.text = row.diaryTitle
-//        cell.dateLabel.text = "\(row.writeDate)"
-        // 날짜형식 맞게 변환
-        let format = DateFormatter()
-        format.dateFormat = "yyyy년 MM월 dd일"
-        cell.dateLabel.text = format.string(from: row.writeDate)
-        
-        cell.contentsLabel.text = row.content
-        cell.contentsLabel.numberOfLines = 0
-        cell.imageLabel.backgroundColor = .gray
+//        cell.titleLabel.text = row.diaryTitle
+////        cell.dateLabel.text = "\(row.writeDate)"
+//        // 날짜형식 맞게 변환
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy년 MM월 dd일"
+//        cell.dateLabel.text = format.string(from: row.writeDate)
+//        
+//        cell.contentsLabel.text = row.content
+//        cell.contentsLabel.numberOfLines = 0
+//        cell.imageLabel.backgroundColor = .gray
         cell.imageLabel.image = loadImageFromDocumentDirectory(imageName: "\(row._id).jpg")
         
         return cell

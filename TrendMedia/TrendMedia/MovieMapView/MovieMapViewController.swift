@@ -64,7 +64,7 @@ class MovieMapViewController: UIViewController {
         mapView.removeAnnotations(annotations)
     }
     
-    // 어노테이션 출력및 중간위치 설정(이것도 나중에 함수 여러개로 변경할 수 있음)
+    // 어노테이션 출력및 중간위치 설정
     func printAnnotation(printType: String) {
         // 일단은 보기 편하게 내 위치가 아니라 어노테이션들의 중심위치로 초점을 이동시킴
         // 나중에는 위치설정을 했다면 그 위치로 보여주고, 아니라면 어노테이션들의 평균 위치로 바꿀 예정

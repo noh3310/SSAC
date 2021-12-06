@@ -13,6 +13,8 @@
 		D3107AC62734B53100A98C4B /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3107AC52734B53100A98C4B /* DatePickerViewController.swift */; };
 		D3107AC82734CE6F00A98C4B /* RealmQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3107AC72734CE6F00A98C4B /* RealmQuery.swift */; };
 		D3107ACA2734D01B00A98C4B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3107AC92734D01B00A98C4B /* Date+Extension.swift */; };
+		D3107AD82738AB5C00A98C4B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3107AD72738AB5C00A98C4B /* HomeTableViewCell.swift */; };
+		D3107ADA2738B18600A98C4B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3107AD92738B18600A98C4B /* HomeCollectionViewCell.swift */; };
 		D3517C94273009F400B9BF17 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C93273009F400B9BF17 /* MainViewController.swift */; };
 		D3517C9727300CA900B9BF17 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */; };
 		D3517C9927300CB400B9BF17 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517C9827300CB400B9BF17 /* SearchViewController.swift */; };
@@ -24,10 +26,14 @@
 		D3517CA827303DAB00B9BF17 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517CA727303DAB00B9BF17 /* DiaryViewController.swift */; };
 		D3517CAB273048F600B9BF17 /* InformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3517CA9273048F600B9BF17 /* InformationTableViewCell.swift */; };
 		D3517CAC273048F600B9BF17 /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3517CAA273048F600B9BF17 /* InformationTableViewCell.xib */; };
+		D365DA74273A464D00393BA1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D365DA73273A464D00393BA1 /* MyCollectionViewCell.swift */; };
+		D365DA77273A468B00393BA1 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D365DA75273A468B00393BA1 /* MyTableViewCell.swift */; };
+		D365DA78273A468B00393BA1 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D365DA76273A468B00393BA1 /* MyTableViewCell.xib */; };
+		D365DA7B273A582500393BA1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D365DA79273A582500393BA1 /* CollectionViewCell.swift */; };
+		D365DA7C273A582500393BA1 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D365DA7A273A582500393BA1 /* CollectionViewCell.xib */; };
 		D391F523272F6F360038F33B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391F522272F6F360038F33B /* AppDelegate.swift */; };
 		D391F525272F6F360038F33B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391F524272F6F360038F33B /* SceneDelegate.swift */; };
 		D391F527272F6F360038F33B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391F526272F6F360038F33B /* ViewController.swift */; };
-		D391F52A272F6F360038F33B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D391F528272F6F360038F33B /* Main.storyboard */; };
 		D391F52C272F6F380038F33B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D391F52B272F6F380038F33B /* Assets.xcassets */; };
 		D391F52F272F6F380038F33B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D391F52D272F6F380038F33B /* LaunchScreen.storyboard */; };
 		D391F53A272F6FEA0038F33B /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = D391F537272F6FEA0038F33B /* SCDream2.otf */; };
@@ -42,6 +48,7 @@
 		D3D7FCB62730C96F00FDB9ED /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7FCB52730C96F00FDB9ED /* RealmModel.swift */; };
 		D3D7FCBE2730CB1D00FDB9ED /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D3D7FCBD2730CB1D00FDB9ED /* Realm */; };
 		D3D7FCC02730CB1D00FDB9ED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3D7FCBF2730CB1D00FDB9ED /* RealmSwift */; };
+		D3DA363A273936E300E6F4F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D391F528272F6F360038F33B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +56,8 @@
 		D3107AC52734B53100A98C4B /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		D3107AC72734CE6F00A98C4B /* RealmQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuery.swift; sourceTree = "<group>"; };
 		D3107AC92734D01B00A98C4B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D3107AD72738AB5C00A98C4B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		D3107AD92738B18600A98C4B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D3517C93273009F400B9BF17 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D3517C9627300CA900B9BF17 /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
 		D3517C9827300CB400B9BF17 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +69,11 @@
 		D3517CA727303DAB00B9BF17 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		D3517CA9273048F600B9BF17 /* InformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTableViewCell.swift; sourceTree = "<group>"; };
 		D3517CAA273048F600B9BF17 /* InformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
+		D365DA73273A464D00393BA1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		D365DA75273A468B00393BA1 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		D365DA76273A468B00393BA1 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		D365DA79273A582500393BA1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		D365DA7A273A582500393BA1 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		D391F51F272F6F360038F33B /* SeSac_WEEK6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSac_WEEK6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D391F522272F6F360038F33B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D391F524272F6F360038F33B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +123,14 @@
 			isa = PBXGroup;
 			children = (
 				D3107A9027325A7400A98C4B /* MainStoryboard.storyboard */,
+				D365DA73273A464D00393BA1 /* MyCollectionViewCell.swift */,
+				D365DA75273A468B00393BA1 /* MyTableViewCell.swift */,
+				D365DA76273A468B00393BA1 /* MyTableViewCell.xib */,
+				D365DA79273A582500393BA1 /* CollectionViewCell.swift */,
+				D365DA7A273A582500393BA1 /* CollectionViewCell.xib */,
+				D3107AD92738B18600A98C4B /* HomeCollectionViewCell.swift */,
 				D3517C93273009F400B9BF17 /* MainViewController.swift */,
+				D3107AD72738AB5C00A98C4B /* HomeTableViewCell.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -303,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DA363A273936E300E6F4F2 /* Main.storyboard in Resources */,
 				D3517CAC273048F600B9BF17 /* InformationTableViewCell.xib in Resources */,
 				D391F53B272F6FEA0038F33B /* SCDream5.otf in Resources */,
 				D3517C9727300CA900B9BF17 /* SearchStoryboard.storyboard in Resources */,
@@ -315,8 +337,9 @@
 				D391F55C272F84D90038F33B /* Setting.strings in Resources */,
 				D3517C9D27300D5D00B9BF17 /* CalendarStoryboard.storyboard in Resources */,
 				D391F52C272F6F380038F33B /* Assets.xcassets in Resources */,
+				D365DA78273A468B00393BA1 /* MyTableViewCell.xib in Resources */,
+				D365DA7C273A582500393BA1 /* CollectionViewCell.xib in Resources */,
 				D391F563272F87B70038F33B /* InfoPlist.strings in Resources */,
-				D391F52A272F6F360038F33B /* Main.storyboard in Resources */,
 				D3517CA627303D9E00B9BF17 /* DiaryStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +356,7 @@
 				D3107AC62734B53100A98C4B /* DatePickerViewController.swift in Sources */,
 				D3517C9927300CB400B9BF17 /* SearchViewController.swift in Sources */,
 				D3517CA827303DAB00B9BF17 /* DiaryViewController.swift in Sources */,
+				D3107ADA2738B18600A98C4B /* HomeCollectionViewCell.swift in Sources */,
 				D3107ACA2734D01B00A98C4B /* Date+Extension.swift in Sources */,
 				D391F523272F6F360038F33B /* AppDelegate.swift in Sources */,
 				D391F53F272F73810038F33B /* UIFont+Extension.swift in Sources */,
@@ -340,9 +364,13 @@
 				D3517CA327300D8100B9BF17 /* SettingViewController.swift in Sources */,
 				D391F569272F88DE0038F33B /* String+Extension.swift in Sources */,
 				D3517C9F27300D6C00B9BF17 /* CalendarViewController.swift in Sources */,
+				D365DA77273A468B00393BA1 /* MyTableViewCell.swift in Sources */,
 				D391F525272F6F360038F33B /* SceneDelegate.swift in Sources */,
 				D3107AC82734CE6F00A98C4B /* RealmQuery.swift in Sources */,
+				D365DA74273A464D00393BA1 /* MyCollectionViewCell.swift in Sources */,
+				D365DA7B273A582500393BA1 /* CollectionViewCell.swift in Sources */,
 				D3D7FCB62730C96F00FDB9ED /* RealmModel.swift in Sources */,
+				D3107AD82738AB5C00A98C4B /* HomeTableViewCell.swift in Sources */,
 				D3517C94273009F400B9BF17 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
