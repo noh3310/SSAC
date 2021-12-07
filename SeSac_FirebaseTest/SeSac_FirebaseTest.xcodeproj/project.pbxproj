@@ -29,6 +29,7 @@
 		D358B329275DA3E9006E4A4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D358B32B275DA3E9006E4A4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D358B331275DA441006E4A4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D358B356275EF2A7006E4A4D /* SeSac_FirebaseTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSac_FirebaseTest.entitlements; sourceTree = "<group>"; };
 		EBA7886ACBA68F934673BD92 /* Pods-SeSac_FirebaseTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSac_FirebaseTest.release.xcconfig"; path = "Target Support Files/Pods-SeSac_FirebaseTest/Pods-SeSac_FirebaseTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +51,6 @@
 				6E32D671D552B4288BD027CB /* Pods-SeSac_FirebaseTest.debug.xcconfig */,
 				EBA7886ACBA68F934673BD92 /* Pods-SeSac_FirebaseTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +83,7 @@
 		D358B31C275DA3E6006E4A4D /* SeSac_FirebaseTest */ = {
 			isa = PBXGroup;
 			children = (
+				D358B356275EF2A7006E4A4D /* SeSac_FirebaseTest.entitlements */,
 				D358B31D275DA3E6006E4A4D /* AppDelegate.swift */,
 				D358B31F275DA3E6006E4A4D /* SceneDelegate.swift */,
 				D358B321275DA3E6006E4A4D /* ViewController.swift */,
@@ -107,6 +108,7 @@
 				D358B317275DA3E6006E4A4D /* Frameworks */,
 				D358B318275DA3E6006E4A4D /* Resources */,
 				FEF33FC536AD5E0AA9C8A7C1 /* [CP] Embed Pods Frameworks */,
+				D358B357275EF40A006E4A4D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -186,6 +188,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D358B357275EF40A006E4A4D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		FEF33FC536AD5E0AA9C8A7C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -361,11 +382,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSac_FirebaseTest/SeSac_FirebaseTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9XD488YM8C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSac_FirebaseTest/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "~~ 때문에 광고추적 허용해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -390,11 +414,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSac_FirebaseTest/SeSac_FirebaseTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9XD488YM8C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSac_FirebaseTest/Info.plist;
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "~~ 때문에 광고추적 허용해주세요!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

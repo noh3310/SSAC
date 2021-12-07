@@ -20,8 +20,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 파이어베이스 앱을 초기화, 공유 인스턴스 생성
         FirebaseApp.configure()
         
-
+        // Crashlytics 개인정보는 받아오면 안된다고 하는데 테스트를 해볼 수 있다.
+        Crashlytics.crashlytics().setCustomValue(1000, forKey: "movieCount")
+        Crashlytics.crashlytics().setCustomValue("hello", forKey: "nickname")
         
+        let keysAndValues = [
+                         "string key" : "string value",
+                         "string key 2" : "string value 2",
+                         "boolean key" : true,
+                         "boolean key 2" : false,
+                         "float key" : 1.01,
+                         "float key 2" : 2.02
+                        ] as [String : Any]
+
+        Crashlytics.crashlytics().setCustomKeysAndValues(keysAndValues)
+        
+        Crashlytics.crashlytics().setUserID("123456789")
         
         return true
     }
