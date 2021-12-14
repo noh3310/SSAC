@@ -13,7 +13,7 @@ class MelonPlayView: UIView {
         let button = UIButton()
         
         // repeat.1
-        // 처음에는 gray색, 그다음에는 검정색, 그다음에는 repeat.1
+        // 처음에는 gray색, 그다음에는 흰색, 그다음에는 repeat.1
         button.setImage(UIImage(systemName: "repeat"), for: .normal)
         button.tintColor = .systemGray
         
@@ -39,8 +39,8 @@ class MelonPlayView: UIView {
         view.progressTintColor = .green
         // 기본 색상
         view.trackTintColor = .lightGray
-        // 얼마나 채울것인지 설정
-        view.progress = 0.2
+        // 얼마나 채울것인지 설정(초기값은 0으로 설정)
+        view.progress = 0
         
         return view
     }()
@@ -58,7 +58,7 @@ class MelonPlayView: UIView {
     let currentTime: UILabel = {
         let label = UILabel()
         
-        label.text = "0:04"
+        label.text = "0:00"
         label.textColor = .green
         label.font = .systemFont(ofSize: 13)
         

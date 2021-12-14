@@ -10,6 +10,9 @@ import SnapKit
 
 class MelonSnapViewController: UIViewController {
     
+    var timer = Timer()
+    var timerState = false
+    
     // 타이틀
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -66,6 +69,9 @@ class MelonSnapViewController: UIViewController {
     let bottomView: MelonBottomView = {
         let view = MelonBottomView()
         
+        view.backwardButton.addTarget(self, action: #selector(resetProgress), for: .touchUpInside)
+        view.forwardButton.addTarget(self, action: #selector(resetProgress), for: .touchUpInside)
+        
         return view
     }()
     
@@ -87,6 +93,55 @@ class MelonSnapViewController: UIViewController {
         
         return label
     }()
+    
+    // play버튼 클릭했을때 progressbar 시작
+    @objc
+    func stopAndPlayButtonClicked(_ button: UIButton) {
+        // 시작버튼을 눌렀을 때
+        if button.currentImage! == UIImage(systemName: "play.fill") {
+            button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            // 계속 1초마다 실행할 수 있도록 함
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(musicProgress), userInfo: nil, repeats: true)
+        } else {
+            button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            // 타이머 일시정지
+            timer.invalidate()
+        }
+    }
+    
+    var totalTime = 60
+    var currentTimeCount = 0
+    
+    @objc
+    func musicProgress() {
+        currentTimeCount = (currentTimeCount > totalTime) ? 0 : currentTimeCount + 1
+        UIView.animate(withDuration: 1.0) {
+            let animate = (self.currentTimeCount == 0) ? false : true
+            self.playingView.statusView.setProgress(Float(self.currentTimeCount)/Float(self.totalTime), animated: animate)
+        }
+        var time: String = "0:" + ((currentTimeCount < 10) ? "0" : "") + "\(currentTimeCount)"
+        time = (currentTimeCount == 60) ? "1:00" : time
+        if currentTimeCount > totalTime {
+            gotoStartingPoint()
+        } else {
+            playingView.currentTime.text = time
+        }
+    }
+    
+    func gotoStartingPoint() {
+        currentTimeCount = 0
+        playingView.currentTime.text = "0:00"
+        playingView.statusView.progress = 0
+        timer.invalidate()
+        bottomView.stopAndPlayButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+    }
+    
+    @objc
+    func resetProgress() {
+        gotoStartingPoint()
+        // 프로세스를 계속 실행하도록 하는것
+        playingView.statusView.observedProgress?.resume()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,6 +208,7 @@ class MelonSnapViewController: UIViewController {
         }
         
         // MARK: bottomView의 버튼들 설정
+        bottomView.stopAndPlayButton.addTarget(self, action: #selector(stopAndPlayButtonClicked(_:)), for: .touchUpInside)
         bottomView.stopAndPlayButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()

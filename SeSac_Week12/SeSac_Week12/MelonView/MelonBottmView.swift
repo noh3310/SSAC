@@ -38,7 +38,7 @@ class MelonBottomView: UIView {
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
         button.tintColor = .white
         // 터치 이벤트 설정
-        button.addTarget(self, action: #selector(stopAndPlayButtonClicked(_:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(stopAndPlayButtonClicked(_:)), for: .touchUpInside)
         
         return button
     }()
@@ -61,15 +61,15 @@ class MelonBottomView: UIView {
         return button
     }()
     
-    // play버튼 클릭했을때 버튼 이미지 toggle해줌(우선은 그냥 이렇게만 만듬)
-    @objc
-    func stopAndPlayButtonClicked(_ button: UIButton) {
-        if button.currentImage! == UIImage(systemName: "play.fill") {
-            button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-        } else {
-            button.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        }
-    }
+//    // play버튼 클릭했을때 버튼 이미지 toggle해줌(우선은 그냥 이렇게만 만듬)
+//    @objc
+//    func stopAndPlayButtonClicked(_ button: UIButton) {
+//        if button.currentImage! == UIImage(systemName: "play.fill") {
+//            button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+//        } else {
+//            button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+//        }
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
