@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 여기서 하나씩 설정을 해보면 된다.
         self.window = UIWindow(windowScene: windowScene)
         
-        let vc = ViewController()
+        let vc = SnapDetailViewController()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
