@@ -10,6 +10,9 @@
 		D327C1CF27682E380047706C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D327C1CE27682E380047706C /* SnapKit */; };
 		D327C1D1276830060047706C /* SnapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1D0276830060047706C /* SnapDetailViewController.swift */; };
 		D327C1D3276895730047706C /* MelonSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1D2276895730047706C /* MelonSnapViewController.swift */; };
+		D327C1D62768D92E0047706C /* MelonBottmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1D52768D92E0047706C /* MelonBottmView.swift */; };
+		D327C1D82768E9520047706C /* MelonPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1D72768E9520047706C /* MelonPlayView.swift */; };
+		D327C1DA2768FE270047706C /* MelonAlbumInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1D92768FE270047706C /* MelonAlbumInformationView.swift */; };
 		D33334DC2766CAEA001AE90D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33334DB2766CAEA001AE90D /* AppDelegate.swift */; };
 		D33334DE2766CAEA001AE90D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33334DD2766CAEA001AE90D /* SceneDelegate.swift */; };
 		D33334E02766CAEA001AE90D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33334DF2766CAEA001AE90D /* ViewController.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		D327C1D0276830060047706C /* SnapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewController.swift; sourceTree = "<group>"; };
 		D327C1D2276895730047706C /* MelonSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelonSnapViewController.swift; sourceTree = "<group>"; };
+		D327C1D52768D92E0047706C /* MelonBottmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelonBottmView.swift; sourceTree = "<group>"; };
+		D327C1D72768E9520047706C /* MelonPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelonPlayView.swift; sourceTree = "<group>"; };
+		D327C1D92768FE270047706C /* MelonAlbumInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelonAlbumInformationView.swift; sourceTree = "<group>"; };
 		D33334D82766CAEA001AE90D /* SeSac_Week12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSac_Week12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33334DB2766CAEA001AE90D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33334DD2766CAEA001AE90D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +57,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D327C1D4276896DF0047706C /* MelonView */ = {
+			isa = PBXGroup;
+			children = (
+				D327C1D2276895730047706C /* MelonSnapViewController.swift */,
+				D327C1D92768FE270047706C /* MelonAlbumInformationView.swift */,
+				D327C1D52768D92E0047706C /* MelonBottmView.swift */,
+				D327C1D72768E9520047706C /* MelonPlayView.swift */,
+			);
+			path = MelonView;
+			sourceTree = "<group>";
+		};
 		D33334CF2766CAEA001AE90D = {
 			isa = PBXGroup;
 			children = (
@@ -70,12 +87,12 @@
 		D33334DA2766CAEA001AE90D /* SeSac_Week12 */ = {
 			isa = PBXGroup;
 			children = (
+				D327C1D4276896DF0047706C /* MelonView */,
 				D33334DB2766CAEA001AE90D /* AppDelegate.swift */,
 				D33334DD2766CAEA001AE90D /* SceneDelegate.swift */,
 				D33334DF2766CAEA001AE90D /* ViewController.swift */,
 				D33334F52766E05C001AE90D /* DetailViewController.swift */,
 				D327C1D0276830060047706C /* SnapDetailViewController.swift */,
-				D327C1D2276895730047706C /* MelonSnapViewController.swift */,
 				D33334F32766DD69001AE90D /* BannerView.swift */,
 				D33334F72766E4A0001AE90D /* MainActivateButton.swift */,
 				D33334EF2766CCAB001AE90D /* SquareBoxView.xib */,
@@ -165,13 +182,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33334F42766DD69001AE90D /* BannerView.swift in Sources */,
+				D327C1D62768D92E0047706C /* MelonBottmView.swift in Sources */,
 				D33334E02766CAEA001AE90D /* ViewController.swift in Sources */,
 				D33334DC2766CAEA001AE90D /* AppDelegate.swift in Sources */,
 				D33334F62766E05C001AE90D /* DetailViewController.swift in Sources */,
 				D33334DE2766CAEA001AE90D /* SceneDelegate.swift in Sources */,
+				D327C1DA2768FE270047706C /* MelonAlbumInformationView.swift in Sources */,
 				D327C1D3276895730047706C /* MelonSnapViewController.swift in Sources */,
 				D327C1D1276830060047706C /* SnapDetailViewController.swift in Sources */,
 				D33334F22766CCEB001AE90D /* SquareBoxView.swift in Sources */,
+				D327C1D82768E9520047706C /* MelonPlayView.swift in Sources */,
 				D33334F82766E4A0001AE90D /* MainActivateButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
