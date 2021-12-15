@@ -39,7 +39,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let vc = MelonSnapViewController()
         let nav = UINavigationController(rootViewController: vc)
         // 루트뷰 컨트롤러 설정
-        window?.rootViewController = TabBarController()
+//        window?.rootViewController = TabBarController()
+        window?.rootViewController = MelonSnapViewController()
         // iOS 13에서 생긴 메서드
         window?.makeKeyAndVisible()
     }
