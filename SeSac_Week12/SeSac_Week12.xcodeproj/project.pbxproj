@@ -16,6 +16,13 @@
 		D327C1DC276978FA0047706C /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D327C1DB276978FA0047706C /* SettingViewController.xib */; };
 		D327C1DE276979290047706C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1DD276979290047706C /* SettingViewController.swift */; };
 		D327C1E027697EDA0047706C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1DF27697EDA0047706C /* TabBarController.swift */; };
+		D327C1E52769FCB30047706C /* CarrotTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1E42769FCB30047706C /* CarrotTabBarController.swift */; };
+		D327C1E72769FD590047706C /* CarrotHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1E62769FD590047706C /* CarrotHomeViewController.swift */; };
+		D327C1E92769FD680047706C /* CarrotMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1E82769FD680047706C /* CarrotMyPageViewController.swift */; };
+		D327C1ED2769FE0D0047706C /* CarrotMyNeighborhoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1EC2769FE0D0047706C /* CarrotMyNeighborhoodViewController.swift */; };
+		D327C1EF2769FE270047706C /* CarrotNeighborhoodLifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1EE2769FE270047706C /* CarrotNeighborhoodLifeViewController.swift */; };
+		D327C1F12769FE330047706C /* CarrotChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1F02769FE330047706C /* CarrotChatViewController.swift */; };
+		D327C1F5276A047E0047706C /* CarrotItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D327C1F4276A047E0047706C /* CarrotItemTableViewCell.swift */; };
 		D33334DC2766CAEA001AE90D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33334DB2766CAEA001AE90D /* AppDelegate.swift */; };
 		D33334DE2766CAEA001AE90D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33334DD2766CAEA001AE90D /* SceneDelegate.swift */; };
 		D33334E02766CAEA001AE90D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33334DF2766CAEA001AE90D /* ViewController.swift */; };
@@ -37,6 +44,13 @@
 		D327C1DB276978FA0047706C /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		D327C1DD276979290047706C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D327C1DF27697EDA0047706C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D327C1E42769FCB30047706C /* CarrotTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotTabBarController.swift; sourceTree = "<group>"; };
+		D327C1E62769FD590047706C /* CarrotHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotHomeViewController.swift; sourceTree = "<group>"; };
+		D327C1E82769FD680047706C /* CarrotMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotMyPageViewController.swift; sourceTree = "<group>"; };
+		D327C1EC2769FE0D0047706C /* CarrotMyNeighborhoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotMyNeighborhoodViewController.swift; sourceTree = "<group>"; };
+		D327C1EE2769FE270047706C /* CarrotNeighborhoodLifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotNeighborhoodLifeViewController.swift; sourceTree = "<group>"; };
+		D327C1F02769FE330047706C /* CarrotChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotChatViewController.swift; sourceTree = "<group>"; };
+		D327C1F4276A047E0047706C /* CarrotItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrotItemTableViewCell.swift; sourceTree = "<group>"; };
 		D33334D82766CAEA001AE90D /* SeSac_Week12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSac_Week12.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33334DB2766CAEA001AE90D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33334DD2766CAEA001AE90D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +88,20 @@
 			path = MelonView;
 			sourceTree = "<group>";
 		};
+		D327C1E12769FB320047706C /* CarrotView */ = {
+			isa = PBXGroup;
+			children = (
+				D327C1E42769FCB30047706C /* CarrotTabBarController.swift */,
+				D327C1E62769FD590047706C /* CarrotHomeViewController.swift */,
+				D327C1F4276A047E0047706C /* CarrotItemTableViewCell.swift */,
+				D327C1EE2769FE270047706C /* CarrotNeighborhoodLifeViewController.swift */,
+				D327C1EC2769FE0D0047706C /* CarrotMyNeighborhoodViewController.swift */,
+				D327C1F02769FE330047706C /* CarrotChatViewController.swift */,
+				D327C1E82769FD680047706C /* CarrotMyPageViewController.swift */,
+			);
+			path = CarrotView;
+			sourceTree = "<group>";
+		};
 		D33334CF2766CAEA001AE90D = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +121,7 @@
 		D33334DA2766CAEA001AE90D /* SeSac_Week12 */ = {
 			isa = PBXGroup;
 			children = (
+				D327C1E12769FB320047706C /* CarrotView */,
 				D327C1D4276896DF0047706C /* MelonView */,
 				D33334DB2766CAEA001AE90D /* AppDelegate.swift */,
 				D33334DD2766CAEA001AE90D /* SceneDelegate.swift */,
@@ -193,18 +222,25 @@
 			files = (
 				D33334F42766DD69001AE90D /* BannerView.swift in Sources */,
 				D327C1D62768D92E0047706C /* MelonBottmView.swift in Sources */,
+				D327C1E52769FCB30047706C /* CarrotTabBarController.swift in Sources */,
 				D33334E02766CAEA001AE90D /* ViewController.swift in Sources */,
+				D327C1F12769FE330047706C /* CarrotChatViewController.swift in Sources */,
 				D327C1DE276979290047706C /* SettingViewController.swift in Sources */,
 				D33334DC2766CAEA001AE90D /* AppDelegate.swift in Sources */,
 				D33334F62766E05C001AE90D /* DetailViewController.swift in Sources */,
+				D327C1E92769FD680047706C /* CarrotMyPageViewController.swift in Sources */,
 				D33334DE2766CAEA001AE90D /* SceneDelegate.swift in Sources */,
 				D327C1DA2768FE270047706C /* MelonAlbumInformationView.swift in Sources */,
+				D327C1ED2769FE0D0047706C /* CarrotMyNeighborhoodViewController.swift in Sources */,
 				D327C1D3276895730047706C /* MelonSnapViewController.swift in Sources */,
+				D327C1E72769FD590047706C /* CarrotHomeViewController.swift in Sources */,
 				D327C1D1276830060047706C /* SnapDetailViewController.swift in Sources */,
+				D327C1EF2769FE270047706C /* CarrotNeighborhoodLifeViewController.swift in Sources */,
 				D33334F22766CCEB001AE90D /* SquareBoxView.swift in Sources */,
 				D327C1E027697EDA0047706C /* TabBarController.swift in Sources */,
 				D327C1D82768E9520047706C /* MelonPlayView.swift in Sources */,
 				D33334F82766E4A0001AE90D /* MainActivateButton.swift in Sources */,
+				D327C1F5276A047E0047706C /* CarrotItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

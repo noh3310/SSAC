@@ -67,6 +67,10 @@ class MelonAlbumInformationView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        favoriteButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+        }
+        
         self.addSubview(favoriteButton)
         self.addSubview(favoriteCountLabel)
         self.addSubview(similarMusicButton)
