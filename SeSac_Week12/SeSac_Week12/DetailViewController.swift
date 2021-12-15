@@ -16,6 +16,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarItem.selectedImage = UIImage(systemName: "person")
+        tabBarItem.image = UIImage(systemName: "person.fill")
+        tabBarItem.title = "디테일뷰"
+        
         // 이런식으로 할수있는건 신기하네
         [titleLabel, captionLabel, activateButton].forEach {
             view.addSubview($0)

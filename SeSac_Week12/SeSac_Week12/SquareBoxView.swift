@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SquareBoxView: UIView {
+class SquareBoxView: TabAnimationView {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
@@ -17,6 +17,13 @@ class SquareBoxView: UIView {
         
         loadView()
         
+        loadUI()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        loadView()
         loadUI()
     }
     
@@ -43,5 +50,49 @@ class SquareBoxView: UIView {
         label.text = "마이페이지"
         imageView.image = UIImage(systemName: "star.fill")
         imageView.tintColor = .black
+    }
+    
+
+}
+
+class TabAnimationView: UIView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print(#function)
+        
+        DispatchQueue.main.async {
+            self.alpha = 1.0
+            
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) {
+                self.alpha = 0.5
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        print(#function)
+        
+        DispatchQueue.main.async {
+            self.alpha = 0.5
+            
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) {
+                self.alpha = 1.0
+            }
+        }
+    }
+    
+    // 얼럿이나 외부적인 요인으로 인해 터치가 취소되는 경우
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        print(#function)
+        
+        DispatchQueue.main.async {
+            self.alpha = 0.5
+            
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear) {
+                self.alpha = 1.0
+            }
+        }
     }
 }
