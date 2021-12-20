@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nav = UINavigationController(rootViewController: vc)
         // 루트뷰 컨트롤러 설정
 //        window?.rootViewController = TabBarController()
-        window?.rootViewController = CarrotTabBarController()
+        window?.rootViewController = vc
         // iOS 13에서 생긴 메서드
         window?.makeKeyAndVisible()
     }
@@ -69,6 +69,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print(#function)
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        // 알림센터에 해당하는 부분을 제거할 수 있다.
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        // 특정 Identifier로 실행되었던 부분들을 처리해줄 수 있다.
+//        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: <#T##[String]#>)
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
