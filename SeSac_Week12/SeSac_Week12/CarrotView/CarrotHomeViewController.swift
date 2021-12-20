@@ -46,21 +46,7 @@ extension CarrotHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CarrotItemTableViewCell.identifier, for: indexPath) as! CarrotItemTableViewCell
         
-        cell.itemImageView.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(20)
-            // 1:1 비율로 이미지 설정
-            make.width.equalTo(cell.itemImageView.snp.height).multipliedBy(1.0 / 1.0)
-        }
         
-        cell.itemTitle.text = "뭘"
-        cell.itemTitle.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalTo(cell.itemImageView.snp.right).offset(20)
-        }
         
         return cell
     }

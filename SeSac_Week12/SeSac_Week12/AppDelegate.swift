@@ -109,8 +109,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         } else {
             print("다른 푸시입니다.")
         }
-        
-        completionHandler()
     }
     
 }
