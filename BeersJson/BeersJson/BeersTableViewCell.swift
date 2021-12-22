@@ -52,5 +52,17 @@ class BeersTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    func setCell(_ beer: Beer) {
+        // 이미지 주소 받아옴
+        let url = URL(string: beer.imageURL)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {  // UI변경은 메인스레드에서 함
+                self.beerImage.image = UIImage(data: data!)
+            }
+        }
+        
+        // 텍스트 변경
+        beerName.text = beer.name
+    }
 }

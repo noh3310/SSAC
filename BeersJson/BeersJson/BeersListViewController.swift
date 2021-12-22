@@ -12,6 +12,8 @@ class BeersListViewControllers: UIViewController {
     
     let tableView = UITableView()
     
+    let viewModel = BeersViewModel.beers
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +36,7 @@ class BeersListViewControllers: UIViewController {
 
 extension BeersListViewControllers: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -42,15 +44,19 @@ extension BeersListViewControllers: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BeersTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BeersTableViewCell.identifier, for: indexPath) as! BeersTableViewCell
+        
+        cell.setCell(viewModel[indexPath.row])
         
         return cell
     }
     
     // 셀 클릭했을 떄
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = BeerInformationViewController()
         
+        vc.beerInformation = viewModel[indexPath.row]
         
-        self.navigationController?.pushViewController(BeerInformationViewController(), animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
