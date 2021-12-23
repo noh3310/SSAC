@@ -35,13 +35,13 @@ class BeerInformationViewController: UIViewController {
         
         image.backgroundColor = .systemMint
         image.contentMode = .scaleAspectFit
-        let url = URL(string: "https://images.punkapi.com/v2/keg.png")
-        do {
-            let data = try Data(contentsOf: url!)
-            image.image = UIImage(data: data)
-        } catch {
-            print("error")
-        }
+//        let url = URL(string: "https://images.punkapi.com/v2/keg.png")
+//        do {
+//            let data = try Data(contentsOf: url!)
+//            image.image = UIImage(data: data)
+//        } catch {
+//            print("error")
+//        }
         
         return image
     }()
@@ -78,7 +78,8 @@ class BeerInformationViewController: UIViewController {
     let paringLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "Spicy chicken tikka masala\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake"
+//        label.text = "Spicy chicken tikka masala\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake"
+        label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
         label.numberOfLines = 0
         
@@ -93,6 +94,8 @@ class BeerInformationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchInformation()
         
         view.backgroundColor = .white
         
@@ -117,40 +120,46 @@ class BeerInformationViewController: UIViewController {
             $0.bottom.equalTo(shareView.snp.top)
         }
         
-        // 컨텐츠뷰는 이미지뷰 아래에 설정
+        // 전체크기, 중앙정렬
         contentView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.edges.equalToSuperview()
         }
         
-        // 스크롤뷰에 이미지뷰 넣음(레이아웃잡기)
+        // top은 view와 같게, 하단은 contentView + 100과 같게 설정
+        // 좌우는 동일하게 설정
         beerBackgroundImageView.snp.makeConstraints {
             $0.top.equalTo(view)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(contentView.snp.top).offset(100)
+            $0.bottom.equalTo(contentView.snp.top).offset(200)
+//            $0.height.equalTo(100)
         }
+        
         contentView.addSubview(paringView)
         contentView.addSubview(beerInfoView)
         // 맥주 타이틀 정보
+        // 슈퍼뷰보다 조금더 위로 보이게 설정
+        // 좌우로 inset 20씩
         beerInfoView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(40)
+            $0.top.equalToSuperview().offset(160)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         
         paringView.addSubview(paringLabel)
+        // top은 equal과 같음
         paringLabel.snp.makeConstraints {
             $0.top.equalTo(beerInfoView.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.centerX.equalToSuperview()
         }
 
         paringView.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.top).offset(100)
+            $0.top.equalTo(contentView.snp.top).offset(200)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(paringLabel.snp.bottom).offset(20)
             $0.bottom.equalToSuperview()
         }
         
-        fetchInformation()
     }
     
     
