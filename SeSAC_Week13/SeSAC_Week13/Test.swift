@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SeSACFramework
+
+class Test: SeSACOpen {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}

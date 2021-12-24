@@ -11,6 +11,7 @@
 		D34179732773FB5100E3ED29 /* SeSACFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34179682773FB5100E3ED29 /* SeSACFramework.framework */; };
 		D34179782773FB5100E3ED29 /* SeSACFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179772773FB5100E3ED29 /* SeSACFrameworkTests.swift */; };
 		D34179792773FB5100E3ED29 /* SeSACFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = D341796B2773FB5100E3ED29 /* SeSACFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D34179832773FB9700E3ED29 /* SeSAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179822773FB9700E3ED29 /* SeSAC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		D341796C2773FB5100E3ED29 /* SeSACFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SeSACFramework.docc; sourceTree = "<group>"; };
 		D34179722773FB5100E3ED29 /* SeSACFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeSACFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34179772773FB5100E3ED29 /* SeSACFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSACFrameworkTests.swift; sourceTree = "<group>"; };
+		D34179822773FB9700E3ED29 /* SeSAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeSAC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				D341796B2773FB5100E3ED29 /* SeSACFramework.h */,
 				D341796C2773FB5100E3ED29 /* SeSACFramework.docc */,
+				D34179822773FB9700E3ED29 /* SeSAC.swift */,
 			);
 			path = SeSACFramework;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D341796D2773FB5100E3ED29 /* SeSACFramework.docc in Sources */,
+				D34179832773FB9700E3ED29 /* SeSAC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +356,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +385,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,6 +404,7 @@
 		D34179802773FB5100E3ED29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9XD488YM8C;
@@ -414,6 +421,7 @@
 		D34179812773FB5100E3ED29 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9XD488YM8C;

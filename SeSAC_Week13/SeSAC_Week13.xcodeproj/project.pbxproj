@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D34179442772A59900E3ED29 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179432772A59900E3ED29 /* BaseViewController.swift */; };
+		D34179472772A76D00E3ED29 /* NASAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179462772A76D00E3ED29 /* NASAViewController.swift */; };
+		D341794A2772A91B00E3ED29 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179492772A91B00E3ED29 /* SignViewController.swift */; };
+		D341794C2772A99500E3ED29 /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D341794B2772A99500E3ED29 /* SignView.swift */; };
+		D341794F2772BF8900E3ED29 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D341794E2772BF8900E3ED29 /* Alamofire */; };
+		D34179512772C6E700E3ED29 /* SingleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179502772C6E600E3ED29 /* SingleViewModel.swift */; };
+		D341798E2773FDB800E3ED29 /* SeSACFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341798A2773FD0C00E3ED29 /* SeSACFramework.framework */; };
+		D341798F2773FDB800E3ED29 /* SeSACFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D341798A2773FD0C00E3ED29 /* SeSACFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D34179922773FDF100E3ED29 /* FrameworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179912773FDF100E3ED29 /* FrameworkViewController.swift */; };
+		D34179942773FF8700E3ED29 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34179932773FF8700E3ED29 /* Test.swift */; };
 		D34B7280277153FD006FE6E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34B727F277153FD006FE6E6 /* AppDelegate.swift */; };
 		D34B7282277153FD006FE6E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34B7281277153FD006FE6E6 /* SceneDelegate.swift */; };
 		D34B7284277153FD006FE6E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34B7283277153FD006FE6E6 /* ViewController.swift */; };
@@ -22,7 +32,46 @@
 		D34B72A4277178B0006FE6E6 /* TableViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34B72A3277178B0006FE6E6 /* TableViewCellRepresentable.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D34179892773FD0C00E3ED29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D34179842773FD0C00E3ED29 /* SeSACFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D34179682773FB5100E3ED29;
+			remoteInfo = SeSACFramework;
+		};
+		D341798B2773FD0C00E3ED29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D34179842773FD0C00E3ED29 /* SeSACFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D34179722773FB5100E3ED29;
+			remoteInfo = SeSACFrameworkTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D34179902773FDB800E3ED29 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D341798F2773FDB800E3ED29 /* SeSACFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D34179432772A59900E3ED29 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D34179462772A76D00E3ED29 /* NASAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAViewController.swift; sourceTree = "<group>"; };
+		D34179492772A91B00E3ED29 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		D341794B2772A99500E3ED29 /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		D34179502772C6E600E3ED29 /* SingleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewModel.swift; sourceTree = "<group>"; };
+		D34179842773FD0C00E3ED29 /* SeSACFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SeSACFramework.xcodeproj; path = ../SeSACFramework/SeSACFramework.xcodeproj; sourceTree = "<group>"; };
+		D34179912773FDF100E3ED29 /* FrameworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkViewController.swift; sourceTree = "<group>"; };
+		D34179932773FF8700E3ED29 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		D34B727C277153FD006FE6E6 /* SeSAC_Week13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_Week13.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34B727F277153FD006FE6E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D34B7281277153FD006FE6E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,18 +93,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D341798E2773FDB800E3ED29 /* SeSACFramework.framework in Frameworks */,
 				D34B7298277155EC006FE6E6 /* SnapKit in Frameworks */,
+				D341794F2772BF8900E3ED29 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D34179452772A76300E3ED29 /* NASA */ = {
+			isa = PBXGroup;
+			children = (
+				D34179462772A76D00E3ED29 /* NASAViewController.swift */,
+			);
+			path = NASA;
+			sourceTree = "<group>";
+		};
+		D34179482772A90000E3ED29 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				D34179492772A91B00E3ED29 /* SignViewController.swift */,
+				D34179502772C6E600E3ED29 /* SingleViewModel.swift */,
+				D341794B2772A99500E3ED29 /* SignView.swift */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		D34179852773FD0C00E3ED29 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D341798A2773FD0C00E3ED29 /* SeSACFramework.framework */,
+				D341798C2773FD0C00E3ED29 /* SeSACFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D341798D2773FDB800E3ED29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D34B7273277153FD006FE6E6 = {
 			isa = PBXGroup;
 			children = (
+				D34179842773FD0C00E3ED29 /* SeSACFramework.xcodeproj */,
 				D34B727E277153FD006FE6E6 /* SeSAC_Week13 */,
 				D34B727D277153FD006FE6E6 /* Products */,
+				D341798D2773FDB800E3ED29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +157,10 @@
 		D34B727E277153FD006FE6E6 /* SeSAC_Week13 */ = {
 			isa = PBXGroup;
 			children = (
+				D34179482772A90000E3ED29 /* Sign */,
+				D34179452772A76300E3ED29 /* NASA */,
 				D34B727F277153FD006FE6E6 /* AppDelegate.swift */,
+				D34179432772A59900E3ED29 /* BaseViewController.swift */,
 				D34B7281277153FD006FE6E6 /* SceneDelegate.swift */,
 				D34B7283277153FD006FE6E6 /* ViewController.swift */,
 				D34B729D27717449006FE6E6 /* UITableViewCell+Extension.swift */,
@@ -83,6 +173,8 @@
 				D34B728827715400006FE6E6 /* Assets.xcassets */,
 				D34B728A27715400006FE6E6 /* LaunchScreen.storyboard */,
 				D34B728D27715400006FE6E6 /* Info.plist */,
+				D34179912773FDF100E3ED29 /* FrameworkViewController.swift */,
+				D34179932773FF8700E3ED29 /* Test.swift */,
 			);
 			path = SeSAC_Week13;
 			sourceTree = "<group>";
@@ -97,6 +189,7 @@
 				D34B7278277153FD006FE6E6 /* Sources */,
 				D34B7279277153FD006FE6E6 /* Frameworks */,
 				D34B727A277153FD006FE6E6 /* Resources */,
+				D34179902773FDB800E3ED29 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -105,6 +198,7 @@
 			name = SeSAC_Week13;
 			packageProductDependencies = (
 				D34B7297277155EC006FE6E6 /* SnapKit */,
+				D341794E2772BF8900E3ED29 /* Alamofire */,
 			);
 			productName = SeSAC_Week13;
 			productReference = D34B727C277153FD006FE6E6 /* SeSAC_Week13.app */;
@@ -136,15 +230,39 @@
 			mainGroup = D34B7273277153FD006FE6E6;
 			packageReferences = (
 				D34B7296277155EC006FE6E6 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D341794D2772BF8900E3ED29 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D34B727D277153FD006FE6E6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D34179852773FD0C00E3ED29 /* Products */;
+					ProjectRef = D34179842773FD0C00E3ED29 /* SeSACFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D34B727B277153FD006FE6E6 /* SeSAC_Week13 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D341798A2773FD0C00E3ED29 /* SeSACFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SeSACFramework.framework;
+			remoteRef = D34179892773FD0C00E3ED29 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D341798C2773FD0C00E3ED29 /* SeSACFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SeSACFrameworkTests.xctest;
+			remoteRef = D341798B2773FD0C00E3ED29 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D34B727A277153FD006FE6E6 /* Resources */ = {
@@ -166,11 +284,18 @@
 			files = (
 				D34B72A4277178B0006FE6E6 /* TableViewCellRepresentable.swift in Sources */,
 				D34B72A227717721006FE6E6 /* DummyData.swift in Sources */,
+				D34179512772C6E700E3ED29 /* SingleViewModel.swift in Sources */,
 				D34B72A02771762D006FE6E6 /* DummyViewController.swift in Sources */,
 				D34B7284277153FD006FE6E6 /* ViewController.swift in Sources */,
+				D34179942773FF8700E3ED29 /* Test.swift in Sources */,
 				D34B7280277153FD006FE6E6 /* AppDelegate.swift in Sources */,
+				D34179442772A59900E3ED29 /* BaseViewController.swift in Sources */,
 				D34B729C27716748006FE6E6 /* Cast.swift in Sources */,
+				D341794A2772A91B00E3ED29 /* SignViewController.swift in Sources */,
 				D34B729E27717449006FE6E6 /* UITableViewCell+Extension.swift in Sources */,
+				D34179922773FDF100E3ED29 /* FrameworkViewController.swift in Sources */,
+				D341794C2772A99500E3ED29 /* SignView.swift in Sources */,
+				D34179472772A76D00E3ED29 /* NASAViewController.swift in Sources */,
 				D34B729A27715BD1006FE6E6 /* APIService.swift in Sources */,
 				D34B7282277153FD006FE6E6 /* SceneDelegate.swift in Sources */,
 			);
@@ -328,7 +453,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +481,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,6 +519,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D341794D2772BF8900E3ED29 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		D34B7296277155EC006FE6E6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -405,6 +538,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D341794E2772BF8900E3ED29 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D341794D2772BF8900E3ED29 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		D34B7297277155EC006FE6E6 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D34B7296277155EC006FE6E6 /* XCRemoteSwiftPackageReference "SnapKit" */;
