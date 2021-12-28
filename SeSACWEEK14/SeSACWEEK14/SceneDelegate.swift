@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let nav = UINavigationController(rootViewController: FrameworkViewController())
         
-        window?.rootViewController = UINavigationController(rootViewController: SignInViewController())
+        window?.rootViewController = UINavigationController(rootViewController: PersonViewController())
         window?.makeKeyAndVisible()
     }
 
