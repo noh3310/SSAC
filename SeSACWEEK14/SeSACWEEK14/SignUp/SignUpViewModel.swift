@@ -12,14 +12,20 @@ class SignUpViewModel {
     var username: Observable<String> = Observable("jack12")
     var email: Observable<String> = Observable("jack@jack.com")
     var password: Observable<String> = Observable("12341")
+    var state: Observable<Status> = Observable(.OK)
     
     func userRegister(completion: @escaping () -> Void) {
+        print(#function)
         APIService.register(username: username.value, email: email.value, password: password.value) { userData, error in
             
             // userData가 옵셔널 타입이기 때문에 옵셔널 해제를 해줘야함
             guard let userData = userData else {
+                self.state.value = .NO
+                completion()
                 return
             }
+            
+            self.state.value = .OK
             
             // 토큰값 저장
             UserDefaults.standard.set(userData.jwt, forKey: "token")

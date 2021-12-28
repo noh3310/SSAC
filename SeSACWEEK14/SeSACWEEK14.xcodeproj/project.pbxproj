@@ -28,6 +28,7 @@
 		D3F48773277AA64900DC6903 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F48772277AA64900DC6903 /* Person.swift */; };
 		D3F48775277AAA9F00DC6903 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F48774277AAA9F00DC6903 /* PersonViewModel.swift */; };
 		D3F48777277AAB7A00DC6903 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F48776277AAB7A00DC6903 /* PersonViewController.swift */; };
+		D3F4877A277B32C000DC6903 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D3F48779277B32C000DC6903 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3F4877A277B32C000DC6903 /* Toast in Frameworks */,
 				D3F4875427794C1500DC6903 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +179,7 @@
 			name = SeSACWEEK14;
 			packageProductDependencies = (
 				D3F4875327794C1500DC6903 /* SnapKit */,
+				D3F48779277B32C000DC6903 /* Toast */,
 			);
 			productName = SeSACWEEK14;
 			productReference = D3F48739277947F400DC6903 /* SeSACWEEK14.app */;
@@ -208,6 +211,7 @@
 			mainGroup = D3F48730277947F400DC6903;
 			packageReferences = (
 				D3F4875227794C1500DC6903 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D3F48778277B32C000DC6903 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = D3F4873A277947F400DC6903 /* Products */;
 			projectDirPath = "";
@@ -472,6 +476,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		D3F48778277B32C000DC6903 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -479,6 +491,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D3F4875227794C1500DC6903 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D3F48779277B32C000DC6903 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3F48778277B32C000DC6903 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

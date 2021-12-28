@@ -14,6 +14,7 @@ class SignUpView: UIView, ViewRepresentable {
         let textField = UITextField()
         
         textField.placeholder = "아이디를 입력하세요"
+        textField.backgroundColor = .lightGray
         
         return textField
     }()
@@ -22,6 +23,7 @@ class SignUpView: UIView, ViewRepresentable {
         let textField = UITextField()
         
         textField.placeholder = "이메일을 입력하세요"
+        textField.backgroundColor = .lightGray
         
         return textField
     }()
@@ -30,6 +32,7 @@ class SignUpView: UIView, ViewRepresentable {
         let textField = UITextField()
         
         textField.placeholder = "비밀번호를 입력하세요"
+        textField.backgroundColor = .lightGray
         
         return textField
     }()
@@ -38,6 +41,7 @@ class SignUpView: UIView, ViewRepresentable {
         let button = UIButton()
         
         button.setTitle("회원가입", for: .normal)
+        button.backgroundColor = .blue
         
         return button
     }()
@@ -68,20 +72,23 @@ class SignUpView: UIView, ViewRepresentable {
         }
         
         idTextField.snp.makeConstraints {
-            $0.bottom.equalTo(pwTextField.snp.top).offset(50)
+            $0.bottom.equalTo(pwTextField.snp.top).offset(-50)
             $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalTo(50)
         }
         
         emailTextField.snp.makeConstraints {
-            $0.bottom.equalTo(idTextField.snp.top).offset(50)
+            $0.bottom.equalTo(idTextField.snp.top).offset(-50)
             $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalTo(50)
         }
         
         registerButton.snp.makeConstraints {
             $0.top.equalTo(pwTextField.snp.bottom).offset(50)
             $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalTo(50)
         }
     }
