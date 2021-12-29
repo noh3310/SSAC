@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 enum Status {
     case OK
@@ -71,7 +72,6 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpButtonClicked() {
-        print("클릭")
         print(viewModel.username.value)
         print(viewModel.password.value)
         print(viewModel.email.value)
@@ -83,9 +83,11 @@ class SignUpViewController: UIViewController {
             
             switch status {
             case .OK:
-                print("OK")
+                self.view.makeToast("회원가입 성공!")
+                // 만약에 회원가입 성공하면 일단은 로그인화면으로 푸시 해줌
+                self.navigationController?.pushViewController(SignInViewController(), animated: true)
             case .NO:
-                print("NO")
+                self.view.makeToast("오류가 발생했습니다.")
             }
         }
     }

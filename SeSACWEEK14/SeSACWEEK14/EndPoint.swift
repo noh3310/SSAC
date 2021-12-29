@@ -25,19 +25,19 @@ extension EndPoint {
     var url: URL {
         switch self {
         case .signup:
-            return .makeEndpoint("auth/local/register")
+            return .signup
         case .login:
-            return .makeEndpoint("auth/local")
+            return .login
         case .boards:
-            return .makeEndpoint("boards")
+            return .boards
         case .boardDetail(id: let id):
-            return .makeEndpoint("board/\(id)")
+            return .boardsDetail(number: id)
         }
     }
 }
 
 extension URL {
-    static let baseURL = "http://test.monocoding.com"
+    static let baseURL = "http://test.monocoding.com/"
     
     static func makeEndpoint(_ endpoint: String) -> URL {
         return URL(string: baseURL + endpoint)!
@@ -77,32 +77,31 @@ extension URLSession {
     static func request<T: Decodable>(_ session: URLSession = .shared, endpoint: URLRequest, completion: @escaping (T?, APIError?) -> Void) {
         
         session.dataTask(endpoint) { data, response, error in
+            print(data)
+            print(response)
+            print(error)
+            
             DispatchQueue.main.async {
-                print("4")
                 // 에러가 nil인 경우 일찍 리턴을 해라
                 guard error == nil else {
-                    print("6")
                     completion(nil, .failed)
                     return
                 }
                 
                 // 데이터가 nil이라면 일찍 리턴을 해라
                 guard let data = data else {
-                    print("7")
                     completion(nil, .noData)
                     return
                 }
                 
                 // response가 nil이 아닌지, 그리고 타입캐스팅이 잘 되는지 확인
                 guard let response = response as? HTTPURLResponse else {
-                    print("8")
                     completion(nil, .invalidResponse)
                     return
                 }
                 
                 // 200번으로 올바르게 왔는지
                 guard response.statusCode == 200 else {
-                    print("9")
                     completion(nil, .failed)
                     return
                 }
@@ -111,12 +110,9 @@ extension URLSession {
                     let decoder = JSONDecoder()
                     let data = try decoder.decode(T.self, from: data)
                     // 에러가 없기 때문에 nil 리턴
-                    print("5")
                     completion(data, nil)
                 } catch {
-                    print("10")
                     completion(nil, .invalidData)
-                    print(error)
                 }
                 
             }

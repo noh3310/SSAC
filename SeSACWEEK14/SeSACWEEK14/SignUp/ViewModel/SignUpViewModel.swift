@@ -13,6 +13,7 @@ class SignUpViewModel {
     var email: Observable<String> = Observable("jack@jack.com")
     var password: Observable<String> = Observable("12341")
     var state: Observable<Status> = Observable(.OK)
+    var stateMessage: Observable<String> = Observable("")
     
     func userRegister(completion: @escaping () -> Void) {
         print(#function)
@@ -21,11 +22,15 @@ class SignUpViewModel {
             // userData가 옵셔널 타입이기 때문에 옵셔널 해제를 해줘야함
             guard let userData = userData else {
                 self.state.value = .NO
+                print(error?.rawValue ?? "옵셔널해제 실패")
                 completion()
                 return
             }
             
             self.state.value = .OK
+            
+            // 로그인하면 UserDefaults true로 전환하기
+            UserDefaults.standard.set(true, forKey: "signUp")
             
             // 토큰값 저장
             UserDefaults.standard.set(userData.jwt, forKey: "token")

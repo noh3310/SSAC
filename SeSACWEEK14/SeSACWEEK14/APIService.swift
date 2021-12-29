@@ -13,6 +13,19 @@ enum APIError: Error {
     case noData
     case failed
     case invalidData
+    
+    var rawValue: String {
+        switch self {
+        case .invalidResponse:
+            return "invalidResponse"
+        case .noData:
+            return "noData"
+        case .failed:
+            return "failed"
+        case .invalidData:
+            return "invalidData"
+        }
+    }
 }
 
 class APIService {
@@ -31,86 +44,14 @@ class APIService {
     }
     
     static func register(username: String, email: String, password: String, completion: @escaping (User?, APIError?) -> Void) {
-        print("3")
-        // Enum을 쓰면 간편하게 처리할 수 있음
-        let url = EndPoint.signup.url
-//        let url = URL(string: "http://test.monocoding.com/auth/local/register")!
         
-//        let scheme = "http"
-//        let host = "test.monocoding.com"
-//        let path = "auth/local/register"
-//
-//        let key = "7ba7403949b4658f9c4fdf6008df49e2"
-//        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-//
-//        var component = URLComponents()
-//        component.scheme = scheme
-//        component.host = host
-//        component.path = path
-//        component.queryItems = [
-//            URLQueryItem(name: "api_key", value: key),
-//            URLQueryItem(name: "language", value: language),
-//            URLQueryItem(name: "query", value: query),
-//            URLQueryItem(name: "page", value: "\(page)")
-//        ]
-//
-        
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        var request = URLRequest(url: EndPoint.signup.url)
+        request.httpMethod = Method.POST.rawValue
         // 이렇게 처리할 수도 있고, 딕셔너리로 쓸 수도 있음
         request.httpBody = "username=\(username)&email=\(email)&password=\(password)".data(using: .utf8, allowLossyConversion: false)
         
-        // string -> Data로도 바꿀 수 있고, Dictionary -> JSONSerialization / Codable로 사용할 수도 있음
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            DispatchQueue.main.async {
-                print("4")
-                // 에러가 nil인 경우 일찍 리턴을 해라
-                guard error == nil else {
-                    print("6")
-                    completion(nil, .failed)
-                    return
-                }
-                
-                // 데이터가 nil이라면 일찍 리턴을 해라
-                guard let data = data else {
-                    print("7")
-                    completion(nil, .noData)
-                    return
-                }
-                
-                // response가 nil이 아닌지, 그리고 타입캐스팅이 잘 되는지 확인
-                guard let response = response as? HTTPURLResponse else {
-                    print("8")
-                    completion(nil, .invalidResponse)
-                    return
-                }
-                
-                // 200번으로 올바르게 왔는지
-                guard response.statusCode == 200 else {
-                    print("9")
-                    completion(nil, .failed)
-                    return
-                }
-                
-                do {
-                    let decoder = JSONDecoder()
-                    let userData = try decoder.decode(User.self, from: data)
-                    // 에러가 없기 때문에 nil 리턴
-                    print("5")
-                    completion(userData, nil)
-                } catch {
-                    print("10")
-                    completion(nil, .invalidData)
-                    print(error)
-                }
-                
-            }
-            
-        }.resume()
-        
+        // 등록하고 이렇게 보여주기
+        URLSession.request(endpoint: request, completion: completion)
     }
     
     static func lotto(_ number : Int, completion: @escaping (Lotto?, APIError?) -> Void) {
