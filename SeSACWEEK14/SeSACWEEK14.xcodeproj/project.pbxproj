@@ -29,6 +29,7 @@
 		D3F48775277AAA9F00DC6903 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F48774277AAA9F00DC6903 /* PersonViewModel.swift */; };
 		D3F48777277AAB7A00DC6903 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F48776277AAB7A00DC6903 /* PersonViewController.swift */; };
 		D3F4877A277B32C000DC6903 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D3F48779277B32C000DC6903 /* Toast */; };
+		D3F48781277BF29C00DC6903 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F48780277BF29C00DC6903 /* EndPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		D3F48772277AA64900DC6903 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D3F48774277AAA9F00DC6903 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		D3F48776277AAB7A00DC6903 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		D3F48780277BF29C00DC6903 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,21 +90,20 @@
 		D3F4873B277947F400DC6903 /* SeSACWEEK14 */ = {
 			isa = PBXGroup;
 			children = (
+				D3F4877D277BE68A00DC6903 /* SignIn */,
 				D3F48771277AA63C00DC6903 /* Movie */,
 				D3F48769277A913C00DC6903 /* Lotto */,
 				D3F487602779DDD700DC6903 /* SignUp */,
 				D3F4873C277947F400DC6903 /* AppDelegate.swift */,
 				D3F4873E277947F400DC6903 /* SceneDelegate.swift */,
-				D3F48740277947F400DC6903 /* SignInViewController.swift */,
 				D3F4875927795B2300DC6903 /* MainViewController.swift */,
-				D3F4875027794BB800DC6903 /* SignInView.swift */,
-				D3F487552779503400DC6903 /* APIService.swift */,
 				D3F487572779574100DC6903 /* User.swift */,
 				D3F48745277947F700DC6903 /* Assets.xcassets */,
 				D3F48747277947F700DC6903 /* LaunchScreen.storyboard */,
 				D3F4874A277947F700DC6903 /* Info.plist */,
-				D3F4875B27795EDF00DC6903 /* SignViewModel.swift */,
+				D3F487552779503400DC6903 /* APIService.swift */,
 				D3F4875D27795FA700DC6903 /* Observable.swift */,
+				D3F48780277BF29C00DC6903 /* EndPoint.swift */,
 			);
 			path = SeSACWEEK14;
 			sourceTree = "<group>";
@@ -110,9 +111,8 @@
 		D3F487602779DDD700DC6903 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				D3F487612779DDE800DC6903 /* SignUpViewController.swift */,
-				D3F487632779DE7C00DC6903 /* SignUpView.swift */,
-				D3F487652779ED7900DC6903 /* SignUpViewModel.swift */,
+				D3F4877C277B726F00DC6903 /* ViewModel */,
+				D3F4877B277B726600DC6903 /* View */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -159,6 +159,49 @@
 				D3F48776277AAB7A00DC6903 /* PersonViewController.swift */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		D3F4877B277B726600DC6903 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3F487632779DE7C00DC6903 /* SignUpView.swift */,
+				D3F487612779DDE800DC6903 /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3F4877C277B726F00DC6903 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D3F487652779ED7900DC6903 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D3F4877D277BE68A00DC6903 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				D3F4877F277BE6B100DC6903 /* ViewModel */,
+				D3F4877E277BE6A400DC6903 /* View */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
+		D3F4877E277BE6A400DC6903 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3F48740277947F400DC6903 /* SignInViewController.swift */,
+				D3F4875027794BB800DC6903 /* SignInView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D3F4877F277BE6B100DC6903 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D3F4875B27795EDF00DC6903 /* SignViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +293,7 @@
 				D3F487622779DDE800DC6903 /* SignUpViewController.swift in Sources */,
 				D3F487642779DE7C00DC6903 /* SignUpView.swift in Sources */,
 				D3F4875E27795FA700DC6903 /* Observable.swift in Sources */,
+				D3F48781277BF29C00DC6903 /* EndPoint.swift in Sources */,
 				D3F487582779574100DC6903 /* User.swift in Sources */,
 				D3F4873D277947F400DC6903 /* AppDelegate.swift in Sources */,
 				D3F4875127794BB800DC6903 /* SignInView.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 // 우리가 만드는 뷰컨트롤러는 뷰에 해당이 된다고 보면 된다.
-class LottoViewController: UIViewController {
+final class LottoViewController: UIViewController {
     
     let viewModel = LottoViewModel()
     

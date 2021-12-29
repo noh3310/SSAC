@@ -10,7 +10,6 @@ import Foundation
 class SignInViewModel {
     // 변경된 데이터를 바로 알 수 있도록 타입을 프로토콜로 설정
     var username: Observable<String> = Observable("jack12")
-    var email: Observable<String> = Observable("jack@jack.com")
     var password: Observable<String> = Observable("12341")
     
     func postUserLogin(completion: @escaping () -> Void) {
@@ -30,4 +29,10 @@ class SignInViewModel {
             completion()
         }
     }
+    
+    func getUserName() {
+        username.value = UserDefaults.standard.string(forKey: "nickname") ?? ""
+    }
+    
+    
 }

@@ -38,6 +38,13 @@ class SignInViewController: UIViewController {
         
         
         mainView.signInButton.addTarget(self, action: #selector(signInButtonClicked), for: .touchUpInside)
+        
+        // 이렇게해주면 데이터를 가져와서 뷰에 주입해주는 역할은 뷰모델이 해주는게 맞는것 같긴 해요
+//        mainView.usernameTextField.text = UserDefaults.standard.string(forKey: "nickname")
+        // 따라서 아래와 같이 해주면 뷰모델이 역할을 수행한다.
+        viewModel.getUserName()
+        
+        
     }
     
     @objc func usernameTextFieldDidChange(_ textField: UITextField) {
