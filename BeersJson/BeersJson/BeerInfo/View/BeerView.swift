@@ -1,17 +1,13 @@
 //
-//  BeerInformationViewController.swift
+//  BeerView.swift
 //  BeersJson
 //
-//  Created by 노건호 on 2021/12/20.
+//  Created by 노건호 on 2021/12/29.
 //
 
 import UIKit
 
-class BeerInformationViewController: UIViewController {
-    
-    static let identifier = "BeerInformationViewController"
-    
-    var beerInformation: Beer?
+class BeerView: UIView {
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -35,13 +31,6 @@ class BeerInformationViewController: UIViewController {
         
         image.backgroundColor = .systemMint
         image.contentMode = .scaleAspectFit
-//        let url = URL(string: "https://images.punkapi.com/v2/keg.png")
-//        do {
-//            let data = try Data(contentsOf: url!)
-//            image.image = UIImage(data: data)
-//        } catch {
-//            print("error")
-//        }
         
         return image
     }()
@@ -77,8 +66,7 @@ class BeerInformationViewController: UIViewController {
     
     let paringLabel: UILabel = {
         let label = UILabel()
-        
-//        label.text = "Spicy chicken tikka masala\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake\nGrilled chicken quesadilla\nCaramel toffee cake"
+
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
         label.numberOfLines = 0
@@ -92,25 +80,20 @@ class BeerInformationViewController: UIViewController {
         return share
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        fetchInformation()
-        
-        view.backgroundColor = .white
-        
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.backgroundColor = .clear
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         // 공유 뷰(최하단 설정)
-        view.addSubview(shareView)
+        self.addSubview(shareView)
         shareView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+//            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.bottom.equalToSuperview()
             $0.height.equalTo(70)
         }
         
-        view.addSubview(scrollView)
+        self.addSubview(scrollView)
         scrollView.addSubview(beerBackgroundImageView)
         scrollView.addSubview(contentView)
         
@@ -129,7 +112,7 @@ class BeerInformationViewController: UIViewController {
         // top은 view와 같게, 하단은 contentView + 100과 같게 설정
         // 좌우는 동일하게 설정
         beerBackgroundImageView.snp.makeConstraints {
-            $0.top.equalTo(view)
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(contentView.snp.top).offset(200)
 //            $0.height.equalTo(100)
@@ -159,32 +142,10 @@ class BeerInformationViewController: UIViewController {
             $0.bottom.equalTo(paringLabel.snp.bottom).offset(20)
             $0.bottom.equalToSuperview()
         }
-        
     }
     
-    
-    func fetchInformation() {
-        if let beer = beerInformation {
-            // 이미지 주소 받아옴
-            let url = URL(string: beer.imageURL)
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!)
-                DispatchQueue.main.async {  // UI변경은 메인스레드에서 함
-                    self.beerBackgroundImageView.image = UIImage(data: data!)
-                }
-            }
-            
-            beerInfoView.beerTitleLabel.text = beer.name
-            beerInfoView.taglineLabel.text = beer.tagline
-            beerInfoView.descriptionLabel.text = beer.beerDescription
-            
-            var paringText = ""
-            beer.foodPairing.forEach { string in
-                paringText += string
-                paringText += "\n"
-            }
-            paringLabel.text = paringText
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

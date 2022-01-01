@@ -11,17 +11,15 @@ class BeersViewModel {
     
     static var beers: [Beer] {
         // Json파일 위치 받아옴
-        print("1")
         let path = Bundle.main.path(forResource: "beers", ofType: "json")
-        print("2")
-        print(path)
+
         var result = [Beer]()
     
         do {
             // URL에서 데이터 직접 초기화하기
-            print("3")
+
             let data = try Data(contentsOf: URL(fileURLWithPath: path!) )
-            print("4")
+
             // 디코딩
             result = try JSONDecoder().decode([Beer].self, from: data)
             print(result)

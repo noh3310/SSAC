@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  SeSACWEEK14
+//  SeSAC_YearEndProject
 //
-//  Created by 노건호 on 2021/12/27.
+//  Created by 노건호 on 2022/01/02.
 //
 
 import UIKit
@@ -13,23 +13,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        // 만약 로그인되었다면 Userdefaults에 별도로 처리해서 메인화면으로 전환
-        let state = UserDefaults.standard.bool(forKey: "signUp")
-        var firstViewController: UIViewController
-        if state {  // 만약 이미 로그인했으면 홈화면으로 전환
-            firstViewController = MainViewController()
-        } else {    // 로그인 안했으면 회원가입 화면으로 전환
-            firstViewController = SignUpViewController()
-        }
-        
+        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(windowScene: windowScene)
-        
-//        let nav = UINavigationController(rootViewController: FrameworkViewController())
-        
-        window?.rootViewController = UINavigationController(rootViewController: firstViewController)
+        self.window = UIWindow(windowScene: windowScene)
+
+        // 3. 코드로 다루는 방법
+        let vc = ViewController()
+
+        let nav = UINavigationController(rootViewController: vc)
+        // 루트뷰 컨트롤러 설정
+        window?.rootViewController = nav
+        // iOS 13에서 생긴 메서드
         window?.makeKeyAndVisible()
     }
 
