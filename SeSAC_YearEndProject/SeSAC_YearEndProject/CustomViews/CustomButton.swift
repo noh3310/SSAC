@@ -12,7 +12,7 @@ class CustomButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(red: 61/255, green: 195/255, blue: 114/255, alpha: 1)
+        self.backgroundColor = .seSACColor
         self.layer.cornerRadius = 5
         self.tintColor = .white
         

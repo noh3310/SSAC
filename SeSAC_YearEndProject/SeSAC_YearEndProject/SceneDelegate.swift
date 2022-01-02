@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
 
         // 3. 코드로 다루는 방법
-        let vc = ViewController()
+        let vc = SignUpViewController()
 
         let nav = UINavigationController(rootViewController: vc)
         // 루트뷰 컨트롤러 설정

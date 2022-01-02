@@ -17,6 +17,14 @@
 		D3420C5F2780DEEA0014B8CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C5E2780DEEA0014B8CA /* CustomButton.swift */; };
 		D3420C622780DF390014B8CA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3420C612780DF390014B8CA /* SnapKit */; };
 		D3420C652780E5E50014B8CA /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C642780E5E50014B8CA /* UITextField+Extension.swift */; };
+		D3420C69278204070014B8CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C68278204070014B8CA /* SignUpViewController.swift */; };
+		D3420C6B27820A220014B8CA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C6A27820A220014B8CA /* Observable.swift */; };
+		D3420C6E27820A510014B8CA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C6D27820A510014B8CA /* SignUpViewModel.swift */; };
+		D3420C7427820AD20014B8CA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C7327820AD20014B8CA /* APIService.swift */; };
+		D3420C7627820B040014B8CA /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C7527820B040014B8CA /* EndPoint.swift */; };
+		D3420C7827820D260014B8CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C7727820D260014B8CA /* User.swift */; };
+		D3420C7A27820EA60014B8CA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C7927820EA60014B8CA /* UIColor+Extension.swift */; };
+		D3420C7C278210D60014B8CA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C7B278210D60014B8CA /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +39,14 @@
 		D3420C5C2780DEDA0014B8CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D3420C5E2780DEEA0014B8CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D3420C642780E5E50014B8CA /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		D3420C68278204070014B8CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D3420C6A27820A220014B8CA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		D3420C6D27820A510014B8CA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		D3420C7327820AD20014B8CA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D3420C7527820B040014B8CA /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		D3420C7727820D260014B8CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D3420C7927820EA60014B8CA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D3420C7B278210D60014B8CA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +83,17 @@
 				D3420C632780E5D20014B8CA /* Extensions */,
 				D3420C592780DEBA0014B8CA /* Protocols */,
 				D3420C582780DE680014B8CA /* CustomViews */,
+				D3420C66278203EE0014B8CA /* SignUpView */,
 				D3420C322780DDF20014B8CA /* AppDelegate.swift */,
 				D3420C342780DDF20014B8CA /* SceneDelegate.swift */,
 				D3420C362780DDF20014B8CA /* ViewController.swift */,
+				D3420C7727820D260014B8CA /* User.swift */,
 				D3420C3B2780DDF50014B8CA /* Assets.xcassets */,
 				D3420C3D2780DDF50014B8CA /* LaunchScreen.storyboard */,
 				D3420C402780DDF50014B8CA /* Info.plist */,
+				D3420C6A27820A220014B8CA /* Observable.swift */,
+				D3420C7327820AD20014B8CA /* APIService.swift */,
+				D3420C7527820B040014B8CA /* EndPoint.swift */,
 			);
 			path = SeSAC_YearEndProject;
 			sourceTree = "<group>";
@@ -98,8 +119,35 @@
 			isa = PBXGroup;
 			children = (
 				D3420C642780E5E50014B8CA /* UITextField+Extension.swift */,
+				D3420C7927820EA60014B8CA /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D3420C66278203EE0014B8CA /* SignUpView */ = {
+			isa = PBXGroup;
+			children = (
+				D3420C6C27820A430014B8CA /* ViewModel */,
+				D3420C67278203F90014B8CA /* View */,
+			);
+			path = SignUpView;
+			sourceTree = "<group>";
+		};
+		D3420C67278203F90014B8CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3420C7B278210D60014B8CA /* SignUpView.swift */,
+				D3420C68278204070014B8CA /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3420C6C27820A430014B8CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D3420C6D27820A510014B8CA /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,12 +226,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3420C7627820B040014B8CA /* EndPoint.swift in Sources */,
+				D3420C7C278210D60014B8CA /* SignUpView.swift in Sources */,
 				D3420C372780DDF20014B8CA /* ViewController.swift in Sources */,
 				D3420C332780DDF20014B8CA /* AppDelegate.swift in Sources */,
+				D3420C6E27820A510014B8CA /* SignUpViewModel.swift in Sources */,
+				D3420C69278204070014B8CA /* SignUpViewController.swift in Sources */,
 				D3420C652780E5E50014B8CA /* UITextField+Extension.swift in Sources */,
+				D3420C7827820D260014B8CA /* User.swift in Sources */,
+				D3420C6B27820A220014B8CA /* Observable.swift in Sources */,
 				D3420C5F2780DEEA0014B8CA /* CustomButton.swift in Sources */,
+				D3420C7A27820EA60014B8CA /* UIColor+Extension.swift in Sources */,
 				D3420C352780DDF20014B8CA /* SceneDelegate.swift in Sources */,
 				D3420C5B2780DECF0014B8CA /* LayoutProtocol.swift in Sources */,
+				D3420C7427820AD20014B8CA /* APIService.swift in Sources */,
 				D3420C5D2780DEDA0014B8CA /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
