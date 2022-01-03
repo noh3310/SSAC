@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SeSAC_연말과제
+//  SeSACWeek15
 //
-//  Created by 노건호 on 2021/12/31.
+//  Created by 노건호 on 2022/01/03.
 //
 
 import UIKit

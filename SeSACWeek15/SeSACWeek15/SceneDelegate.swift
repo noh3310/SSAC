@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  SeSAC_연말과제
+//  SeSACWeek15
 //
-//  Created by 노건호 on 2021/12/31.
+//  Created by 노건호 on 2022/01/03.
 //
 
 import UIKit
@@ -16,29 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        
-//        window = UIWindow(windowScene: windowScene)
-//        
-//        window?.rootViewController = UINavigationController(rootViewController: ViewController())
-//        window?.makeKeyAndVisible()
-        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        // 여기서 하나씩 설정을 해보면 된다.
-        // 윈도우씬에서 윈도우를 할당
-        self.window = UIWindow(windowScene: windowScene)
-        
-        // 1. Storyboard: 컨트롤러 및 관련된 뷰를 정의할 때는 뷰컨트롤러 클래스를 직접 초기화 할 수 없기 때문에 instantiateViewController(withIdentifier: )를 통해 프로그래밍 방식으로 인스턴스화 합니다.
-
-        // 3. 코드로 다루는 방법
-        let vc = ViewController()
-
-        let nav = UINavigationController(rootViewController: vc)
-        // 루트뷰 컨트롤러 설정
-//        window?.rootViewController = TabBarController()
-        window?.rootViewController = nav
-        // iOS 13에서 생긴 메서드
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = UINavigationController(rootViewController: GradeCalculator())
         window?.makeKeyAndVisible()
     }
 
