@@ -37,7 +37,11 @@ class ViewController: UIViewController {
             })
             .bind(to: label.rx.text)
             .disposed(by: disposeBag)
-
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            self.navigationController?.pushViewController(Operator(), animated: true)
+            self.present(Operator(), animated: true, completion: nil)
+        }
     }
     
     func setup() {

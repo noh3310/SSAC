@@ -12,12 +12,15 @@
 		D3420C8E278287520014B8CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C8D278287520014B8CA /* ViewController.swift */; };
 		D3420C93278287540014B8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3420C92278287540014B8CA /* Assets.xcassets */; };
 		D3420C96278287540014B8CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3420C94278287540014B8CA /* LaunchScreen.storyboard */; };
-		D3420C9F278287860014B8CA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D3420C9E278287860014B8CA /* RxCocoa */; };
-		D3420CA1278287860014B8CA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CA0278287860014B8CA /* RxSwift */; };
 		D3420CA4278289730014B8CA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CA3278289730014B8CA /* SnapKit */; };
 		D3420CA627828CB00014B8CA /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420CA527828CB00014B8CA /* PickerViewController.swift */; };
 		D3420CA8278296510014B8CA /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420CA7278296510014B8CA /* Operator.swift */; };
 		D3420CAA27829B970014B8CA /* GradeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420CA927829B970014B8CA /* GradeCalculator.swift */; };
+		D3420CC32783D4030014B8CA /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420CC22783D4030014B8CA /* Subject.swift */; };
+		D3420CC52783E4950014B8CA /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420CC42783E4950014B8CA /* Networking.swift */; };
+		D3420CC92783E8DC0014B8CA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CC82783E8DC0014B8CA /* RxCocoa */; };
+		D3420CCB2783E8DC0014B8CA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CCA2783E8DC0014B8CA /* RxSwift */; };
+		D3420CCE278417390014B8CA /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CCD278417390014B8CA /* RxAlamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,8 @@
 		D3420CA527828CB00014B8CA /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		D3420CA7278296510014B8CA /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		D3420CA927829B970014B8CA /* GradeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCalculator.swift; sourceTree = "<group>"; };
+		D3420CC22783D4030014B8CA /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		D3420CC42783E4950014B8CA /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,9 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3420CCB2783E8DC0014B8CA /* RxSwift in Frameworks */,
+				D3420CCE278417390014B8CA /* RxAlamofire in Frameworks */,
+				D3420CC92783E8DC0014B8CA /* RxCocoa in Frameworks */,
 				D3420CA4278289730014B8CA /* SnapKit in Frameworks */,
-				D3420CA1278287860014B8CA /* RxSwift in Frameworks */,
-				D3420C9F278287860014B8CA /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,8 @@
 				D3420C8D278287520014B8CA /* ViewController.swift */,
 				D3420CA527828CB00014B8CA /* PickerViewController.swift */,
 				D3420CA7278296510014B8CA /* Operator.swift */,
+				D3420CC22783D4030014B8CA /* Subject.swift */,
+				D3420CC42783E4950014B8CA /* Networking.swift */,
 				D3420CA927829B970014B8CA /* GradeCalculator.swift */,
 				D3420C92278287540014B8CA /* Assets.xcassets */,
 				D3420C94278287540014B8CA /* LaunchScreen.storyboard */,
@@ -96,9 +104,10 @@
 			);
 			name = SeSACWeek15;
 			packageProductDependencies = (
-				D3420C9E278287860014B8CA /* RxCocoa */,
-				D3420CA0278287860014B8CA /* RxSwift */,
 				D3420CA3278289730014B8CA /* SnapKit */,
+				D3420CC82783E8DC0014B8CA /* RxCocoa */,
+				D3420CCA2783E8DC0014B8CA /* RxSwift */,
+				D3420CCD278417390014B8CA /* RxAlamofire */,
 			);
 			productName = SeSACWeek15;
 			productReference = D3420C86278287520014B8CA /* SeSACWeek15.app */;
@@ -129,8 +138,9 @@
 			);
 			mainGroup = D3420C7D278287510014B8CA;
 			packageReferences = (
-				D3420C9D278287860014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D3420CA2278289730014B8CA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D3420CC72783E8DC0014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */,
+				D3420CCC278417380014B8CA /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 			);
 			productRefGroup = D3420C87278287520014B8CA /* Products */;
 			projectDirPath = "";
@@ -160,6 +170,8 @@
 			files = (
 				D3420C8E278287520014B8CA /* ViewController.swift in Sources */,
 				D3420CAA27829B970014B8CA /* GradeCalculator.swift in Sources */,
+				D3420CC32783D4030014B8CA /* Subject.swift in Sources */,
+				D3420CC52783E4950014B8CA /* Networking.swift in Sources */,
 				D3420C8A278287520014B8CA /* AppDelegate.swift in Sources */,
 				D3420CA8278296510014B8CA /* Operator.swift in Sources */,
 				D3420CA627828CB00014B8CA /* PickerViewController.swift in Sources */,
@@ -375,14 +387,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D3420C9D278287860014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 		D3420CA2278289730014B8CA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -391,23 +395,44 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		D3420CC72783E8DC0014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		D3420CCC278417380014B8CA /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D3420C9E278287860014B8CA /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3420C9D278287860014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		D3420CA0278287860014B8CA /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D3420C9D278287860014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
 		D3420CA3278289730014B8CA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D3420CA2278289730014B8CA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D3420CC82783E8DC0014B8CA /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3420CC72783E8DC0014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		D3420CCA2783E8DC0014B8CA /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3420CC72783E8DC0014B8CA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		D3420CCD278417390014B8CA /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3420CCC278417380014B8CA /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
