@@ -11,6 +11,14 @@ import RxCocoa
 import RxAlamofire
 import SnapKit
 
+struct Lotto: Codable {
+    let totSellamnt: Int
+    let returnValue, drwNoDate: String
+    let firstWinamnt, drwtNo6, drwtNo4, firstPrzwnerCo: Int
+    let drwtNo5, bnusNo, firstAccumamnt, drwNo: Int
+    let drwtNo2, drwtNo3, drwtNo1: Int
+}
+
 class NetworkingViewController: UIViewController {
     
     let urlString = "https://aztro.sameerkumar.website/?sign=aries&day=today"
@@ -25,28 +33,43 @@ class NetworkingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(label)
-        label.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        setup()
         
-        number
-            .bind(to: label.rx.text)
-            .disposed(by: disposeBag)
-        
-        
-//        json(.get, lottoURL)
-//            .subscribe { value in
-//                print(value)
-//            } onError: { error in
-//                print(error)
-//            } onCompleted: {
-//                print("completed")
-//            } onDisposed: {
-//                print("OnDisposed")
-//            }
+//        number
+//            .bind(to: label.rx.text)
 //            .disposed(by: disposeBag)
         
+        number
+            .bind(to: label.rx.text)    // 아래 두개를 처리할 수 있다.
+//            .observe(on: MainScheduler.instance)    // 메인스레드에서 호출이 된다
+//            .subscribe { value in
+//                self.label.text = value
+//            }
+            .disposed(by: disposeBag)
+        
+        let request = useURLSession()
+            .share()    // Drive에 내장되어있어서 한번만 호출이 된다.
+            .decode(type: Lotto.self, decoder: JSONDecoder())   //decode를 해야한다.
+        
+        request
+            .subscribe { value in
+                print("value1")
+                print(Thread.isMainThread)
+                
+//                self.number.onNext(value.element.drwNoDate)
+            }
+            .disposed(by: disposeBag)
+        
+        request
+            .subscribe { value in
+                print("value2")
+                print(Thread.isMainThread)
+//                self.number.onNext(value.element.drwNoDate)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func rxAlamofire() {
         json(.post, urlString)
             .subscribe { value in
                 print(value)
@@ -64,10 +87,11 @@ class NetworkingViewController: UIViewController {
                 print("OnDisposed")
             }
             .disposed(by: disposeBag)
+
     }
     
     // 함수에 대한 리턴이 어떻게 오느냐에 따라서 리턴값이 설정되기 때문에
-    func useURLSession(url: String) -> Observable<String> {
+    func useURLSession() -> Observable<Data> {
         return Observable.create { value in
             let url = URL(string: self.lottoURL)!
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -77,8 +101,9 @@ class NetworkingViewController: UIViewController {
                 }
                 
                 // response, data json, encoding 생략
-                if let data = data, let json = String(data: data, encoding: .utf8) {
-                    value.onNext("\(data)")
+                if let data = data {
+                    print("datatask")
+                    value.onNext(data)
                 }
                 
                 value.onCompleted()
@@ -88,6 +113,14 @@ class NetworkingViewController: UIViewController {
             return Disposables.create() {
                 task.cancel()
             }
+        }
+    }
+    
+    func setup() {
+        view.backgroundColor = .white
+        view.addSubview(label)
+        label.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     
