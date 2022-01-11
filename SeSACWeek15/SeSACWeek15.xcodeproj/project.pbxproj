@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D32C31EE27851E13007ECB67 /* ReactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C31ED27851E13007ECB67 /* ReactiveViewController.swift */; };
 		D32C31F027853CE6007ECB67 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C31EF27853CE6007ECB67 /* ValidationViewController.swift */; };
+		D32C321E27866E4D007ECB67 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32C321D27866E4C007ECB67 /* ButtonViewController.swift */; };
 		D3420C8A278287520014B8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C89278287520014B8CA /* AppDelegate.swift */; };
 		D3420C8C278287520014B8CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C8B278287520014B8CA /* SceneDelegate.swift */; };
 		D3420C8E278287520014B8CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3420C8D278287520014B8CA /* ViewController.swift */; };
@@ -23,11 +24,13 @@
 		D3420CC92783E8DC0014B8CA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CC82783E8DC0014B8CA /* RxCocoa */; };
 		D3420CCB2783E8DC0014B8CA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CCA2783E8DC0014B8CA /* RxSwift */; };
 		D3420CCE278417390014B8CA /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D3420CCD278417390014B8CA /* RxAlamofire */; };
+		D3694C252787D2F900E29A4B /* InAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3694C242787D2F900E29A4B /* InAppViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D32C31ED27851E13007ECB67 /* ReactiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveViewController.swift; sourceTree = "<group>"; };
 		D32C31EF27853CE6007ECB67 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		D32C321D27866E4C007ECB67 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 		D3420C86278287520014B8CA /* SeSACWeek15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACWeek15.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3420C89278287520014B8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3420C8B278287520014B8CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		D3420CA927829B970014B8CA /* GradeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCalculator.swift; sourceTree = "<group>"; };
 		D3420CC22783D4030014B8CA /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		D3420CC42783E4950014B8CA /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		D3694C242787D2F900E29A4B /* InAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				D3420CC42783E4950014B8CA /* Networking.swift */,
 				D32C31EF27853CE6007ECB67 /* ValidationViewController.swift */,
 				D3420CA927829B970014B8CA /* GradeCalculator.swift */,
+				D32C321D27866E4C007ECB67 /* ButtonViewController.swift */,
+				D3694C242787D2F900E29A4B /* InAppViewController.swift */,
 				D3420C92278287540014B8CA /* Assets.xcassets */,
 				D3420C94278287540014B8CA /* LaunchScreen.storyboard */,
 				D3420C97278287540014B8CA /* Info.plist */,
@@ -184,6 +190,8 @@
 				D3420CA627828CB00014B8CA /* PickerViewController.swift in Sources */,
 				D3420C8C278287520014B8CA /* SceneDelegate.swift in Sources */,
 				D32C31F027853CE6007ECB67 /* ValidationViewController.swift in Sources */,
+				D32C321E27866E4D007ECB67 /* ButtonViewController.swift in Sources */,
+				D3694C252787D2F900E29A4B /* InAppViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,12 +339,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jerry.SeSACWeek15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jerry.SeSac-FirebaseTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -358,12 +367,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jerry.SeSACWeek15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jerry.SeSac-FirebaseTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

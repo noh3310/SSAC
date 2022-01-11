@@ -43,10 +43,15 @@ class SignUpViewController: UIViewController {
             self.mainView.passwordTextField.text = $0
         }
         
+        viewModel.passwordConform.bind {
+            self.mainView.passwordConformTextField.text = $0
+        }
+        
         // 뷰에서 일어나는 데이터 변환을 뷰 모델에다 전달해줌
         mainView.emailTextField.addTarget(self, action: #selector(emailTextFieldDidChange(_:)), for: .editingChanged)
         mainView.nicknameTextField.addTarget(self, action: #selector(nicknameTextFieldDidChange(_:)), for: .editingChanged)
         mainView.passwordTextField.addTarget(self, action: #selector(passwordTextFieldDidChange(_:)), for: .editingChanged)
+        mainView.passwordConformTextField.addTarget(self, action: #selector(passwordConformTextFieldDidChange(_:)), for: .editingChanged)
     }
     
     @objc func emailTextFieldDidChange(_ textField: UITextField) {
@@ -59,6 +64,10 @@ class SignUpViewController: UIViewController {
     
     @objc func passwordTextFieldDidChange(_ textField: UITextField) {
         viewModel.password.value = textField.text ?? ""
+    }
+    
+    @objc func passwordConformTextFieldDidChange(_ textField: UITextField) {
+        viewModel.passwordConform.value = textField.text ?? ""
     }
     
     @objc func registerButtonClicked() {

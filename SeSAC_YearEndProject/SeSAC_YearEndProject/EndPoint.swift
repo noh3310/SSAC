@@ -53,7 +53,7 @@ extension URL {
     }
     
     static var boards: URL {
-        return makeEndpoint("boards")
+        return makeEndpoint("posts")
     }
     
     static func boardsDetail(number: Int) -> URL {
@@ -77,7 +77,7 @@ extension URLSession {
     static func request<T: Decodable>(_ session: URLSession = .shared, endpoint: URLRequest, completion: @escaping (T?, APIError?) -> Void) {
         
         session.dataTask(endpoint) { data, response, error in
-            print(data)
+            print("\(String(describing: data))")
             print(response)
             print(error)
             
