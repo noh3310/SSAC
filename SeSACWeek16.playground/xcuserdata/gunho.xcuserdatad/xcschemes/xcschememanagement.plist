@@ -4,18 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SeSACWeek16.xcscheme_^#shared#^_</key>
+		<key>SeSACWeek16 (Playground).xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>D3647951278BB1CF00B09C41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
 		</dict>
 	</dict>
 </dict>
