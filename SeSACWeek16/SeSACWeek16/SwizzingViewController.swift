@@ -24,9 +24,9 @@ class SwizzingViewController: UIViewController, URLSessionDelegate {
         print("viewWillAppear")
     }
     
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
-        <#code#>
-    }
+//    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
+//        
+//    }
 }
 
 //extension SwizzingViewController: URLSessionDelegate {

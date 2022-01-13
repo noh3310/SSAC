@@ -7,8 +7,6 @@
 
 import UIKit
 
-print("HELLO")
-
 class ButtonViewController: UIViewController, UIColorPickerViewControllerDelegate {
     
     let button = UIButton()

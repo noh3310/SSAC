@@ -20,6 +20,7 @@
 		D369585B278FB6D100924F5A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D369585A278FB6D100924F5A /* ChatViewController.swift */; };
 		D3695866279058B200924F5A /* MyChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3695865279058B200924F5A /* MyChatView.swift */; };
 		D3695868279058BE00924F5A /* OtherChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3695867279058BE00924F5A /* OtherChatView.swift */; };
+		D369586B27905A2600924F5A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D369586A27905A2600924F5A /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D369586B27905A2600924F5A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +114,9 @@
 			dependencies = (
 			);
 			name = SeSACWeek16;
+			packageProductDependencies = (
+				D369586A27905A2600924F5A /* SnapKit */,
+			);
 			productName = SeSACWeek16;
 			productReference = D3647952278BB1CF00B09C41 /* SeSACWeek16.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +145,9 @@
 				Base,
 			);
 			mainGroup = D3647949278BB1CF00B09C41;
+			packageReferences = (
+				D369586927905A2600924F5A /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D3647953278BB1CF00B09C41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -396,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D369586927905A2600924F5A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D369586A27905A2600924F5A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D369586927905A2600924F5A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D364794A278BB1CF00B09C41 /* Project object */;
 }
