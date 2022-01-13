@@ -7,12 +7,15 @@
 
 import UIKit
 
-class SwizzingViewController: UIViewController {
+class SwizzingViewController: UIViewController, URLSessionDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        "안녕".addingPercentEncoding(withAllowedCharacters: .url)
+        print("www.naver.com/news?title=안녕".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)    // 아스키코드 외의 문자가 포함될 수 있음
         
+        UIView() // => NSObject의 생성자가 있어서 비어있는 생성자를 생성할 수 있음
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,7 +24,21 @@ class SwizzingViewController: UIViewController {
         print("viewWillAppear")
     }
     
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge) async -> (URLSession.AuthChallengeDisposition, URLCredential?) {
+        <#code#>
+    }
 }
+
+//extension SwizzingViewController: URLSessionDelegate {
+//
+//    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+//        <#code#>
+//    }
+//
+//    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+//        <#code#>
+//    }
+//}
 
 extension UIViewController {
     

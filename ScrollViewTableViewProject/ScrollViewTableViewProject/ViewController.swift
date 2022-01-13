@@ -49,6 +49,8 @@ class ViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
             make.width.height.equalTo(view)
+            make.height.equalTo(scrollView)
+            make.bottom.equalTo(scrollView.snp.bottom)
         }
         
     }
