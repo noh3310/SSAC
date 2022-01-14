@@ -12,6 +12,13 @@ class OtherChatView: UITableViewCell {
     
     static let identifier = "OtherChatView"
     
+    let userNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20)
+        label.tintColor = .white
+        return label
+    }()
+    
     let chatLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -38,10 +45,17 @@ class OtherChatView: UITableViewCell {
     
     func setViews() {
         view.addSubview(chatLabel)
+//        view.addSubview(userNameLabel)
         self.addSubview(view)
         
+//        userNameLabel.snp.makeConstraints {
+//            $0.top.leading.equalToSuperview().offset(20)
+//        }
+        
         view.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(20)
+//            $0.top.equalTo(userNameLabel.snp.bottom).inset(10)
+            $0.top.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(20)
             $0.width.equalToSuperview().multipliedBy(0.7)
             $0.leading.equalToSuperview().inset(20)
         }

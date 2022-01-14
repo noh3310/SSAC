@@ -21,6 +21,9 @@
 		D3695866279058B200924F5A /* MyChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3695865279058B200924F5A /* MyChatView.swift */; };
 		D3695868279058BE00924F5A /* OtherChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3695867279058BE00924F5A /* OtherChatView.swift */; };
 		D369586B27905A2600924F5A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D369586A27905A2600924F5A /* SnapKit */; };
+		D369586E2790F98C00924F5A /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = D369586D2790F98C00924F5A /* SocketIO */; };
+		D36958712790F9B100924F5A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D36958702790F9B100924F5A /* Alamofire */; };
+		D36958732791070400924F5A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958722791070400924F5A /* SocketIOManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,7 @@
 		D369585A278FB6D100924F5A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D3695865279058B200924F5A /* MyChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatView.swift; sourceTree = "<group>"; };
 		D3695867279058BE00924F5A /* OtherChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherChatView.swift; sourceTree = "<group>"; };
+		D36958722791070400924F5A /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +50,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36958712790F9B100924F5A /* Alamofire in Frameworks */,
 				D369586B27905A2600924F5A /* SnapKit in Frameworks */,
+				D369586E2790F98C00924F5A /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +85,6 @@
 				D3647969278BD29E00B09C41 /* SwizzingViewController.swift */,
 				D364795B278BB1CF00B09C41 /* Main.storyboard */,
 				D3695856278FA87000924F5A /* ButtonViewController.swift */,
-				D369585A278FB6D100924F5A /* ChatViewController.swift */,
 				D3695858278FAE0400924F5A /* DetailViewController.swift */,
 				D3647991278E5C5000B09C41 /* ConcurrencyViewController.swift */,
 				D364795E278BB1D100B09C41 /* Assets.xcassets */,
@@ -94,6 +99,8 @@
 			children = (
 				D3695865279058B200924F5A /* MyChatView.swift */,
 				D3695867279058BE00924F5A /* OtherChatView.swift */,
+				D369585A278FB6D100924F5A /* ChatViewController.swift */,
+				D36958722791070400924F5A /* SocketIOManager.swift */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
@@ -116,6 +123,8 @@
 			name = SeSACWeek16;
 			packageProductDependencies = (
 				D369586A27905A2600924F5A /* SnapKit */,
+				D369586D2790F98C00924F5A /* SocketIO */,
+				D36958702790F9B100924F5A /* Alamofire */,
 			);
 			productName = SeSACWeek16;
 			productReference = D3647952278BB1CF00B09C41 /* SeSACWeek16.app */;
@@ -147,6 +156,8 @@
 			mainGroup = D3647949278BB1CF00B09C41;
 			packageReferences = (
 				D369586927905A2600924F5A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D369586C2790F98C00924F5A /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				D369586F2790F9B100924F5A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D3647953278BB1CF00B09C41 /* Products */;
 			projectDirPath = "";
@@ -179,6 +190,7 @@
 				D364795A278BB1CF00B09C41 /* ViewController.swift in Sources */,
 				D369585B278FB6D100924F5A /* ChatViewController.swift in Sources */,
 				D3647956278BB1CF00B09C41 /* AppDelegate.swift in Sources */,
+				D36958732791070400924F5A /* SocketIOManager.swift in Sources */,
 				D3647958278BB1CF00B09C41 /* SceneDelegate.swift in Sources */,
 				D3695868279058BE00924F5A /* OtherChatView.swift in Sources */,
 				D3695857278FA87000924F5A /* ButtonViewController.swift in Sources */,
@@ -414,6 +426,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		D369586C2790F98C00924F5A /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 16.0.1;
+			};
+		};
+		D369586F2790F9B100924F5A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -421,6 +449,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D369586927905A2600924F5A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D369586D2790F98C00924F5A /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D369586C2790F98C00924F5A /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+		D36958702790F9B100924F5A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D369586F2790F9B100924F5A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
