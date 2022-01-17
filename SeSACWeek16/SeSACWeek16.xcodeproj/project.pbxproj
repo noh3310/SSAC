@@ -24,6 +24,7 @@
 		D369586E2790F98C00924F5A /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = D369586D2790F98C00924F5A /* SocketIO */; };
 		D36958712790F9B100924F5A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D36958702790F9B100924F5A /* Alamofire */; };
 		D36958732791070400924F5A /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958722791070400924F5A /* SocketIOManager.swift */; };
+		D36958772791E4A500924F5A /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36958762791E4A500924F5A /* ChatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		D3695865279058B200924F5A /* MyChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatView.swift; sourceTree = "<group>"; };
 		D3695867279058BE00924F5A /* OtherChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherChatView.swift; sourceTree = "<group>"; };
 		D36958722791070400924F5A /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		D36958762791E4A500924F5A /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,29 @@
 		D3695864279058A100924F5A /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
+				D36958752791E0C700924F5A /* ViewModel */,
+				D36958742791E0BF00924F5A /* View */,
 				D3695865279058B200924F5A /* MyChatView.swift */,
 				D3695867279058BE00924F5A /* OtherChatView.swift */,
 				D369585A278FB6D100924F5A /* ChatViewController.swift */,
 				D36958722791070400924F5A /* SocketIOManager.swift */,
 			);
 			path = ChatView;
+			sourceTree = "<group>";
+		};
+		D36958742791E0BF00924F5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D36958752791E0C700924F5A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D36958762791E4A500924F5A /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +215,7 @@
 				D3695857278FA87000924F5A /* ButtonViewController.swift in Sources */,
 				D3695866279058B200924F5A /* MyChatView.swift in Sources */,
 				D364796A278BD29E00B09C41 /* SwizzingViewController.swift in Sources */,
+				D36958772791E4A500924F5A /* ChatViewModel.swift in Sources */,
 				D3695859278FAE0400924F5A /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,6 @@
 
 import UIKit
 import Alamofire
-import SnapKit
 
 class ChatViewController: UIViewController {
     
@@ -18,7 +17,7 @@ class ChatViewController: UIViewController {
     
     var list = [Chat]()
     
-    let tableView = UITableView()
+    @IBOutlet weak var tableView: UITableView!
     
     let button = UIButton()
     
@@ -31,25 +30,11 @@ class ChatViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(MyChatView.self, forCellReuseIdentifier: MyChatView.identifier)
         tableView.register(OtherChatView.self, forCellReuseIdentifier: OtherChatView.identifier)
-//        tableView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-
         
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-        view.addSubview(button)
-        button.setTitle("보내기", for: .normal)
-        button.addTarget(self, action: #selector(barButtonClicked), for: .touchUpInside)
-        button.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(20)
-        }
+        self.title = "채팅"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "버튼", style: .plain, target: self, action: #selector(barButtonClicked))
+        
         requestChats()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(getMessage(notification:)), name: NSNotification.Name("getMessage"), object: nil)
-        
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "보내기", style: .plain, target: self, action: #selector(barButtonClicked))
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -57,6 +42,11 @@ class ChatViewController: UIViewController {
         
         SocketIOManager.shared.closeConnection()
     }
+    
+    @IBAction func chatButtonClicked(_ sender: UIBarButtonItem) {
+        postChat()
+    }
+    
     
     @objc func barButtonClicked() {
         postChat()
@@ -71,6 +61,7 @@ class ChatViewController: UIViewController {
         
         list.append(value)
         tableView.reloadData()
+        // 마지막 테이블뷰 셀 위치로 강제로 이동
         self.tableView.scrollToRow(at: IndexPath(row: self.list.count - 1, section: 0), at: .bottom, animated: false)
     }
     
