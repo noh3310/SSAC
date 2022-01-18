@@ -69,8 +69,8 @@
 				D3695888279504B700924F5A /* ViewController.swift */,
 				D369588D279504BA00924F5A /* Assets.xcassets */,
 				D369588F279504BA00924F5A /* LaunchScreen.storyboard */,
-				D3695892279504BA00924F5A /* Info.plist */,
 				D36958A0279530CB00924F5A /* GoogleService-Info.plist */,
+				D3695892279504BA00924F5A /* Info.plist */,
 			);
 			path = FirebaseAuthProject;
 			sourceTree = "<group>";
