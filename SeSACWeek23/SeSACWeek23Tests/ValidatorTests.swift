@@ -13,13 +13,16 @@ class ValidatorTests: XCTestCase {
     var sut: Validator!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
         sut = Validator()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         sut = nil
+        
+        try super.tearDownWithError()   // 부모 메서드를 호출
     }
 
     func testValidator_validID_ReturnTrue() throws {

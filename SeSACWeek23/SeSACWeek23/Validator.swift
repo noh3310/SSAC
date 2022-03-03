@@ -19,6 +19,4 @@ final class Validator {
     func isEqualPassword(password: String, check: String) -> Bool {
         return password == check
     }
-    
-    
 }

@@ -22,6 +22,8 @@
 		D3AAB13227CF045100626FB2 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB13127CF045100626FB2 /* Validator.swift */; };
 		D3AAB13427CF04AD00626FB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB13327CF04AD00626FB2 /* User.swift */; };
 		D3AAB13627CF062F00626FB2 /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB13527CF062F00626FB2 /* ValidatorTests.swift */; };
+		D3AAB13827D0448900626FB2 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB13727D0448900626FB2 /* APIServiceTests.swift */; };
+		D3AAB13A27D044E000626FB2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AAB13927D044E000626FB2 /* APIService.swift */; };
 		D3FA7F1127CC670800BCC9B4 /* SeSACWeek23Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37E8AF927CC598E005CAA9B /* SeSACWeek23Tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		D3AAB13127CF045100626FB2 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		D3AAB13327CF04AD00626FB2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D3AAB13527CF062F00626FB2 /* ValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
+		D3AAB13727D0448900626FB2 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		D3AAB13927D044E000626FB2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 				D37E8AF027CC598E005CAA9B /* Info.plist */,
 				D3AAB13127CF045100626FB2 /* Validator.swift */,
 				D3AAB13327CF04AD00626FB2 /* User.swift */,
+				D3AAB13927D044E000626FB2 /* APIService.swift */,
 			);
 			path = SeSACWeek23;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				D37E8AF927CC598E005CAA9B /* SeSACWeek23Tests.swift */,
 				D3AAB12F27CEFE1A00626FB2 /* LoginViewControllerTest.swift */,
 				D3AAB13527CF062F00626FB2 /* ValidatorTests.swift */,
+				D3AAB13727D0448900626FB2 /* APIServiceTests.swift */,
 			);
 			path = SeSACWeek23Tests;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AAB13227CF045100626FB2 /* Validator.swift in Sources */,
+				D3AAB13A27D044E000626FB2 /* APIService.swift in Sources */,
 				D3AAB12E27CEFBB400626FB2 /* LoginViewController.swift in Sources */,
 				D3AAB13427CF04AD00626FB2 /* User.swift in Sources */,
 				D37E8B2527CC6230005CAA9B /* ViewController.swift in Sources */,
@@ -299,6 +306,7 @@
 			files = (
 				D3AAB13627CF062F00626FB2 /* ValidatorTests.swift in Sources */,
 				D3AAB13027CEFE1A00626FB2 /* LoginViewControllerTest.swift in Sources */,
+				D3AAB13827D0448900626FB2 /* APIServiceTests.swift in Sources */,
 				D3FA7F1127CC670800BCC9B4 /* SeSACWeek23Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
